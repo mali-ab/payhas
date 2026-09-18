@@ -1,0 +1,218 @@
+[
+  {
+    "text": "Ýedi ölçäp, bir gezek ______.",
+    "answer": "kes",
+    "options": ["kes", "gör", "sözle", "dur"],
+    "category": "Akyl-paýhas"
+  },
+  {
+    "text": "El bir tutsa, ______ göterilýär.",
+    "answer": "dag",
+    "options": ["dag", "daş", "duz", "suw"],
+    "category": "Dostluk"
+  },
+  {
+    "text": "Agzybirlik – ______, aragatnaşyk – altyn.",
+    "answer": "kümüş",
+    "options": ["kümüş", "bürünç", "demir", "mis"],
+    "category": "Maşgala"
+  },
+  {
+    "text": "Geç ______den geç, gaýa daşdan geçme.",
+    "answer": "suwdan",
+    "options": ["suwdan", "günden", "ýoldan", "çölden"],
+    "category": "Durmuş"
+  },
+  {
+    "text": "Adam özüniň ______ bilen ölçelýär.",
+    "answer": "edebi",
+    "options": ["edebi", "baýlygy", "güýji", "görki"],
+    "category": "Adamçylyk"
+  },
+  {
+    "text": "Dost agladyp aýdar, ______ güldürip.",
+    "answer": "duşman",
+    "options": ["duşman", "dogan", "ata", "ene"],
+    "category": "Dostluk"
+  },
+  {
+    "text": "Ata maly – ______ maly, öz malyň – öz malyň.",
+    "answer": "öňki",
+    "options": ["öňki", "soňky", "ortak", "goňşy"],
+    "category": "Maşgala"
+  },
+  {
+    "text": "Işleýän ______ dişlemez.",
+    "answer": "demir",
+    "options": ["demir", "gurt", "pişik", "agaç"],
+    "category": "Zähmet"
+  },
+  {
+    "text": "Sabyr – ______ açary.",
+    "answer": "jennetiň",
+    "options": ["jennetiň", "hazynanyň", "bagtyň", "dünýäniň"],
+    "category": "Sabyr"
+  },
+  {
+    "text": "Kitap – bilimiň ______.",
+    "answer": "çeşmesi",
+    "options": ["çeşmesi", "gapysy", "görki", "ýoly"],
+    "category": "Bilim"
+  },
+  {
+    "text": "Näçe ______ bilseň, şonça-da adam.",
+    "answer": "dil",
+    "options": ["dil", "söz", "dost", "hünär"],
+    "category": "Bilim"
+  },
+  {
+    "text": "Ýagşy söz – ______ dermany.",
+    "answer": "ýüregiň",
+    "options": ["ýüregiň", "başyň", "gulagyň", "göwräniň"],
+    "category": "Adamçylyk"
+  },
+  {
+    "text": "Ene – ______ bagçasy.",
+    "answer": "öýüň",
+    "options": ["öýüň", "maşgalanyň", "durmuşyň", "dünýäniň"],
+    "category": "Maşgala"
+  },
+  {
+    "text": "Agaç miwesi bilen, adam ______ bilen.",
+    "answer": "edebi",
+    "options": ["edebi", "güýji", "görki", "baýlygy"],
+    "category": "Adamçylyk"
+  },
+  {
+    "text": "Dostluk – gymmat ______, ony sakla.",
+    "answer": "hazynadyr",
+    "options": ["hazynadyr", "güldür", "zähmetdir", "bagdyr"],
+    "category": "Dostluk"
+  },
+  {
+    "text": "Zähmet – ______ atasy.",
+    "answer": "berekediň",
+    "options": ["berekediň", "bagtyň", "sabyryň", "bilimiň"],
+    "category": "Zähmet"
+  },
+  {
+    "text": "Birlik – güýç, ______ – ejizlik.",
+    "answer": "bölünmek",
+    "options": ["bölünmek", "ýeňmek", "aglamak", "gülmek"],
+    "category": "Akyl-paýhas"
+  },
+  {
+    "text": "Gowy ______ gowy dost tapar.",
+    "answer": "adam",
+    "options": ["adam", "söz", "ýol", "iş"],
+    "category": "Dostluk"
+  },
+  {
+    "text": "Watany söýmek – ______ parzy.",
+    "answer": "imanyň",
+    "options": ["imanyň", "ýüregiň", "ruhuň", "halkyň"],
+    "category": "Söýgi"
+  },
+  {
+    "text": "Ýigidiň ______ – iň gymmatly baýlygy.",
+    "answer": "namysy",
+    "options": ["namysy", "güýji", "görki", "puly"],
+    "category": "Adamçylyk"
+  },
+  {
+    "text": "Söýgi bolan ýerde ______ gül bolar.",
+    "answer": "tiken",
+    "options": ["tiken", "daş", "çöl", "gül"],
+    "category": "Söýgi"
+  },
+  {
+    "text": "Ýürekden çykan söz ______ ýeter.",
+    "answer": "ýürege",
+    "options": ["ýürege", "akla", "göwni", "dünýä"],
+    "category": "Söýgi"
+  },
+  {
+    "text": "Bilim – tükenmejek ______.",
+    "answer": "hazynadyr",
+    "options": ["hazynadyr", "baýlykdyr", "ýoldur", "güýçdür"],
+    "category": "Bilim"
+  },
+  {
+    "text": "Okamak – iňne bilen ______ gazmakdyr.",
+    "answer": "guýy",
+    "options": ["guýy", "dag", "ýol", "bag"],
+    "category": "Bilim"
+  },
+  {
+    "text": "Ir turanyň bir işi ______, giç turanyň – içi.",
+    "answer": "ilerlär",
+    "options": ["ilerlär", "gutarlar", "köpeler", "ýeňlär"],
+    "category": "Zähmet"
+  },
+  {
+    "text": "Ekmeseň – ______, işlemeseň – tapmarsyň.",
+    "answer": "ormarsyň",
+    "options": ["ormarsyň", "iýmersiň", "görmersiň", "bilmersiň"],
+    "category": "Zähmet"
+  },
+  {
+    "text": "Sabyr eden ______ ýeter.",
+    "answer": "myrada",
+    "options": ["myrada", "baýlyga", "baga", "abraýa"],
+    "category": "Sabyr"
+  },
+  {
+    "text": "Ajy sabyryň miwesi ______ bolar.",
+    "answer": "süýji",
+    "options": ["süýji", "gowy", "uly", "köp"],
+    "category": "Sabyr"
+  },
+  {
+    "text": "Zähmet çekseň, ______ geler.",
+    "answer": "üstünlik",
+    "options": ["üstünlik", "şatlyk", "dynçlyk", "begenç"],
+    "category": "Üstünlik"
+  },
+  {
+    "text": "Maksada okgunly bolan ______ aşar.",
+    "answer": "daglary",
+    "options": ["daglary", "ýollary", "derýalary", "çölleri"],
+    "category": "Üstünlik"
+  },
+  {
+    "text": "Akyly köpüň ______ az bolar.",
+    "answer": "ýalňyşy",
+    "options": ["ýalňyşy", "gaýgysy", "sözi", "dosty"],
+    "category": "Akyl-paýhas"
+  },
+  {
+    "text": "Kelläň sag bolsa, ______ tapylar.",
+    "answer": "börük",
+    "options": ["börük", "don", "baýlyk", "kömek"],
+    "category": "Durmuş"
+  },
+  {
+    "text": "Her kimiň öz ______ özüne eziz.",
+    "answer": "watany",
+    "options": ["watany", "öýi", "dosty", "işi"],
+    "category": "Maşgala"
+  },
+  {
+    "text": "Özüňe rowa görmedigiňi, başga-da ______.",
+    "answer": "görme",
+    "options": ["görme", "diýme", "etme", "berme"],
+    "category": "Adamçylyk"
+  },
+  {
+    "text": "Ýeňiş sabyr we ______ bilen geler.",
+    "answer": "zähmet",
+    "options": ["zähmet", "pul", "dost", "şowlulyk"],
+    "category": "Üstünlik"
+  },
+  {
+    "text": "Ömür geçer, ______ galar.",
+    "answer": "at",
+    "options": ["at", "mal", "jaý", "pul"],
+    "category": "Durmuş"
+  }
+]
