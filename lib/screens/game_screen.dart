@@ -772,7 +772,7 @@ class _GameScreenState extends State<GameScreen> {
                 controller: _textController,
                 enabled: !game.awaitingContinue,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: AppTheme.textPrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                 ),

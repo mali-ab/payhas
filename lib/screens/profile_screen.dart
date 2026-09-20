@@ -38,7 +38,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         content: TextField(
           controller: controller,
           autofocus: true,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: const TextStyle(
+            color: AppTheme.textPrimary,
+            fontWeight: FontWeight.w600,
+          ),
           decoration: InputDecoration(
             hintText: 'Täze adyňyz...',
             hintStyle: const TextStyle(color: AppTheme.textSecondary),
