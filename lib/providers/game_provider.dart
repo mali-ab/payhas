@@ -181,6 +181,14 @@ class GameProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Switches back to the device-only guest profile after signing out.
+  Future<void> activateGuest() async {
+    _storagePrefix = 'guest_';
+    _username = 'Myhman Oýunçy';
+    _avatar = '🧑‍🎓';
+    await init();
+  }
+
   Future<void> setUsername(String newName) async {
     _username = newName;
     final prefs = await SharedPreferences.getInstance();

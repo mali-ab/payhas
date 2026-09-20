@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
 import '../providers/auth_provider.dart';
+import 'auth_screen.dart';
 import '../theme/app_theme.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -69,8 +70,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: () async {
               final newName = controller.text.trim();
               if (newName.isNotEmpty) {
-                final saved = await auth.updateProfile(name: newName);
-                if (saved) await provider.setUsername(newName);
+                if (auth.isAuthenticated) {
+                  final saved = await auth.updateProfile(name: newName);
+                  if (saved) await provider.setUsername(newName);
+                } else {
+                  await provider.setUsername(newName);
+                }
               }
               if (!ctx.mounted) return;
               Navigator.of(ctx).pop();
@@ -100,8 +105,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
             return InkWell(
               onTap: () async {
-                final saved = await auth.updateProfile(avatar: av);
-                if (saved) await provider.setAvatar(av);
+                if (auth.isAuthenticated) {
+                  final saved = await auth.updateProfile(avatar: av);
+                  if (saved) await provider.setAvatar(av);
+                } else {
+                  await provider.setAvatar(av);
+                }
                 if (!ctx.mounted) return;
                 Navigator.of(ctx).pop();
               },
@@ -483,12 +492,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton.icon(
-                    onPressed: auth.busy ? null : () => auth.logout(),
-                    icon: const Icon(Icons.logout_rounded),
-                    label: const Text('Hasapdan çyk'),
+                    onPressed: auth.busy
+                        ? null
+                        : () {
+                            if (auth.isAuthenticated) {
+                              auth.logout();
+                            } else {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => const AuthScreen(),
+                                ),
+                              );
+                            }
+                          },
+                    icon: Icon(
+                      auth.isAuthenticated
+                          ? Icons.logout_rounded
+                          : Icons.login_rounded,
+                    ),
+                    label: Text(
+                      auth.isAuthenticated ? 'Hasapdan çyk' : 'Hasaba gir',
+                    ),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: AppTheme.wrong,
-                      side: const BorderSide(color: AppTheme.wrong),
+                      foregroundColor: auth.isAuthenticated
+                          ? AppTheme.wrong
+                          : AppTheme.accent,
+                      side: BorderSide(
+                        color: auth.isAuthenticated
+                            ? AppTheme.wrong
+                            : AppTheme.accent,
+                      ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                   ),

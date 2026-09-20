@@ -5,7 +5,6 @@ import 'core/app_dependencies.dart';
 import 'providers/game_provider.dart';
 import 'providers/auth_provider.dart';
 import 'screens/home_screen.dart';
-import 'screens/auth_screen.dart';
 
 void main() {
   runApp(const PayhasApp());
@@ -59,7 +58,14 @@ class _SessionGateState extends State<_SessionGate> {
         }
       });
     }
-    if (user == null) _activatedUserId = null;
-    return auth.isAuthenticated ? const HomeScreen() : const AuthScreen();
+    if (user == null && _activatedUserId != null) {
+      _activatedUserId = null;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) context.read<GameProvider>().activateGuest();
+      });
+    }
+
+    // Authentication is optional: guests can play using locally saved progress.
+    return const HomeScreen();
   }
 }
