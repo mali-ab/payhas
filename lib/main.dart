@@ -5,6 +5,7 @@ import 'core/app_dependencies.dart';
 import 'providers/game_provider.dart';
 import 'providers/auth_provider.dart';
 import 'screens/home_screen.dart';
+import 'screens/auth_screen.dart';
 
 void main() {
   runApp(const PayhasApp());
@@ -40,6 +41,7 @@ class _SessionGate extends StatefulWidget {
 
 class _SessionGateState extends State<_SessionGate> {
   int? _activatedUserId;
+  bool _playingAsGuest = false;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,13 @@ class _SessionGateState extends State<_SessionGate> {
       });
     }
 
-    // Authentication is optional: guests can play using locally saved progress.
-    return const HomeScreen();
+    if (auth.isAuthenticated || _playingAsGuest) return const HomeScreen();
+
+    return AuthScreen(
+      onContinueAsGuest: () async {
+        await context.read<GameProvider>().activateGuest();
+        if (mounted) setState(() => _playingAsGuest = true);
+      },
+    );
   }
 }

@@ -7,7 +7,9 @@ import '../theme/app_theme.dart';
 import '../widgets/brand_mark.dart';
 
 class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
+  const AuthScreen({super.key, this.onContinueAsGuest});
+
+  final Future<void> Function()? onContinueAsGuest;
   @override
   State<AuthScreen> createState() => _AuthScreenState();
 }
@@ -66,8 +68,61 @@ class _AuthScreenState extends State<AuthScreen> {
                       const SizedBox(height: 18),
                       const Text('PAÝHAS', style: TextStyle(color: AppTheme.textPrimary, fontSize: 34, fontWeight: FontWeight.w900, letterSpacing: 2)),
                       const SizedBox(height: 8),
-                      Text(_signUp ? 'Hasabyňyzy dörediň' : 'Hasabyňyza giriň', style: const TextStyle(color: AppTheme.textSecondary, fontSize: 16)),
+                      Text(
+                        _signUp
+                            ? 'Hasabyňyzy dörediň'
+                            : 'Giriň ýa-da hasapsyz oýnaň',
+                        style: const TextStyle(
+                          color: AppTheme.textSecondary,
+                          fontSize: 16,
+                        ),
+                      ),
                       const SizedBox(height: 32),
+                      if (!_signUp && widget.onContinueAsGuest != null) ...[
+                        SizedBox(
+                          height: 56,
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed: auth.busy
+                                ? null
+                                : () => widget.onContinueAsGuest!(),
+                            icon: const Icon(Icons.play_arrow_rounded),
+                            label: const Text(
+                              'MYHMAN HÖKMÜNDE OÝNA',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: 0.8,
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppTheme.accent,
+                              foregroundColor: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 14),
+                        Row(
+                          children: const [
+                            Expanded(child: Divider(color: AppTheme.cardBorder)),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              child: Text(
+                                'ýa-da hasaba giriň',
+                                style: TextStyle(
+                                  color: AppTheme.textSecondary,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                            Expanded(child: Divider(color: AppTheme.cardBorder)),
+                          ],
+                        ),
+                        const SizedBox(height: 18),
+                      ],
                       if (_signUp) _field(controller: _name, label: 'Adyňyz', icon: Icons.person_outline, validator: (value) => value == null || value.trim().length < 2 ? 'Adyňyzy giriziň.' : null),
                       _field(controller: _email, label: 'E-poçta', icon: Icons.email_outlined, keyboardType: TextInputType.emailAddress, validator: (value) => value == null || !value.contains('@') ? 'Dogry e-poçta giriziň.' : null),
                       _field(controller: _password, label: 'Parol', icon: Icons.lock_outline, obscure: _obscure, suffix: IconButton(onPressed: () => setState(() => _obscure = !_obscure), icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined, color: AppTheme.textSecondary)), validator: (value) => value == null || value.length < 6 ? 'Parol azyndan 6 belgiden ybarat bolmaly.' : null),
