@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
+import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -23,8 +24,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     '🧠',
   ];
 
-  void _showEditUsernameDialog(BuildContext context, GameProvider provider) {
-    final controller = TextEditingController(text: provider.username);
+  void _showEditUsernameDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
+    final controller = TextEditingController(text: auth.user?.name ?? provider.username);
 
     showDialog(
       context: context,
@@ -65,11 +66,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
             ),
-            onPressed: () {
+            onPressed: () async {
               final newName = controller.text.trim();
               if (newName.isNotEmpty) {
-                provider.setUsername(newName);
+                final saved = await auth.updateProfile(name: newName);
+                if (saved) await provider.setUsername(newName);
               }
+              if (!ctx.mounted) return;
               Navigator.of(ctx).pop();
             },
             child: const Text('Ýatda sakla',
@@ -80,7 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void _showAvatarSelectorDialog(BuildContext context, GameProvider provider) {
+  void _showAvatarSelectorDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -94,10 +97,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           spacing: 14,
           runSpacing: 14,
           children: _availableAvatars.map((av) {
-            final isSelected = provider.avatar == av;
+            final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
             return InkWell(
-              onTap: () {
-                provider.setAvatar(av);
+              onTap: () async {
+                final saved = await auth.updateProfile(avatar: av);
+                if (saved) await provider.setAvatar(av);
+                if (!ctx.mounted) return;
                 Navigator.of(ctx).pop();
               },
               borderRadius: BorderRadius.circular(16),
@@ -128,6 +133,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<GameProvider>();
+    final auth = context.watch<AuthProvider>();
+    final user = auth.user;
 
     return Scaffold(
       body: Container(
@@ -197,7 +204,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Stack(
                         children: [
                           GestureDetector(
-                            onTap: () => _showAvatarSelectorDialog(context, provider),
+                            onTap: () => _showAvatarSelectorDialog(context, provider, auth),
                             child: Container(
                               width: 96,
                               height: 96,
@@ -215,7 +222,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                               child: Center(
                                 child: Text(
-                                  provider.avatar,
+                                  user?.avatar ?? provider.avatar,
                                   style: const TextStyle(fontSize: 48),
                                 ),
                               ),
@@ -226,7 +233,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             right: 0,
                             child: GestureDetector(
                               onTap: () =>
-                                  _showAvatarSelectorDialog(context, provider),
+                                  _showAvatarSelectorDialog(context, provider, auth),
                               child: Container(
                                 padding: const EdgeInsets.all(6),
                                 decoration: const BoxDecoration(
@@ -247,7 +254,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            provider.username,
+                            user?.name ?? provider.username,
                             style: const TextStyle(
                               color: AppTheme.textPrimary,
                               fontSize: 22,
@@ -257,7 +264,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const SizedBox(width: 8),
                           GestureDetector(
                             onTap: () =>
-                                _showEditUsernameDialog(context, provider),
+                                _showEditUsernameDialog(context, provider, auth),
                             child: const Icon(
                               Icons.edit_outlined,
                               size: 18,
@@ -278,6 +285,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
 
+                      const SizedBox(height: 6),
+                      if (user != null)
+                        Text(user.email, style: const TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
                       const SizedBox(height: 14),
 
                       // XP Progress Bar
@@ -470,6 +480,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   isUnlocked: provider.longestStreak >= 100,
                 ),
 
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: auth.busy ? null : () => auth.logout(),
+                    icon: const Icon(Icons.logout_rounded),
+                    label: const Text('Hasapdan çyk'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppTheme.wrong,
+                      side: const BorderSide(color: AppTheme.wrong),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 36),
               ],
             ),

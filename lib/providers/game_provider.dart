@@ -21,14 +21,14 @@ class GameProvider extends ChangeNotifier {
   int _index = 0;
   int _score = 0;
   int _streak = 0;
-  int _highScore = 1250;
-  int _totalScore = 2450;
-  int _coins = 350;
-  int _streakDays = 7;
-  int _longestStreak = 14;
-  int _totalCorrectAnswers = 85;
-  int _totalWrongAnswers = 15;
-  int _completedQuestions = 100;
+  int _highScore = 0;
+  int _totalScore = 0;
+  int _coins = 0;
+  int _streakDays = 0;
+  int _longestStreak = 0;
+  int _totalCorrectAnswers = 0;
+  int _totalWrongAnswers = 0;
+  int _completedQuestions = 0;
   String _username = 'Myhman Oýunçy';
   String _avatar = '🧑‍🎓';
 
@@ -69,6 +69,9 @@ class GameProvider extends ChangeNotifier {
 
   bool _loading = true;
   bool _finished = false;
+  String _storagePrefix = 'guest_';
+
+  String _key(String key) => '$_storagePrefix$key';
 
   // Getters
   List<Proverb> get proverbs => _proverbs;
@@ -147,36 +150,48 @@ class GameProvider extends ChangeNotifier {
 
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
-    _highScore = prefs.getInt('high_score') ?? 1250;
-    _totalScore = prefs.getInt('total_score') ?? 2450;
-    _coins = prefs.getInt('coins') ?? 350;
-    _streakDays = prefs.getInt('streak_days') ?? 7;
-    _longestStreak = prefs.getInt('longest_streak') ?? 14;
-    _totalCorrectAnswers = prefs.getInt('total_correct_answers') ?? 85;
-    _totalWrongAnswers = prefs.getInt('total_wrong_answers') ?? 15;
-    _completedQuestions = prefs.getInt('completed_questions') ?? 100;
-    _username = prefs.getString('player_username') ?? 'Myhman Oýunçy';
-    _avatar = prefs.getString('player_avatar') ?? '🧑‍🎓';
-    _level = prefs.getInt('player_level') ?? 5;
-    _xp = prefs.getInt('player_xp') ?? 340;
+    _highScore = prefs.getInt(_key('high_score')) ?? 0;
+    _totalScore = prefs.getInt(_key('total_score')) ?? 0;
+    _coins = prefs.getInt(_key('coins')) ?? 0;
+    _streakDays = prefs.getInt(_key('streak_days')) ?? 0;
+    _longestStreak = prefs.getInt(_key('longest_streak')) ?? 0;
+    _totalCorrectAnswers = prefs.getInt(_key('total_correct_answers')) ?? 0;
+    _totalWrongAnswers = prefs.getInt(_key('total_wrong_answers')) ?? 0;
+    _completedQuestions = prefs.getInt(_key('completed_questions')) ?? 0;
+    _username = prefs.getString(_key('player_username')) ?? _username;
+    _avatar = prefs.getString(_key('player_avatar')) ?? _avatar;
+    _level = prefs.getInt(_key('player_level')) ?? 1;
+    _xp = prefs.getInt(_key('player_xp')) ?? 0;
 
-    final lastDaily = prefs.getString('daily_last_date');
+    final lastDaily = prefs.getString(_key('daily_last_date'));
     final todayStr = DateTime.now().toIso8601String().substring(0, 10);
     _dailyCompleted = (lastDaily == todayStr);
+    notifyListeners();
+  }
+
+  /// Selects a separate local data store for the signed-in account.
+  Future<void> activateUser({required int id, required String name, required String avatar}) async {
+    _storagePrefix = 'user_${id}_';
+    _username = name;
+    _avatar = avatar;
+    await init();
+    // Account profile is authoritative; game stats remain local and per-user.
+    _username = name;
+    _avatar = avatar;
     notifyListeners();
   }
 
   Future<void> setUsername(String newName) async {
     _username = newName;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('player_username', _username);
+    await prefs.setString(_key('player_username'), _username);
     notifyListeners();
   }
 
   Future<void> setAvatar(String newAvatar) async {
     _avatar = newAvatar;
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('player_avatar', _avatar);
+    await prefs.setString(_key('player_avatar'), _avatar);
     notifyListeners();
   }
 
@@ -485,7 +500,7 @@ class GameProvider extends ChangeNotifier {
 
     final prefs = await SharedPreferences.getInstance();
     final todayStr = DateTime.now().toIso8601String().substring(0, 10);
-    await prefs.setString('daily_last_date', todayStr);
+    await prefs.setString(_key('daily_last_date'), todayStr);
     await _saveStats();
     notifyListeners();
   }
@@ -494,19 +509,19 @@ class GameProvider extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     if (_score > _highScore) {
       _highScore = _score;
-      await prefs.setInt('high_score', _highScore);
+      await prefs.setInt(_key('high_score'), _highScore);
     }
-    await prefs.setInt('total_score', _totalScore);
-    await prefs.setInt('coins', _coins);
-    await prefs.setInt('player_level', _level);
-    await prefs.setInt('player_xp', _xp);
-    await prefs.setInt('streak_days', _streakDays);
-    await prefs.setInt('longest_streak', _longestStreak);
-    await prefs.setInt('total_correct_answers', _totalCorrectAnswers);
-    await prefs.setInt('total_wrong_answers', _totalWrongAnswers);
-    await prefs.setInt('completed_questions', _completedQuestions);
-    await prefs.setString('player_username', _username);
-    await prefs.setString('player_avatar', _avatar);
+    await prefs.setInt(_key('total_score'), _totalScore);
+    await prefs.setInt(_key('coins'), _coins);
+    await prefs.setInt(_key('player_level'), _level);
+    await prefs.setInt(_key('player_xp'), _xp);
+    await prefs.setInt(_key('streak_days'), _streakDays);
+    await prefs.setInt(_key('longest_streak'), _longestStreak);
+    await prefs.setInt(_key('total_correct_answers'), _totalCorrectAnswers);
+    await prefs.setInt(_key('total_wrong_answers'), _totalWrongAnswers);
+    await prefs.setInt(_key('completed_questions'), _completedQuestions);
+    await prefs.setString(_key('player_username'), _username);
+    await prefs.setString(_key('player_avatar'), _avatar);
   }
 
   Future<void> restart() async {

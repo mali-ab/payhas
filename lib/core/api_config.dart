@@ -1,9 +1,8 @@
-/// Contract placeholders for the future Flutter → FastAPI → PostgreSQL stack.
-/// The first release intentionally does not instantiate a network client.
+/// API endpoints used by the optional FastAPI service.
 abstract final class ApiConfig {
   static const baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'https://api.sozitap.tm/v1',
+    defaultValue: 'http://10.0.2.2:8000',
   );
 
   static const questionsPath = '/questions';
@@ -11,4 +10,6 @@ abstract final class ApiConfig {
   static const leaderboardPath = '/leaderboard';
   static const profilePath = '/me';
   static const achievementsPath = '/achievements';
+  static const signUpPath = '/auth/signup';
+  static const loginPath = '/auth/login';
 }
