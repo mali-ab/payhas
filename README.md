@@ -1,4 +1,16 @@
-# payhas
+# Sözi Tap
+
+Offline-first Flutter word game built around Turkmen proverbs.
+
+## Local-first data
+
+`assets/proverbs.json` ships with 100 questions. Every entry carries an id,
+proverb with a blank, answer, four options, category, difficulty and a Turkmen
+explanation. The app loads this bundle with no network request.
+
+Gameplay talks only to `ProverbRepository`. The current composition root uses
+`LocalProverbRepository`; a `RemoteProverbRepository` and API endpoint contract
+are included as an inactive seam for a future FastAPI/PostgreSQL backend.
 
 A new Flutter project.
 

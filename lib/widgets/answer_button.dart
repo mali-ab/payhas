@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../providers/game_provider.dart';
+import '../utils/animations.dart';
 
 class AnswerButton extends StatefulWidget {
   final String label;
@@ -32,9 +33,9 @@ class _AnswerButtonState extends State<AnswerButton>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 120),
+      duration: const Duration(milliseconds: 100),
     );
-    _scaleAnim = Tween<double>(begin: 1.0, end: 0.93).animate(
+    _scaleAnim = Tween<double>(begin: 1.0, end: 0.96).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
@@ -46,21 +47,21 @@ class _AnswerButtonState extends State<AnswerButton>
   }
 
   Color get _bgColor {
-    if (widget.state == AnswerState.idle) return AppTheme.cardBg;
+    if (widget.state == AnswerState.idle) return AppTheme.surface;
     if (widget.isSelected) {
       return widget.state == AnswerState.correct
-          ? AppTheme.correct.withValues(alpha: 0.85)
-          : AppTheme.wrong.withValues(alpha: 0.85);
+          ? AppTheme.correctContainer
+          : AppTheme.wrongContainer;
     }
     if (!widget.isSelected && widget.isCorrect &&
         widget.state == AnswerState.wrong) {
-      return AppTheme.correct.withValues(alpha: 0.5);
+      return AppTheme.correctContainer;
     }
-    return AppTheme.cardBg;
+    return AppTheme.surface;
   }
 
   Color get _borderColor {
-    if (widget.state == AnswerState.idle) return AppTheme.cardBorder;
+    if (widget.state == AnswerState.idle) return AppTheme.outlineVariant;
     if (widget.isSelected) {
       return widget.state == AnswerState.correct
           ? AppTheme.correct
@@ -70,7 +71,21 @@ class _AnswerButtonState extends State<AnswerButton>
         widget.state == AnswerState.wrong) {
       return AppTheme.correct;
     }
-    return AppTheme.cardBorder;
+    return AppTheme.outlineVariant;
+  }
+
+  Color get _textColor {
+    if (widget.state == AnswerState.idle) return AppTheme.textPrimary;
+    if (widget.isSelected) {
+      return widget.state == AnswerState.correct
+          ? AppTheme.correct
+          : AppTheme.wrong;
+    }
+    if (!widget.isSelected && widget.isCorrect &&
+        widget.state == AnswerState.wrong) {
+      return AppTheme.correct;
+    }
+    return AppTheme.textPrimary;
   }
 
   @override
@@ -85,21 +100,34 @@ class _AnswerButtonState extends State<AnswerButton>
       child: ScaleTransition(
         scale: _scaleAnim,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 250),
           curve: Curves.easeInOut,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           decoration: BoxDecoration(
             color: _bgColor,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: _borderColor, width: 1.5),
+            border: Border.all(color: _borderColor, width: 2),
+            boxShadow: widget.state != AnswerState.idle
+                ? [
+                    BoxShadow(
+                      color: widget.isSelected
+                          ? (widget.state == AnswerState.correct
+                              ? AppTheme.correct.withValues(alpha: 0.3)
+                              : AppTheme.wrong.withValues(alpha: 0.3))
+                          : AppTheme.correct.withValues(alpha: 0.2),
+                      blurRadius: 12,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
+                : null,
           ),
           child: Text(
             widget.label,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: AppTheme.textPrimary,
-              fontSize: 17,
+            style: TextStyle(
+              color: _textColor,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
               letterSpacing: 0.3,
             ),

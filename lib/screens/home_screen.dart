@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
+import '../widgets/brand_mark.dart';
 import 'category_selection_screen.dart';
 import 'daily_question_screen.dart';
 import 'levels_screen.dart';
@@ -157,26 +158,7 @@ class _HomeScreenState extends State<HomeScreen>
                     const Spacer(flex: 1),
 
                     // App Logo & Title
-                    Container(
-                      width: 90,
-                      height: 90,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: AppTheme.accentGradient,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppTheme.accent.withValues(alpha: 0.45),
-                            blurRadius: 30,
-                            spreadRadius: 3,
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.auto_stories_rounded,
-                        size: 46,
-                        color: Colors.white,
-                      ),
-                    ),
+                    const BrandMark(size: 96),
 
                     const SizedBox(height: 20),
 

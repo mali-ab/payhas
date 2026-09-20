@@ -13,6 +13,10 @@ enum Difficulty {
 }
 
 class GameProvider extends ChangeNotifier {
+  GameProvider({required ProverbRepository proverbRepository})
+      : _proverbRepository = proverbRepository;
+
+  final ProverbRepository _proverbRepository;
   List<Proverb> _proverbs = [];
   int _index = 0;
   int _score = 0;
@@ -188,8 +192,9 @@ class GameProvider extends ChangeNotifier {
     _difficulty = difficulty;
     _selectedCategory = category ?? 'Hemmesi';
 
-    _proverbs = await ProverbRepository.getByCategory(
-      _selectedCategory == 'Hemmesi' ? null : _selectedCategory,
+    _proverbs = await _proverbRepository.getQuestions(
+      category: _selectedCategory == 'Hemmesi' ? null : _selectedCategory,
+      difficulty: difficulty.name,
       count: questionCount,
     );
 
@@ -439,8 +444,10 @@ class GameProvider extends ChangeNotifier {
     notifyListeners();
     await init();
 
-    final all = await ProverbRepository.shuffled(count: 30);
-    _dailyProverbs = all.take(5).toList();
+    _dailyProverbs = await _proverbRepository.getDailyQuestions(
+      date: DateTime.now(),
+      count: 5,
+    );
     _dailyIndex = 0;
     _dailyCorrectCount = 0;
     _dailyFinished = false;
