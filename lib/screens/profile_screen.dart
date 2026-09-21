@@ -374,7 +374,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Expanded(
                       child: _StatCard(
-                        icon: '⭐',
+                        icon: LucideIcons.star,
                         title: 'Jemi bal',
                         value: '${provider.totalScore}',
                       ),
@@ -382,7 +382,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(width: 10),
                     Expanded(
                       child: _StatCard(
-                        icon: '🎯',
+                        icon: LucideIcons.target,
                         title: 'Tamamlanan',
                         value: '${provider.completedQuestions} sorag',
                       ),
@@ -394,7 +394,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Expanded(
                       child: _StatCard(
-                        icon: '✅',
+                        icon: LucideIcons.circleCheck,
                         title: 'Dogry jogap',
                         value: '${provider.totalCorrectAnswers}',
                         valueColor: AppTheme.correct,
@@ -403,7 +403,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(width: 10),
                     Expanded(
                       child: _StatCard(
-                        icon: '❌',
+                        icon: LucideIcons.circleX,
                         title: 'Ýalňyş jogap',
                         value: '${provider.totalWrongAnswers}',
                         valueColor: AppTheme.wrong,
@@ -416,7 +416,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Expanded(
                       child: _StatCard(
-                        icon: '🔥',
+                        icon: LucideIcons.flame,
                         title: 'Häzirki seri',
                         value: '${provider.streakDays} gün',
                         valueColor: Colors.orange,
@@ -425,7 +425,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(width: 10),
                     Expanded(
                       child: _StatCard(
-                        icon: '⚡',
+                        icon: LucideIcons.zap,
                         title: 'Iň uzyn seri',
                         value: '${provider.longestStreak} gün',
                         valueColor: const Color(0xFFFF7043),
@@ -447,9 +447,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // 1. 🏆 Ilkinji ädim (First correct answer)
+                // 1. Ilkinji ädim (First correct answer)
                 _buildAchievementCard(
-                  icon: '🏆',
+                  icon: LucideIcons.trophy,
                   title: 'Ilkinji ädim',
                   desc: 'Ilkinji dogry jogabyňyzy beriň.',
                   current: min(provider.totalCorrectAnswers, 1),
@@ -457,9 +457,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   isUnlocked: provider.totalCorrectAnswers >= 1,
                 ),
 
-                // 2. 🔥 7 günlük seri (7-day streak)
+                // 2. 7 günlük seri (7-day streak)
                 _buildAchievementCard(
-                  icon: '🔥',
+                  icon: LucideIcons.flame,
                   title: '7 günlük seri',
                   desc: '7 gün yzly-yzyna oýun oýnaň.',
                   current: min(provider.streakDays, 7),
@@ -467,9 +467,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   isUnlocked: provider.streakDays >= 7,
                 ),
 
-                // 3. 🧠 Paýhasly (100 correct answers)
+                // 3. Paýhasly (100 correct answers)
                 _buildAchievementCard(
-                  icon: '🧠',
+                  icon: LucideIcons.brain,
                   title: 'Paýhasly',
                   desc: '100 nakyla dogry jogap beriň.',
                   current: min(provider.totalCorrectAnswers, 100),
@@ -477,9 +477,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   isUnlocked: provider.totalCorrectAnswers >= 100,
                 ),
 
-                // 4. 📚 Nakyllar bilermeni (500 completed proverbs)
+                // 4. Nakyllar bilermeni (500 completed proverbs)
                 _buildAchievementCard(
-                  icon: '📚',
+                  icon: LucideIcons.bookOpen,
                   title: 'Nakyllar bilermeni',
                   desc: '500 nakyly tamamlap çözüň.',
                   current: min(provider.completedQuestions, 500),
@@ -487,9 +487,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   isUnlocked: provider.completedQuestions >= 500,
                 ),
 
-                // 5. 💯 Kämillik (100 questions in a row)
+                // 5. Kämillik (100 questions in a row)
                 _buildAchievementCard(
-                  icon: '💯',
+                  icon: LucideIcons.award,
                   title: 'Kämillik',
                   desc: 'Yzly-yzyna 100 soraga dogry jogap beriň.',
                   current: min(provider.longestStreak, 100),
@@ -544,7 +544,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildAchievementCard({
-    required String icon,
+    required IconData icon,
     required String title,
     required String desc,
     required int current,
@@ -578,7 +578,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   : Colors.white10,
             ),
             child: Center(
-              child: Text(icon, style: const TextStyle(fontSize: 22)),
+              child: Icon(
+                icon,
+                color: isUnlocked ? AppTheme.gold : Colors.white30,
+                size: 22,
+              ),
             ),
           ),
           const SizedBox(width: 14),
@@ -634,7 +638,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           const SizedBox(width: 10),
           Icon(
-            isUnlocked ? Icons.star_rounded : Icons.lock_rounded,
+            isUnlocked ? LucideIcons.star : LucideIcons.lock,
             color: isUnlocked ? AppTheme.gold : Colors.white24,
             size: 24,
           ),
@@ -645,7 +649,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 class _StatCard extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final String title;
   final String value;
   final Color? valueColor;
@@ -669,7 +673,11 @@ class _StatCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(icon, style: const TextStyle(fontSize: 16)),
+              Icon(
+                icon,
+                color: valueColor ?? AppTheme.accentLight,
+                size: 17,
+              ),
               const SizedBox(width: 6),
               Text(
                 title,
