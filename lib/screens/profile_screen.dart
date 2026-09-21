@@ -26,6 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ];
 
   void _showEditUsernameDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
+    if (!auth.isAuthenticated) return;
     final controller = TextEditingController(text: auth.user?.name ?? provider.username);
 
     showDialog(
@@ -70,12 +71,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: () async {
               final newName = controller.text.trim();
               if (newName.isNotEmpty) {
-                if (auth.isAuthenticated) {
-                  final saved = await auth.updateProfile(name: newName);
-                  if (saved) await provider.setUsername(newName);
-                } else {
-                  await provider.setUsername(newName);
-                }
+                final saved = await auth.updateProfile(name: newName);
+                if (saved) await provider.setUsername(newName);
               }
               if (!ctx.mounted) return;
               Navigator.of(ctx).pop();
@@ -89,6 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _showAvatarSelectorDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
+    if (!auth.isAuthenticated) return;
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -105,12 +103,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
             return InkWell(
               onTap: () async {
-                if (auth.isAuthenticated) {
-                  final saved = await auth.updateProfile(avatar: av);
-                  if (saved) await provider.setAvatar(av);
-                } else {
-                  await provider.setAvatar(av);
-                }
+                final saved = await auth.updateProfile(avatar: av);
+                if (saved) await provider.setAvatar(av);
                 if (!ctx.mounted) return;
                 Navigator.of(ctx).pop();
               },
@@ -144,6 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final provider = context.watch<GameProvider>();
     final auth = context.watch<AuthProvider>();
     final user = auth.user;
+    final canEditProfile = auth.isAuthenticated;
 
     return Scaffold(
       body: Container(
@@ -212,9 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Stack(
                         children: [
-                          GestureDetector(
-                            onTap: () => _showAvatarSelectorDialog(context, provider, auth),
-                            child: Container(
+                          Container(
                               width: 96,
                               height: 96,
                               decoration: BoxDecoration(
@@ -236,14 +229,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: GestureDetector(
-                              onTap: () =>
-                                  _showAvatarSelectorDialog(context, provider, auth),
-                              child: Container(
+                          if (canEditProfile)
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: GestureDetector(
+                                onTap: () =>
+                                    _showAvatarSelectorDialog(context, provider, auth),
+                                child: Container(
                                 padding: const EdgeInsets.all(6),
                                 decoration: const BoxDecoration(
                                   color: AppTheme.accent,
@@ -251,9 +244,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 child: const Icon(Icons.edit_rounded,
                                     size: 14, color: Colors.white),
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                       const SizedBox(height: 14),
@@ -270,16 +263,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontWeight: FontWeight.w800,
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          GestureDetector(
-                            onTap: () =>
-                                _showEditUsernameDialog(context, provider, auth),
-                            child: const Icon(
-                              Icons.edit_outlined,
-                              size: 18,
-                              color: AppTheme.accentLight,
+                          if (canEditProfile) ...[
+                            const SizedBox(width: 8),
+                            GestureDetector(
+                              onTap: () =>
+                                  _showEditUsernameDialog(context, provider, auth),
+                              child: const Icon(
+                                Icons.edit_outlined,
+                                size: 18,
+                                color: AppTheme.accentLight,
+                              ),
                             ),
-                          ),
+                          ],
                         ],
                       ),
                       const SizedBox(height: 4),
@@ -297,6 +292,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 6),
                       if (user != null)
                         Text(user.email, style: const TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
+                      if (!canEditProfile)
+                        const Padding(
+                          padding: EdgeInsets.only(top: 6),
+                          child: Text(
+                            'Myhman tertibi: profil maglumatlaryny üýtgetmek üçin hasaba giriň.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppTheme.textSecondary,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
                       const SizedBox(height: 14),
 
                       // XP Progress Bar
