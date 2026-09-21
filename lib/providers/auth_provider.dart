@@ -82,9 +82,30 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> syncStats({required int totalScore, required int level}) async {
+  Future<void> syncStats({
+    required int totalScore,
+    required int level,
+    required int xp,
+    required int coins,
+    required int streakDays,
+    required int longestStreak,
+    required int totalCorrectAnswers,
+    required int totalWrongAnswers,
+    required int completedQuestions,
+  }) async {
     if (_token == null) return;
-    await _api.submitStats(_token!, totalScore: totalScore, level: level);
+    await _api.submitStats(
+      _token!,
+      totalScore: totalScore,
+      level: level,
+      xp: xp,
+      coins: coins,
+      streakDays: streakDays,
+      longestStreak: longestStreak,
+      totalCorrectAnswers: totalCorrectAnswers,
+      totalWrongAnswers: totalWrongAnswers,
+      completedQuestions: completedQuestions,
+    );
   }
 
   Future<List<LeaderboardEntry>> getLeaderboard(String period) => _api.leaderboard(period);

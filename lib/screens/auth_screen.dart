@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
@@ -42,7 +43,10 @@ class _AuthScreenState extends State<AuthScreen> {
             id: user.id,
             name: user.name,
             avatar: user.avatar,
+            initialStats: user.stats,
           );
+      if (!mounted) return;
+      Navigator.of(context).popUntil((route) => route.isFirst);
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(auth.error ?? 'Näsazlyk ýüze çykdy.')));
     }
@@ -86,7 +90,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             onPressed: auth.busy
                                 ? null
                                 : () => widget.onContinueAsGuest!(),
-                            icon: const Icon(Icons.play_arrow_rounded),
+                            icon: const Icon(LucideIcons.play),
                             label: const Text(
                               'MYHMAN HÖKMÜNDE OÝNA',
                               style: TextStyle(
@@ -123,9 +127,9 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         const SizedBox(height: 18),
                       ],
-                      if (_signUp) _field(controller: _name, label: 'Adyňyz', icon: Icons.person_outline, validator: (value) => value == null || value.trim().length < 2 ? 'Adyňyzy giriziň.' : null),
-                      _field(controller: _email, label: 'E-poçta', icon: Icons.email_outlined, keyboardType: TextInputType.emailAddress, validator: (value) => value == null || !value.contains('@') ? 'Dogry e-poçta giriziň.' : null),
-                      _field(controller: _password, label: 'Parol', icon: Icons.lock_outline, obscure: _obscure, suffix: IconButton(onPressed: () => setState(() => _obscure = !_obscure), icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined, color: AppTheme.textSecondary)), validator: (value) => value == null || value.length < 6 ? 'Parol azyndan 6 belgiden ybarat bolmaly.' : null),
+                      if (_signUp) _field(controller: _name, label: 'Adyňyz', icon: LucideIcons.userRound, validator: (value) => value == null || value.trim().length < 2 ? 'Adyňyzy giriziň.' : null),
+                      _field(controller: _email, label: 'E-poçta', icon: LucideIcons.mail, keyboardType: TextInputType.emailAddress, validator: (value) => value == null || !value.contains('@') ? 'Dogry e-poçta giriziň.' : null),
+                      _field(controller: _password, label: 'Parol', icon: LucideIcons.lockKeyhole, obscure: _obscure, suffix: IconButton(onPressed: () => setState(() => _obscure = !_obscure), icon: Icon(_obscure ? LucideIcons.eye : LucideIcons.eyeOff, color: AppTheme.textSecondary)), validator: (value) => value == null || value.length < 6 ? 'Parol azyndan 6 belgiden ybarat bolmaly.' : null),
                       const SizedBox(height: 12),
                       SizedBox(
                         height: 54,

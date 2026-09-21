@@ -56,6 +56,7 @@ class _SessionGateState extends State<_SessionGate> {
                 id: user.id,
                 name: user.name,
                 avatar: user.avatar,
+                initialStats: user.stats,
               );
         }
       });

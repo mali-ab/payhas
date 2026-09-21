@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../models/leaderboard_entry.dart';
@@ -32,7 +33,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     final auth = context.read<AuthProvider>();
     final game = context.read<GameProvider>();
     try {
-      await auth.syncStats(totalScore: game.totalScore, level: game.level);
+      await auth.syncStats(
+        totalScore: game.totalScore,
+        level: game.level,
+        xp: game.xp,
+        coins: game.coins,
+        streakDays: game.streakDays,
+        longestStreak: game.longestStreak,
+        totalCorrectAnswers: game.totalCorrectAnswers,
+        totalWrongAnswers: game.totalWrongAnswers,
+        completedQuestions: game.completedQuestions,
+      );
       final leaders = await auth.getLeaderboard(_periods[_filterIndex]);
       if (mounted) setState(() => _leaders = leaders);
     } catch (_) {
@@ -61,10 +72,10 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
                 child: Row(children: [
-                  IconButton(onPressed: () => Navigator.of(context).pop(), icon: const Icon(Icons.arrow_back_ios_new_rounded, color: AppTheme.textPrimary, size: 19)),
+                  IconButton(onPressed: () => Navigator.of(context).pop(), icon: const Icon(LucideIcons.arrowLeft, color: AppTheme.textPrimary, size: 19)),
                   const Text('REÝTİNG', style: TextStyle(color: AppTheme.textPrimary, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: 1.5)),
                   const Spacer(),
-                  IconButton(onPressed: _loading ? null : _refresh, icon: const Icon(Icons.refresh_rounded, color: AppTheme.accentLight)),
+                  IconButton(onPressed: _loading ? null : _refresh, icon: const Icon(LucideIcons.refreshCw, color: AppTheme.accentLight)),
                 ]),
               ),
               Padding(

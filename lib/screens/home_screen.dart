@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen>
                             child: Row(
                               children: [
                                 const Icon(
-                                  Icons.military_tech_rounded,
+                                  LucideIcons.trophy,
                                   color: AppTheme.accentLight,
                                   size: 20,
                                 ),
@@ -139,7 +140,12 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                             child: Row(
                               children: [
-                                const Text('🪙 ', style: TextStyle(fontSize: 15)),
+                                const Icon(
+                                  LucideIcons.coins,
+                                  color: AppTheme.gold,
+                                  size: 17,
+                                ),
+                                const SizedBox(width: 6),
                                 Text(
                                   '${game.coins} teňňe',
                                   style: const TextStyle(
@@ -318,7 +324,7 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
-                              Icon(Icons.local_fire_department_rounded,
+                              Icon(LucideIcons.flame,
                                   color: Colors.white, size: 22),
                               SizedBox(width: 8),
                               Text(
@@ -344,7 +350,7 @@ class _HomeScreenState extends State<HomeScreen>
                         // “Derejeler” button
                         Expanded(
                           child: _NavMenuButton(
-                            icon: Icons.layers_rounded,
+                            icon: LucideIcons.layers3,
                             label: 'Derejeler',
                             onTap: () =>
                                 _navigateTo(context, const LevelsScreen()),
@@ -355,7 +361,7 @@ class _HomeScreenState extends State<HomeScreen>
                         // “Reýting” button
                         Expanded(
                           child: _NavMenuButton(
-                            icon: Icons.leaderboard_rounded,
+                            icon: LucideIcons.chartNoAxesCombined,
                             label: 'Reýting',
                             onTap: () =>
                                 _navigateTo(context, const LeaderboardScreen()),
@@ -366,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen>
                         // “Profil” button
                         Expanded(
                           child: _NavMenuButton(
-                            icon: Icons.person_rounded,
+                            icon: LucideIcons.userRound,
                             label: 'Profil',
                             onTap: () =>
                                 _navigateTo(context, const ProfileScreen()),

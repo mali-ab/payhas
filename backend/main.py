@@ -62,6 +62,13 @@ def init_db() -> None:
               user_id INTEGER PRIMARY KEY REFERENCES users(id),
               total_score INTEGER NOT NULL DEFAULT 0,
               level INTEGER NOT NULL DEFAULT 1,
+              xp INTEGER NOT NULL DEFAULT 0,
+              coins INTEGER NOT NULL DEFAULT 0,
+              streak_days INTEGER NOT NULL DEFAULT 0,
+              longest_streak INTEGER NOT NULL DEFAULT 0,
+              total_correct_answers INTEGER NOT NULL DEFAULT 0,
+              total_wrong_answers INTEGER NOT NULL DEFAULT 0,
+              completed_questions INTEGER NOT NULL DEFAULT 0,
               updated_at INTEGER NOT NULL
             );
             CREATE TABLE IF NOT EXISTS score_events (
@@ -71,6 +78,22 @@ def init_db() -> None:
               created_at INTEGER NOT NULL
             );
         """)
+        existing_columns = {
+            row["name"] for row in conn.execute("PRAGMA table_info(player_stats)")
+        }
+        for column in (
+            "xp",
+            "coins",
+            "streak_days",
+            "longest_streak",
+            "total_correct_answers",
+            "total_wrong_answers",
+            "completed_questions",
+        ):
+            if column not in existing_columns:
+                conn.execute(
+                    f"ALTER TABLE player_stats ADD COLUMN {column} INTEGER NOT NULL DEFAULT 0"
+                )
 
 
 def questions() -> list[dict]:
@@ -100,6 +123,13 @@ class ProfileUpdate(BaseModel):
 class StatsUpdate(BaseModel):
     total_score: int = Field(ge=0, le=10_000_000)
     level: int = Field(ge=1, le=1000)
+    xp: int = Field(ge=0, le=10_000_000)
+    coins: int = Field(ge=0, le=10_000_000)
+    streak_days: int = Field(ge=0, le=100_000)
+    longest_streak: int = Field(ge=0, le=100_000)
+    total_correct_answers: int = Field(ge=0, le=10_000_000)
+    total_wrong_answers: int = Field(ge=0, le=10_000_000)
+    completed_questions: int = Field(ge=0, le=10_000_000)
 
 
 def hash_password(password: str) -> str:
@@ -118,10 +148,29 @@ def serialize_user(user: sqlite3.Row) -> dict:
     return {"id": user["id"], "name": user["name"], "email": user["email"], "avatar": user["avatar"]}
 
 
+def profile(conn: sqlite3.Connection, user: sqlite3.Row) -> dict:
+    stats = conn.execute(
+        "SELECT * FROM player_stats WHERE user_id = ?", (user["id"],)
+    ).fetchone()
+    result = serialize_user(user)
+    result["stats"] = {
+        "total_score": stats["total_score"] if stats else 0,
+        "level": stats["level"] if stats else 1,
+        "xp": stats["xp"] if stats else 0,
+        "coins": stats["coins"] if stats else 0,
+        "streak_days": stats["streak_days"] if stats else 0,
+        "longest_streak": stats["longest_streak"] if stats else 0,
+        "total_correct_answers": stats["total_correct_answers"] if stats else 0,
+        "total_wrong_answers": stats["total_wrong_answers"] if stats else 0,
+        "completed_questions": stats["completed_questions"] if stats else 0,
+    }
+    return result
+
+
 def new_session(conn: sqlite3.Connection, user: sqlite3.Row) -> dict:
     token = secrets.token_urlsafe(32)
     conn.execute("INSERT INTO sessions(token, user_id) VALUES (?, ?)", (token, user["id"]))
-    return {"access_token": token, "token_type": "bearer", "user": serialize_user(user)}
+    return {"access_token": token, "token_type": "bearer", "user": profile(conn, user)}
 
 
 @app.get("/health")
@@ -220,20 +269,24 @@ def current_user(credentials: Annotated[HTTPAuthorizationCredentials, Depends(se
 
 @app.get("/me")
 def get_me(user: Annotated[dict, Depends(current_user)]) -> dict:
-    return {key: user[key] for key in ("id", "name", "email", "avatar")}
+    with db() as conn:
+        row = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
+        return profile(conn, row)
 
 
 @app.patch("/me")
 def update_me(payload: ProfileUpdate, user: Annotated[dict, Depends(current_user)]) -> dict:
     if payload.name is None and payload.avatar is None:
-        return {key: user[key] for key in ("id", "name", "email", "avatar")}
+        with db() as conn:
+            row = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
+            return profile(conn, row)
     with db() as conn:
         conn.execute(
             "UPDATE users SET name = COALESCE(?, name), avatar = COALESCE(?, avatar) WHERE id = ?",
             (payload.name.strip() if payload.name else None, payload.avatar, user["id"]),
         )
         updated = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
-        return serialize_user(updated)
+        return profile(conn, updated)
 
 
 @app.put("/leaderboard/me")
@@ -246,12 +299,26 @@ def update_leaderboard(payload: StatsUpdate, user: Annotated[dict, Depends(curre
         previous_score = previous["total_score"] if previous else 0
         gained = max(0, payload.total_score - previous_score)
         conn.execute("""
-            INSERT INTO player_stats(user_id, total_score, level, updated_at)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO player_stats(
+              user_id, total_score, level, xp, coins, streak_days,
+              longest_streak, total_correct_answers, total_wrong_answers,
+              completed_questions, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(user_id) DO UPDATE SET
               total_score = excluded.total_score, level = excluded.level,
+              xp = excluded.xp, coins = excluded.coins,
+              streak_days = excluded.streak_days,
+              longest_streak = excluded.longest_streak,
+              total_correct_answers = excluded.total_correct_answers,
+              total_wrong_answers = excluded.total_wrong_answers,
+              completed_questions = excluded.completed_questions,
               updated_at = excluded.updated_at
-        """, (user["id"], payload.total_score, payload.level, now))
+        """, (
+            user["id"], payload.total_score, payload.level, payload.xp,
+            payload.coins, payload.streak_days, payload.longest_streak,
+            payload.total_correct_answers, payload.total_wrong_answers,
+            payload.completed_questions, now,
+        ))
         if gained:
             conn.execute(
                 "INSERT INTO score_events(user_id, points, created_at) VALUES (?, ?, ?)",

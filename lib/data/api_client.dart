@@ -77,12 +77,32 @@ class ApiClient {
     }
   }
 
-  Future<void> submitStats(String token, {required int totalScore, required int level}) async {
+  Future<void> submitStats(String token, {
+    required int totalScore,
+    required int level,
+    required int xp,
+    required int coins,
+    required int streakDays,
+    required int longestStreak,
+    required int totalCorrectAnswers,
+    required int totalWrongAnswers,
+    required int completedQuestions,
+  }) async {
     try {
       final response = await _client.put(
         _uri('${ApiConfig.leaderboardPath}/me'),
         headers: _authHeaders(token),
-        body: jsonEncode({'total_score': totalScore, 'level': level}),
+        body: jsonEncode({
+          'total_score': totalScore,
+          'level': level,
+          'xp': xp,
+          'coins': coins,
+          'streak_days': streakDays,
+          'longest_streak': longestStreak,
+          'total_correct_answers': totalCorrectAnswers,
+          'total_wrong_answers': totalWrongAnswers,
+          'completed_questions': completedQuestions,
+        }),
       ).timeout(const Duration(seconds: 12));
       _read(response);
     } catch (error) {

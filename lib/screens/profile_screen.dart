@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
 import '../providers/auth_provider.dart';
@@ -162,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: const Icon(
-                          Icons.arrow_back_ios_new_rounded,
+                          LucideIcons.arrowLeft,
                           size: 18,
                           color: AppTheme.textPrimary,
                         ),
@@ -242,7 +243,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   color: AppTheme.accent,
                                   shape: BoxShape.circle,
                                 ),
-                                child: const Icon(Icons.edit_rounded,
+                                child: const Icon(LucideIcons.pencil,
                                     size: 14, color: Colors.white),
                                 ),
                               ),
@@ -269,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               onTap: () =>
                                   _showEditUsernameDialog(context, provider, auth),
                               child: const Icon(
-                                Icons.edit_outlined,
+                                LucideIcons.pencil,
                                 size: 18,
                                 color: AppTheme.accentLight,
                               ),
@@ -514,8 +515,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                     icon: Icon(
                       auth.isAuthenticated
-                          ? Icons.logout_rounded
-                          : Icons.login_rounded,
+                          ? LucideIcons.logOut
+                          : LucideIcons.logIn,
                     ),
                     label: Text(
                       auth.isAuthenticated ? 'Hasapdan çyk' : 'Hasaba gir',

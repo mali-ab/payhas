@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/proverb.dart';
+import '../models/app_user.dart';
 import '../data/proverb_repository.dart';
 
 enum AnswerState { idle, correct, wrong }
@@ -148,8 +149,9 @@ class GameProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> init() async {
+  Future<void> init({GameStats? initialStats}) async {
     final prefs = await SharedPreferences.getInstance();
+    final hasSavedStats = prefs.containsKey(_key('total_score'));
     _highScore = prefs.getInt(_key('high_score')) ?? 0;
     _totalScore = prefs.getInt(_key('total_score')) ?? 0;
     _coins = prefs.getInt(_key('coins')) ?? 0;
@@ -163,6 +165,16 @@ class GameProvider extends ChangeNotifier {
     _level = prefs.getInt(_key('player_level')) ?? 1;
     _xp = prefs.getInt(_key('player_xp')) ?? 0;
 
+    final shouldBootstrapStats = !hasSavedStats ||
+        (_totalScore == 0 &&
+            _coins == 0 &&
+            _xp == 0 &&
+            (initialStats?.totalScore ?? 0) > 0);
+    if (shouldBootstrapStats && initialStats != null) {
+      _applyStats(initialStats);
+      await _saveStats();
+    }
+
     final lastDaily = prefs.getString(_key('daily_last_date'));
     final todayStr = DateTime.now().toIso8601String().substring(0, 10);
     _dailyCompleted = (lastDaily == todayStr);
@@ -170,11 +182,16 @@ class GameProvider extends ChangeNotifier {
   }
 
   /// Selects a separate local data store for the signed-in account.
-  Future<void> activateUser({required int id, required String name, required String avatar}) async {
+  Future<void> activateUser({
+    required int id,
+    required String name,
+    required String avatar,
+    GameStats? initialStats,
+  }) async {
     _storagePrefix = 'user_${id}_';
     _username = name;
     _avatar = avatar;
-    await init();
+    await init(initialStats: initialStats);
     // Account profile is authoritative; game stats remain local and per-user.
     _username = name;
     _avatar = avatar;
@@ -194,6 +211,19 @@ class GameProvider extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_key('player_username'), _username);
     notifyListeners();
+  }
+
+  void _applyStats(GameStats stats) {
+    _highScore = stats.totalScore;
+    _totalScore = stats.totalScore;
+    _coins = stats.coins;
+    _streakDays = stats.streakDays;
+    _longestStreak = stats.longestStreak;
+    _totalCorrectAnswers = stats.totalCorrectAnswers;
+    _totalWrongAnswers = stats.totalWrongAnswers;
+    _completedQuestions = stats.completedQuestions;
+    _level = stats.level;
+    _xp = stats.xp;
   }
 
   Future<void> setAvatar(String newAvatar) async {
