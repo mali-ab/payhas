@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../models/leaderboard_entry.dart';
 import '../providers/auth_provider.dart';
 import '../providers/game_provider.dart';
+import '../widgets/avatar_image.dart';
 import '../theme/app_theme.dart';
 
 class LeaderboardScreen extends StatefulWidget {
@@ -133,7 +134,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
   Widget _podiumItem(LeaderboardEntry entry, String medal, double height, Color color) => Expanded(
     child: Column(children: [
-      Text(entry.avatar, style: const TextStyle(fontSize: 28)),
+      AvatarImage(avatar: entry.avatar, size: 32),
       Text(entry.name.split(' ').first, overflow: TextOverflow.ellipsis, style: const TextStyle(color: AppTheme.textPrimary, fontSize: 12, fontWeight: FontWeight.w700)),
       Text('⭐ ${entry.score}', style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w800)),
       const SizedBox(height: 6),
@@ -146,7 +147,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     decoration: BoxDecoration(color: entry.id == currentUserId ? AppTheme.accent.withValues(alpha: .17) : AppTheme.cardBg, borderRadius: BorderRadius.circular(16), border: Border.all(color: entry.id == currentUserId ? AppTheme.accentLight : AppTheme.cardBorder)),
     child: Row(children: [
       SizedBox(width: 35, child: Text('#${entry.rank}', style: const TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.w800))),
-      Text(entry.avatar, style: const TextStyle(fontSize: 23)), const SizedBox(width: 12),
+      AvatarImage(avatar: entry.avatar, size: 28), const SizedBox(width: 12),
       Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(entry.id == currentUserId ? '${entry.name} (Siz)' : entry.name, style: const TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.w700)), Text('${entry.level}-nji dereje', style: const TextStyle(color: AppTheme.textSecondary, fontSize: 12))])),
       Text('⭐ ${entry.score}', style: const TextStyle(color: AppTheme.gold, fontWeight: FontWeight.w800)),
     ]),
@@ -157,7 +158,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     decoration: const BoxDecoration(color: AppTheme.bg2, border: Border(top: BorderSide(color: AppTheme.cardBorder))),
     child: Row(children: [
       Text(entry == null ? '—' : '#${entry.rank}', style: const TextStyle(color: AppTheme.accentLight, fontSize: 17, fontWeight: FontWeight.w900)), const SizedBox(width: 12),
-      Text(game.avatar, style: const TextStyle(fontSize: 23)), const SizedBox(width: 10),
+      AvatarImage(avatar: game.avatar, size: 28), const SizedBox(width: 10),
       Expanded(child: Text('${name ?? game.username} (Siz)', style: const TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.w800))),
       Text('⭐ ${entry?.score ?? 0}', style: const TextStyle(color: AppTheme.gold, fontWeight: FontWeight.w900)),
     ]),

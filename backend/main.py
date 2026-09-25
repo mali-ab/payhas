@@ -1,4 +1,4 @@
-"""Small local API for Paýhas.
+"""Small local API for Akyl-ylmyň hyrydary.
 
 Run from this directory with: uvicorn main:app --reload
 """
@@ -23,7 +23,7 @@ from pydantic import BaseModel, EmailStr, Field
 DATABASE = Path(__file__).with_name("payhas.db")
 security = HTTPBearer()
 
-app = FastAPI(title="Paýhas API", version="1.0.0")
+app = FastAPI(title="Akyl-ylmyň hyrydary API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -117,7 +117,7 @@ class Signup(Credentials):
 
 class ProfileUpdate(BaseModel):
     name: str | None = Field(default=None, min_length=2, max_length=60)
-    avatar: str | None = Field(default=None, max_length=16)
+    avatar: str | None = Field(default=None, max_length=128)
 
 
 class StatsUpdate(BaseModel):

@@ -70,7 +70,19 @@ class _AuthScreenState extends State<AuthScreen> {
                     children: [
                       const BrandMark(size: 104),
                       const SizedBox(height: 18),
-                      const Text('PAÝHAS', style: TextStyle(color: AppTheme.textPrimary, fontSize: 34, fontWeight: FontWeight.w900, letterSpacing: 2)),
+                      const FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'AKYL-YLMYŇ HYRYDARY',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppTheme.textPrimary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         _signUp

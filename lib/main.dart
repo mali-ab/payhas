@@ -23,7 +23,7 @@ class PayhasApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()..restoreSession()),
       ],
       child: MaterialApp(
-        title: 'Paýhas',
+        title: 'Akyl-ylmyň hyrydary',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.theme,
         home: const _SessionGate(),

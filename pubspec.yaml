@@ -1,5 +1,5 @@
 name: payhas
-description: "Paýhas – Türkmen nakyllary oýny"
+description: "Akyl-ylmyň hyrydary – Türkmen nakyllary oýny"
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -29,3 +29,4 @@ flutter:
   assets:
     - assets/proverbs.json
     - assets/images/logo.jpeg
+    - assets/avatars/

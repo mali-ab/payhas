@@ -185,9 +185,9 @@ class _HomeScreenState extends State<HomeScreen>
 
                     const SizedBox(height: 6),
 
-                    // Subtitle: Paýhasyňy syna!
+                    // Subtitle: Akyl-ylmyňy syna!
                     const Text(
-                      'Paýhasyňy syna!',
+                      'Akyl-ylmyňy syna!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppTheme.textSecondary,

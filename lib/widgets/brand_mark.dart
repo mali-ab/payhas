@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-/// The supplied Paýhas brand image.
+/// The supplied Akyl-ylmyň hyrydary brand image.
 class BrandMark extends StatelessWidget {
   const BrandMark({super.key, this.size = 88});
 

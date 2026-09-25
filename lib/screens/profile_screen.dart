@@ -6,6 +6,7 @@ import '../providers/game_provider.dart';
 import '../providers/auth_provider.dart';
 import 'auth_screen.dart';
 import '../theme/app_theme.dart';
+import '../widgets/avatar_image.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -16,14 +17,39 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final List<String> _availableAvatars = const [
-    '🧑‍🎓',
-    '🧙‍♂️',
-    '🦉',
-    '🦅',
-    '🦁',
-    '🏇',
-    '👑',
-    '🧠',
+    'assets/avatars/memo_1.png',
+    'assets/avatars/memo_2.png',
+    'assets/avatars/memo_3.png',
+    'assets/avatars/memo_4.png',
+    'assets/avatars/memo_5.png',
+    'assets/avatars/memo_6.png',
+    'assets/avatars/memo_7.png',
+    'assets/avatars/memo_8.png',
+    'assets/avatars/memo_9.png',
+    'assets/avatars/memo_10.png',
+    'assets/avatars/memo_11.png',
+    'assets/avatars/memo_12.png',
+    'assets/avatars/memo_13.png',
+    'assets/avatars/memo_14.png',
+    'assets/avatars/memo_15.png',
+    'assets/avatars/memo_16.png',
+    'assets/avatars/memo_17.png',
+    'assets/avatars/memo_19.png',
+    'assets/avatars/memo_21.png',
+    'assets/avatars/memo_22.png',
+    'assets/avatars/memo_23.png',
+    'assets/avatars/memo_24.png',
+    'assets/avatars/memo_25.png',
+    'assets/avatars/memo_26.png',
+    'assets/avatars/memo_27.png',
+    'assets/avatars/memo_28.png',
+    'assets/avatars/memo_29.png',
+    'assets/avatars/memo_30.png',
+    'assets/avatars/memo_31.png',
+    'assets/avatars/memo_32.png',
+    'assets/avatars/memo_33.png',
+    'assets/avatars/memo_34.png',
+    'assets/avatars/memo_35.png',
   ];
 
   void _showEditUsernameDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
@@ -100,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         content: Wrap(
           spacing: 14,
           runSpacing: 14,
-          children: _availableAvatars.map((av) {
+          children: _availableAvatars.where((av) => av.startsWith('assets/avatars/')).map((av) {
             final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
             return InkWell(
               onTap: () async {
@@ -124,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 child: Center(
-                  child: Text(av, style: const TextStyle(fontSize: 28)),
+                  child: AvatarImage(avatar: av, size: 46),
                 ),
               ),
             );
@@ -224,9 +250,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ],
                               ),
                               child: Center(
-                                child: Text(
-                                  user?.avatar ?? provider.avatar,
-                                  style: const TextStyle(fontSize: 48),
+                                child: AvatarImage(
+                                  avatar: user?.avatar ?? provider.avatar,
+                                  size: 96,
                                 ),
                               ),
                             ),
@@ -449,7 +475,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // 1. Ilkinji ädim (First correct answer)
                 _buildAchievementCard(
-                  icon: LucideIcons.trophy,
+                  icon: Icons.emoji_events_rounded,
                   title: 'Ilkinji ädim',
                   desc: 'Ilkinji dogry jogabyňyzy beriň.',
                   current: min(provider.totalCorrectAnswers, 1),
@@ -459,7 +485,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // 2. 7 günlük seri (7-day streak)
                 _buildAchievementCard(
-                  icon: LucideIcons.flame,
+                  icon: Icons.local_fire_department_rounded,
                   title: '7 günlük seri',
                   desc: '7 gün yzly-yzyna oýun oýnaň.',
                   current: min(provider.streakDays, 7),
@@ -469,7 +495,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // 3. Paýhasly (100 correct answers)
                 _buildAchievementCard(
-                  icon: LucideIcons.brain,
+                  icon: Icons.psychology_rounded,
                   title: 'Paýhasly',
                   desc: '100 nakyla dogry jogap beriň.',
                   current: min(provider.totalCorrectAnswers, 100),
@@ -479,7 +505,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // 4. Nakyllar bilermeni (500 completed proverbs)
                 _buildAchievementCard(
-                  icon: LucideIcons.bookOpen,
+                  icon: Icons.menu_book_rounded,
                   title: 'Nakyllar bilermeni',
                   desc: '500 nakyly tamamlap çözüň.',
                   current: min(provider.completedQuestions, 500),
@@ -489,7 +515,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // 5. Kämillik (100 questions in a row)
                 _buildAchievementCard(
-                  icon: LucideIcons.award,
+                  icon: Icons.workspace_premium_rounded,
                   title: 'Kämillik',
                   desc: 'Yzly-yzyna 100 soraga dogry jogap beriň.',
                   current: min(provider.longestStreak, 100),
@@ -638,7 +664,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           const SizedBox(width: 10),
           Icon(
-            isUnlocked ? LucideIcons.star : LucideIcons.lock,
+            isUnlocked ? Icons.stars_rounded : Icons.lock_rounded,
             color: isUnlocked ? AppTheme.gold : Colors.white24,
             size: 24,
           ),

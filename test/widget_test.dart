@@ -9,7 +9,7 @@ void main() {
 
     // Verify Title & Subtitle in Turkmen
     expect(find.text('SÖZİ TAP'), findsOneWidget);
-    expect(find.text('Paýhasyňy syna!'), findsOneWidget);
+    expect(find.text('Akyl-ylmyňy syna!'), findsOneWidget);
 
     // Verify Main Action Buttons
     expect(find.text('OÝNA'), findsOneWidget);
