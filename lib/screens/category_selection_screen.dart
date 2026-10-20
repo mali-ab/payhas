@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
 import 'game_screen.dart';
@@ -16,19 +20,38 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   String _selectedCategory = 'Hemmesi';
   Difficulty _selectedDifficulty = Difficulty.easy;
 
-  final List<Map<String, String>> _categories = const [
-    {'name': 'Hemmesi', 'icon': '🌟', 'desc': 'Ähli ugurlar boýunça nakyllar'},
-    {'name': 'Maşgala', 'icon': '👨‍👩‍👧', 'desc': 'Öý-ojak, ata-ene we çagalar'},
-    {'name': 'Dostluk', 'icon': '🤝', 'desc': 'Agzybirlik, ynam we dostlar'},
-    {'name': 'Zähmet', 'icon': '💼', 'desc': 'Işjeňlik, hünär we bereket'},
-    {'name': 'Akyl-paýhas', 'icon': '🧠', 'desc': 'Danalyk we pähim-paýhas'},
-    {'name': 'Söýgi', 'icon': '❤️', 'desc': 'Watan, yşk we mähir'},
-    {'name': 'Bilim', 'icon': '📚', 'desc': 'Okamak, kitap we ylym'},
-    {'name': 'Durmuş', 'icon': '🌱', 'desc': 'Ýaşaýyş, tejribe we ömür'},
-    {'name': 'Adamçylyk', 'icon': '🗣️', 'desc': 'Edep-terbiýe we päklik'},
-    {'name': 'Üstünlik', 'icon': '🏆', 'desc': 'Ýeňiş, maksat we zähmet'},
-    {'name': 'Sabyr', 'icon': '⏳', 'desc': 'Çydamlylyk we kanagat'},
+  List<_Category> _categories = const [
+    _Category('Hemmesi', Icons.auto_awesome_rounded, 'Ähli soraglar'),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCategories();
+  }
+
+  Future<void> _loadCategories() async {
+    final raw = await rootBundle.loadString('assets/proverbs.json');
+    final items = jsonDecode(raw) as List<dynamic>;
+    final names =
+        items
+            .map(
+              (item) => (item as Map<String, dynamic>)['category'] as String?,
+            )
+            .whereType<String>()
+            .where((name) => name.trim().isNotEmpty)
+            .toSet()
+            .toList()
+          ..sort();
+    if (!mounted) return;
+    setState(() {
+      _categories = [
+        const _Category('Hemmesi', Icons.auto_awesome_rounded, 'Ähli soraglar'),
+        for (final name in names)
+          _Category(name, Icons.menu_book_rounded, 'Bu ugurdaky soraglar'),
+      ];
+    });
+  }
 
   void _startGame() {
     final provider = context.read<GameProvider>();
@@ -43,10 +66,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
         pageBuilder: (context, animation, secondaryAnimation) =>
             const GameScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            FadeTransition(
-          opacity: animation,
-          child: child,
-        ),
+            FadeTransition(opacity: animation, child: child),
         transitionDuration: const Duration(milliseconds: 350),
       ),
     );
@@ -179,37 +199,42 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                   itemCount: _categories.length,
                   itemBuilder: (context, index) {
                     final cat = _categories[index];
-                    final isSelected = _selectedCategory == cat['name'];
+                    final isSelected = _selectedCategory == cat.name;
 
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: InkWell(
                         onTap: () {
                           setState(() {
-                            _selectedCategory = cat['name']!;
+                            _selectedCategory = cat.name;
                           });
                         },
                         borderRadius: BorderRadius.circular(16),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 14),
+                            horizontal: 16,
+                            vertical: 14,
+                          ),
                           decoration: BoxDecoration(
                             color: isSelected
-                                ? AppTheme.accent.withValues(alpha: 0.22)
+                                ? AppTheme.primaryContainer
                                 : AppTheme.cardBg,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: isSelected
-                                  ? AppTheme.accentLight
+                                  ? AppTheme.primary
                                   : AppTheme.cardBorder,
                               width: isSelected ? 2 : 1,
                             ),
                           ),
                           child: Row(
                             children: [
-                              Text(
-                                cat['icon']!,
-                                style: const TextStyle(fontSize: 24),
+                              Icon(
+                                cat.icon,
+                                color: isSelected
+                                    ? AppTheme.primary
+                                    : AppTheme.textSecondary,
+                                size: 24,
                               ),
                               const SizedBox(width: 14),
                               Expanded(
@@ -217,10 +242,10 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      cat['name']!,
+                                      cat.name,
                                       style: TextStyle(
                                         color: isSelected
-                                            ? Colors.white
+                                            ? AppTheme.primaryDark
                                             : AppTheme.textPrimary,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
@@ -228,7 +253,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      cat['desc']!,
+                                      cat.description,
                                       style: const TextStyle(
                                         color: AppTheme.textSecondary,
                                         fontSize: 12,
@@ -240,7 +265,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                               if (isSelected)
                                 const Icon(
                                   Icons.check_circle_rounded,
-                                  color: AppTheme.accentLight,
+                                  color: AppTheme.primary,
                                   size: 22,
                                 ),
                             ],
@@ -254,8 +279,10 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
 
               // Start Button
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 child: SizedBox(
                   width: double.infinity,
                   height: 56,
@@ -281,7 +308,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                       ),
                       onPressed: _startGame,
                       child: const Text(
-                        'BAŞLA (20 Sorag)',
+                        'BAŞLA',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
@@ -317,9 +344,11 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon,
-                  size: 16,
-                  color: isSelected ? Colors.white : AppTheme.textSecondary),
+              Icon(
+                icon,
+                size: 16,
+                color: isSelected ? Colors.white : AppTheme.textSecondary,
+              ),
               const SizedBox(width: 6),
               Text(
                 title,
@@ -339,11 +368,19 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   String _getDifficultyDescription(Difficulty d) {
     switch (d) {
       case Difficulty.easy:
-        return '💡 Ýeňil: 4 sany saýlaw warianty berilýär.';
+        return 'Ýeňil: 4 sany saýlaw warianty berilýär.';
       case Difficulty.medium:
-        return '🧩 Orta: Berlen harplary basyp sözi düzmeli.';
+        return 'Orta: Jogabyň harplary we birnäçe artykmaç harp berilýär.';
       case Difficulty.hard:
-        return '✍️ Kyn: Ýitirilen sözi el bilen ýazmaly.';
+        return 'Kyn: Doly türkmen elipbiýinden jogaby özüňiz ýazmaly.';
     }
   }
+}
+
+class _Category {
+  const _Category(this.name, this.icon, this.description);
+
+  final String name;
+  final IconData icon;
+  final String description;
 }

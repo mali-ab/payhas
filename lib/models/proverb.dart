@@ -37,16 +37,18 @@ class Proverb {
     if (text.contains('___')) {
       return text.replaceAll('___', answer);
     }
-    return '$text $answer';
+    // Some data sets contain complete quiz questions instead of fill-in-the-
+    // blank proverbs. Do not append the answer to those questions.
+    return text;
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'proverb': text,
-        'answer': answer,
-        'options': options,
-        'category': category,
-        'difficulty': difficulty,
-        'explanation': explanation,
-      };
+    'id': id,
+    'proverb': text,
+    'answer': answer,
+    'options': options,
+    'category': category,
+    'difficulty': difficulty,
+    'explanation': explanation,
+  };
 }

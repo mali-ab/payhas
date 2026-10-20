@@ -24,7 +24,7 @@ class BrandMark extends StatelessWidget {
         ],
       ),
       clipBehavior: Clip.antiAlias,
-      child: Image.asset('assets/images/logo.jpeg', fit: BoxFit.cover),
+      child: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
     );
   }
 }

@@ -61,7 +61,7 @@ class AppUser {
         id: json['id'] as int,
         name: json['name'] as String,
         email: json['email'] as String,
-        avatar: (json['avatar'] as String?) ?? '🧑‍🎓',
+        avatar: (json['avatar'] as String?) ?? 'assets/avatars/memo_1.png',
         stats: json['stats'] is Map<String, dynamic>
             ? GameStats.fromJson(json['stats'] as Map<String, dynamic>)
             : null,

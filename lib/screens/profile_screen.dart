@@ -1,7 +1,9 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/game_provider.dart';
 import '../providers/auth_provider.dart';
 import 'auth_screen.dart';
@@ -52,9 +54,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
     'assets/avatars/memo_35.png',
   ];
 
-  void _showEditUsernameDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
+  void _showEditUsernameDialog(
+    BuildContext context,
+    GameProvider provider,
+    AuthProvider auth,
+  ) {
     if (!auth.isAuthenticated) return;
-    final controller = TextEditingController(text: auth.user?.name ?? provider.username);
+    final controller = TextEditingController(
+      text: auth.user?.name ?? provider.username,
+    );
 
     showDialog(
       context: context,
@@ -86,14 +94,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Ýatyr',
-                style: TextStyle(color: AppTheme.textSecondary)),
+            child: const Text(
+              'Ýatyr',
+              style: TextStyle(color: AppTheme.textSecondary),
+            ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.accent,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
             onPressed: () async {
               final newName = controller.text.trim();
@@ -104,15 +115,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               if (!ctx.mounted) return;
               Navigator.of(ctx).pop();
             },
-            child: const Text('Ýatda sakla',
-                style: TextStyle(color: Colors.white)),
+            child: const Text(
+              'Ýatda sakla',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
     );
   }
 
-  void _showAvatarSelectorDialog(BuildContext context, GameProvider provider, AuthProvider auth) {
+  void _showAvatarSelectorDialog(
+    BuildContext context,
+    GameProvider provider,
+    AuthProvider auth,
+  ) {
     if (!auth.isAuthenticated) return;
     showDialog(
       context: context,
@@ -123,38 +140,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
           'Awatar saýlaň',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
         ),
-        content: Wrap(
-          spacing: 14,
-          runSpacing: 14,
-          children: _availableAvatars.where((av) => av.startsWith('assets/avatars/')).map((av) {
-            final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
-            return InkWell(
-              onTap: () async {
-                final saved = await auth.updateProfile(avatar: av);
-                if (saved) await provider.setAvatar(av);
-                if (!ctx.mounted) return;
-                Navigator.of(ctx).pop();
-              },
-              borderRadius: BorderRadius.circular(16),
-              child: Container(
-                width: 54,
-                height: 54,
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? AppTheme.accent.withValues(alpha: 0.3)
-                      : AppTheme.cardBg,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: isSelected ? AppTheme.accentLight : AppTheme.cardBorder,
-                    width: isSelected ? 2 : 1,
+        content: SizedBox(
+          width: double.maxFinite,
+          height: 320,
+          child: GridView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 14,
+              childAspectRatio: 1,
+            ),
+            itemCount: _availableAvatars.length,
+            itemBuilder: (context, index) {
+              final av = _availableAvatars[index];
+              final isSelected = (auth.user?.avatar ?? provider.avatar) == av;
+              return InkWell(
+                onTap: () async {
+                  final saved = await auth.updateProfile(avatar: av);
+                  if (saved) await provider.setAvatar(av);
+                  if (!ctx.mounted) return;
+                  Navigator.of(ctx).pop();
+                },
+                borderRadius: BorderRadius.circular(16),
+                child: Container(
+                  width: 54,
+                  height: 54,
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? AppTheme.accent.withValues(alpha: 0.3)
+                        : AppTheme.cardBg,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: isSelected
+                          ? AppTheme.accentLight
+                          : AppTheme.cardBorder,
+                      width: isSelected ? 2 : 1,
+                    ),
                   ),
+                  child: Center(child: AvatarImage(avatar: av, size: 46)),
                 ),
-                child: Center(
-                  child: AvatarImage(avatar: av, size: 46),
-                ),
-              ),
-            );
-          }).toList(),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -207,15 +235,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const Spacer(),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 6),
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: AppTheme.gold.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                            color: AppTheme.gold.withValues(alpha: 0.4)),
+                          color: AppTheme.gold.withValues(alpha: 0.4),
+                        ),
                       ),
                       child: Text(
-                        '🪙 ${provider.coins}',
+                        '${provider.coins} teňňe',
                         style: const TextStyle(
                           color: AppTheme.gold,
                           fontWeight: FontWeight.w700,
@@ -235,42 +266,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Stack(
                         children: [
                           Container(
-                              width: 96,
-                              height: 96,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: AppTheme.accentGradient,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color:
-                                        AppTheme.accent.withValues(alpha: 0.4),
-                                    blurRadius: 26,
-                                    spreadRadius: 3,
-                                  ),
-                                ],
-                              ),
-                              child: Center(
-                                child: AvatarImage(
-                                  avatar: user?.avatar ?? provider.avatar,
-                                  size: 96,
+                            width: 96,
+                            height: 96,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: AppTheme.accentGradient,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppTheme.accent.withValues(alpha: 0.4),
+                                  blurRadius: 26,
+                                  spreadRadius: 3,
                                 ),
+                              ],
+                            ),
+                            child: Center(
+                              child: AvatarImage(
+                                avatar: user?.avatar ?? provider.avatar,
+                                size: 96,
                               ),
                             ),
+                          ),
                           if (canEditProfile)
                             Positioned(
                               bottom: 0,
                               right: 0,
                               child: GestureDetector(
-                                onTap: () =>
-                                    _showAvatarSelectorDialog(context, provider, auth),
-                                child: Container(
-                                padding: const EdgeInsets.all(6),
-                                decoration: const BoxDecoration(
-                                  color: AppTheme.accent,
-                                  shape: BoxShape.circle,
+                                onTap: () => _showAvatarSelectorDialog(
+                                  context,
+                                  provider,
+                                  auth,
                                 ),
-                                child: const Icon(LucideIcons.pencil,
-                                    size: 14, color: Colors.white),
+                                child: Container(
+                                  padding: const EdgeInsets.all(6),
+                                  decoration: const BoxDecoration(
+                                    color: AppTheme.accent,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    LucideIcons.pencil,
+                                    size: 14,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -293,8 +329,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           if (canEditProfile) ...[
                             const SizedBox(width: 8),
                             GestureDetector(
-                              onTap: () =>
-                                  _showEditUsernameDialog(context, provider, auth),
+                              onTap: () => _showEditUsernameDialog(
+                                context,
+                                provider,
+                                auth,
+                              ),
                               child: const Icon(
                                 LucideIcons.pencil,
                                 size: 18,
@@ -318,7 +357,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                       const SizedBox(height: 6),
                       if (user != null)
-                        Text(user.email, style: const TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
+                        Text(
+                          user.email,
+                          style: const TextStyle(
+                            color: AppTheme.textSecondary,
+                            fontSize: 13,
+                          ),
+                        ),
                       if (!canEditProfile)
                         const Padding(
                           padding: EdgeInsets.only(top: 6),
@@ -337,7 +382,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
                         decoration: AppTheme.glassMorphism.copyWith(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -355,7 +402,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                                 Text(
-                                  '${provider.xp % provider.xpToNextLevel} / ${provider.xpToNextLevel} XP',
+                                  provider.level >= 10
+                                      ? '${provider.xp} XP • Iň ýokary dereje'
+                                      : '${provider.xpIntoCurrentLevel} / ${provider.xpToNextLevel} XP',
                                   style: TextStyle(
                                     color: Colors.purple.shade200,
                                     fontSize: 12,
@@ -371,7 +420,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 value: provider.xpProgress.clamp(0.0, 1.0),
                                 backgroundColor: Colors.white10,
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                    Colors.purple.shade300),
+                                  Colors.purple.shade300,
+                                ),
                                 minHeight: 7,
                               ),
                             ),
@@ -583,7 +633,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: isUnlocked ? AppTheme.cardBg : Colors.white.withValues(alpha: 0.03),
+        color: isUnlocked
+            ? AppTheme.cardBg
+            : Colors.white.withValues(alpha: 0.03),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isUnlocked
@@ -606,7 +658,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Center(
               child: Icon(
                 icon,
-                color: isUnlocked ? AppTheme.gold : Colors.white30,
+                color: isUnlocked ? AppTheme.gold : AppTheme.textSecondary,
                 size: 22,
               ),
             ),
@@ -665,7 +717,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(width: 10),
           Icon(
             isUnlocked ? Icons.stars_rounded : Icons.lock_rounded,
-            color: isUnlocked ? AppTheme.gold : Colors.white24,
+            color: isUnlocked ? AppTheme.gold : Colors.white70,
             size: 24,
           ),
         ],
@@ -699,11 +751,7 @@ class _StatCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
-                icon,
-                color: valueColor ?? AppTheme.accentLight,
-                size: 17,
-              ),
+              Icon(icon, color: valueColor ?? AppTheme.accentLight, size: 17),
               const SizedBox(width: 6),
               Text(
                 title,

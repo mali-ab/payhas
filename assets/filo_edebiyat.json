@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "question": "Ferdöwsiniň meşhur eseri",
+    "answer": "“Şanama”",
+    "options": ["“Kutatgu-bilik”", "“Diwan Lugat at-türk”", "“Şanama”"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "question": "Dari I haýsy dessanda görkezilýär?",
+    "answer": "“Syrak” dessany",
+    "options": ["“Syrak” dessany", "“Su” dessany", "“Bozgurt”"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "question": "“Şu” dessanynyň gysgaça mazmuny haýsy akyldaryň işinde bize gelip ýetipdir?",
+    "answer": "Mahmyt Kaşgarlynyň işinde",
+    "options": [
+      "Mahmyt Kaşgarlynyň işinde",
+      "Ýusup Balasagunlynyň işinde",
+      "Ferdöwsiniň meşhur eserinde"
+    ],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "question": "Haýsy eserde Aşina döwletiniň döreýşi hakyndaky maglumat ýatlanylyp geçilýär?",
+    "answer": "“Bozgurt” dessany",
+    "options": ["“Bozgurt” dessany", "“Su” dessany", "“Syrak” dessany"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "question": "Türkmen halk döredijiligi žanyrlary eserleri boýunça näçä bölünýär?",
+    "answer": "3",
+    "options": ["2", "3", "4"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "question": "Ertekiler, rowaýatlar, şorta sözler, legendalar we birnäçe dessanlar (şygyr gatyşdyrylman döredilenler), ýaňyltmaçlar, ýomaklar sanalyp geçilenler  halk döredijiligň haýsy  görnüşine degişlidir?",
+    "answer": "Kyssa görnüşindäki eserlere",
+    "options": [
+      "Kyssa görnüşindäki eserlere",
+      "Kyssa hem şygyr görnüşindäki eserlere",
+      "Şygyr görnüşindäki eserlere"
+    ],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "question": "Läleler, hüwdiler, monjugatdylar, küştdepdiler, aýdymlar, tapmaçalar, şeýle hem belli bir derejede şygyr düzüliş alamatlaryny özünde saklaýan nakyllar, matallar, atalar sözi, ýarymezanlar sanalyp geçilenler  halk döredijiligň haýsy  görnüşine degişlidir?",
+    "answer": "Şygyr görnüşindäki eserlere",
+    "options": [
+      "Kyssa görnüşindäki eserlere",
+      "Kyssa hem şygyr görnüşindäki eserlere",
+      "Şygyr görnüşindäki eserlere"
+    ],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "question": "Nakyllar näçe sany maksatlardan peýdalanylýar?",
+    "answer": "4",
+    "options": ["2", "3", "4"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "question": "“Biseresap gepleseň, dildir başyň belasy”, “Dil bela-diş gala” haýsy formadaky nakyllara degişli?",
+    "answer": "Adamkärçilik mertebesi hakyndaky nakyllar",
+    "options": [
+      "Ýerlikli sözlemek, dogry söz hakyndaky nakyllar",
+      "Maşgala degişli nakyllar",
+      "Adamkärçilik mertebesi hakyndaky nakyllar"
+    ],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "“...Garry mama sanajyny kakýar...” halk döredijiligň haýsy  žanrna degişlidir?",
+    "answer": "Matallar",
+    "options": ["Matallar", "Sanawaçlar", "Nakyllar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "question": "“Ol ýerden bir towşan geçmekçimişin, geçip gumalaklamakçymyşyn. ...” halk döredijiligň haýsy  žanrna degişlidir?",
+    "answer": "Ýaňyltmaçlar",
+    "options": ["Ýaňyltmaçlar", "Sanawaçlar", "Nakyllar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "question": "Bagym-bagym, Janym bagym, Goýunlar nirede? Otluk dagda...” halk döredijiligň haýsy  žanrna degişlidir?",
+    "answer": "Sanawaçlar",
+    "options": ["Ýaňyltmaçlar", "Sanawaçlar", "Nakyllar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "question": "Halk döredijiligň haýsy žanrynda köplenç bahar aýlarynda, esasan-da Nowruzda – ýyl çalşygynda gelin-gyzlar tarapyndan döredilýän hem-de ýerine ýetirilýän yşky-söýgi häsiýetli bentlerdir.",
+    "answer": "Monjugatdylar",
+    "options": ["Monjugatdylar", "läleler", "Sanawaçlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "Gadymdan gelýän däp-dessur, bir zat niýet edilip tutulan däp. halk döredijiligň haýsy  žanrna degişlidir?",
+    "answer": "Yrymlar",
+    "options": ["Yrymlar", "Ertekiler", "Sanawaçlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 15,
+    "question": "Halk döredijiliginiň bu žanry gelin-gyzlaryň üýşüp ýa-da ýekelikde aýdýan aýdymydyr",
+    "answer": "Läleler",
+    "options": ["Monjugatdylar", "Läleler", "Sanawaçlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "question": "Anekdotlar haýsy halk döredijiligň haýsy žanryna degişli",
+    "answer": "şorta sözler",
+    "options": ["Ýomoklar", "şorta sözler", "anekdotlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 17,
+    "question": "Hojanasreddin Ependi, Myraly we Soltansöýün, Aldarköse ýaly adamlar  halk döredijiligň haýsy žanryna köp getirilýär?",
+    "answer": "şorta sözler",
+    "options": ["Ýomoklar", "şorta sözler", "anekdotlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "question": "ýiti sözli degişme, ýiti sözli aýdyşyk. halk döredijiligň haýsy žanryna degişli",
+    "answer": "Ýomoklar",
+    "options": ["Ýomoklar", "şorta sözler", "anekdotlar"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "question": "Dessanlar many-mazmunyny,sýužeti boýunça birnäçe görnüşden ybarat, näçe sany?",
+    "answer": "6",
+    "options": ["6", "8", "5"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "question": "“Seýpelmelek-Methaljemal” dessany.  Dessanyň haýsy žanryna degişli?",
+    "answer": "Yşky-hyýaly",
+    "options": ["Yşky-hyýaly", "Yşky-gahrymançylykly", "Yşky-durmuşy"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 21,
+    "question": "“Türki dilleriň diwany” sözlügini takmynan,näçinji ýyllar aralygynda ýazypdyr",
+    "answer": "1071-1074",
+    "options": ["1071-1074", "1072-1074", "1071-1076"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 22,
+    "question": "“Türki dilleriň diwany” sözlügini  näçe sahypadan ybarat?",
+    "answer": "638",
+    "options": ["638", "700", "653"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 23,
+    "question": "“Türki dilleriň diwany” sözlüginde Türkmenleriň näçe boýy tagmalary hakynda  maglumat berilýär.",
+    "answer": "24",
+    "options": ["24", "32", "18"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 24,
+    "question": "Ýusup Balasagunlynyň “Kutadgu bilig” eseri näçe bapdan durýar",
+    "answer": "73",
+    "options": ["73", "46", "57"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "question": "Ýusup Balasagunlynyň “Kutadgu bilig” Gündogdy atly hökümdaryň tarypyny edýän näçe bap",
+    "answer": "12",
+    "options": ["12", "32", "11"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 26,
+    "question": "Nesimi haýsy akymyna eýerip başlaýar",
+    "answer": "hurufyçylyk",
+    "options": ["hurufyçylyk", "sopyçylyk", "sufiýçylyk"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "question": "Hak – menem, Hak mendedir, enel – haky söýlerem –kimiň setirleri?",
+    "answer": "Nesimi",
+    "options": ["Nesimi", "Arslan Baba", "Hoja Ahmet Ýasawy"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 28,
+    "question": "Göroglynyň atasynyň ady?",
+    "answer": "Adybeg",
+    "options": ["Adybeg", "Röwşen", "Arab-reýhan"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 29,
+    "question": "Haýsy edebiýat işgäri Görogly barada giňişleýin işläpdir?",
+    "answer": "Mäti Kösäýew",
+    "options": ["Mäti Kösäýew", "Aman Kekilow", "Berdi Kerbabaýew"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  },
+  {
+    "id": 30,
+    "question": "Göroglynyň halypasynyň ady?",
+    "answer": "Jygalybeg",
+    "options": ["Adybeg", "Jygalybeg", "Röwşen"],
+    "category": "Edebiyat",
+    "difficulty": "easy"
+  }
+]

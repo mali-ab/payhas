@@ -497,7 +497,7 @@ class _CoinCounterState extends State<_CoinCounter> with SingleTickerProviderSta
           children: [
             Transform.rotate(
               angle: _rotationAnimation.value,
-              child: const Text('🪙', style: TextStyle(fontSize: 20)),
+              child: const Icon(Icons.monetization_on_rounded, color: Colors.amber, size: 20),
             ),
             const SizedBox(width: 6),
             Text(

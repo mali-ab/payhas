@@ -1,0 +1,1892 @@
+[
+  {
+    "id": 1,
+    "proverb": "Ata Watan aman bolsa, reňki-roýuň saman ______.",
+    "answer": "bolmaz",
+    "options": [
+      "bolmaz",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "bolmaz",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 2,
+    "proverb": "Atany söýen, Watany ______.",
+    "answer": "söýer",
+    "options": [
+      "söýer",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "söýer",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 3,
+    "proverb": "Atyny ýamanlanyň, ýol biýr jezasyn,Ilini ýamanlanyň, ýat biýr ______.",
+    "answer": "jezasyn",
+    "options": [
+      "jezasyn",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "jezasyn",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 4,
+    "proverb": "Barmagy «başga» diýme, bilegi - bir, Ili «başga» diýme, dilegi ______.",
+    "answer": "bir",
+    "options": [
+      "bir",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "bir",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 5,
+    "proverb": "Batyr aty bilen batyr, at batyry bilen ______.",
+    "answer": "at",
+    "options": [
+      "at",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "at",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 6,
+    "proverb": "Batyr başdan, ýüwrük ______.",
+    "answer": "aýakdan",
+    "options": [
+      "aýakdan",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "aýakdan",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 7,
+    "proverb": "Batyr bir öler, gorkak - ______.",
+    "answer": "müň",
+    "options": [
+      "müň",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "müň",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 8,
+    "proverb": "Batyr köpde ýow gaçyrar, pähim köpde - ______.",
+    "answer": "daw",
+    "options": [
+      "daw",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "daw",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 9,
+    "proverb": "Batyr söweşde belli, ýüwrük - ______.",
+    "answer": "ýaryşda",
+    "options": [
+      "ýaryşda",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýaryşda",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 10,
+    "proverb": "Batyra «batyr» diýmezler, jan saklana «batyr» ______.",
+    "answer": "diýerler",
+    "options": [
+      "diýerler",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "diýerler",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 11,
+    "proverb": "Batyra ýarag nä ______.",
+    "answer": "hajat",
+    "options": [
+      "hajat",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "hajat",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 12,
+    "proverb": "Batyrdan ölüm hem ______.",
+    "answer": "eýmenermiş",
+    "options": [
+      "eýmenermiş",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "eýmenermiş",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 13,
+    "proverb": "Batyrlyk bilekde däl, ______.",
+    "answer": "ýürekde",
+    "options": [
+      "ýürekde",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýürekde",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 14,
+    "proverb": "Batyry batyr eden gylyç bilen bilegi, Ýamany ýaman eden gara ýürek ______.",
+    "answer": "dilegi",
+    "options": [
+      "dilegi",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "dilegi",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 15,
+    "proverb": "Batyry men-menlik öldürer.Batyryň ýumrugy-da ______.",
+    "answer": "ýarag",
+    "options": [
+      "ýarag",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýarag",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 16,
+    "proverb": "Batyryň aýbyny açma, syryny ______.",
+    "answer": "ýaýma",
+    "options": [
+      "ýaýma",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýaýma",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 17,
+    "proverb": "Batyryň bezegi - ýüzüniň ______.",
+    "answer": "ýarasy",
+    "options": [
+      "ýarasy",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýarasy",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 18,
+    "proverb": "Batyr ýarasyz ______.",
+    "answer": "bolmaz",
+    "options": [
+      "bolmaz",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "bolmaz",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 19,
+    "proverb": "Bozulan işi batyr ______.",
+    "answer": "düzeder",
+    "options": [
+      "düzeder",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "düzeder",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Watançylyk barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 20,
+    "proverb": "Adam alasy içinde, haýwan alasy ______.",
+    "answer": "daşynda",
+    "options": [
+      "daşynda",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "daşynda",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 21,
+    "proverb": "Adam aşda belli, at - ______.",
+    "answer": "daşda",
+    "options": [
+      "daşda",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "daşda",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 22,
+    "proverb": "Adam balasy - iliň ______.",
+    "answer": "lälesi",
+    "options": [
+      "lälesi",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "lälesi",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 23,
+    "proverb": "Adam bar - gep bar, arpa bar - çöp ______.",
+    "answer": "bar",
+    "options": [
+      "bar",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bar",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 24,
+    "proverb": "Adam bar - gözden gyzar, adam bar - ______.",
+    "answer": "sözden",
+    "options": [
+      "sözden",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "sözden",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 25,
+    "proverb": "Adam bardyr, adamynyň nagşydyr, Adam bardyr, haýwan ondan ______.",
+    "answer": "ýagşydyr",
+    "options": [
+      "ýagşydyr",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "ýagşydyr",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 26,
+    "proverb": "Adam bir ýaşar, edebi - ______.",
+    "answer": "iki",
+    "options": [
+      "iki",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "iki",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 27,
+    "proverb": "Adam dilinden ______.",
+    "answer": "tapar",
+    "options": [
+      "tapar",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "tapar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 28,
+    "proverb": "Adam doga ýaman däl, dura ______.",
+    "answer": "ýaman",
+    "options": [
+      "ýaman",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "ýaman",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 29,
+    "proverb": "Adam edebinden tanalar, ýurt - ______.",
+    "answer": "tugundan",
+    "options": [
+      "tugundan",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "tugundan",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 30,
+    "proverb": "Adam eli hem abat, hem ______.",
+    "answer": "bibat",
+    "options": [
+      "bibat",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bibat",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 31,
+    "proverb": "Adam görki - akyl, söz görki - ______.",
+    "answer": "nakyl",
+    "options": [
+      "nakyl",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "nakyl",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 32,
+    "proverb": "Adam gulagyndan ______.",
+    "answer": "iglär",
+    "options": [
+      "iglär",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "iglär",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 33,
+    "proverb": "Adam hem düzer, hem ______.",
+    "answer": "bozar",
+    "options": [
+      "bozar",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bozar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 34,
+    "proverb": "Adam işden ölmez, igençden ______.",
+    "answer": "öler",
+    "options": [
+      "öler",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "öler",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 35,
+    "proverb": "Adam namartlasa, aty-da aýagyny ______.",
+    "answer": "ýitirer",
+    "options": [
+      "ýitirer",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "ýitirer",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 36,
+    "proverb": "Adam şatlansa-da hiňlener, ______.",
+    "answer": "gamlansa-da",
+    "options": [
+      "gamlansa-da",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "gamlansa-da",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 37,
+    "proverb": "Adam saýdym eşegi, gapa ýazdym ______.",
+    "answer": "düşegi",
+    "options": [
+      "düşegi",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "düşegi",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 38,
+    "proverb": "Adam ynanmaz sözi düz bolsa-da, ______.",
+    "answer": "sözleme",
+    "options": [
+      "sözleme",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "sözleme",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 39,
+    "proverb": "Adamdan emel ______.",
+    "answer": "gutulmaz",
+    "options": [
+      "gutulmaz",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "gutulmaz",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 40,
+    "proverb": "Adamyň eti haram bolsa-da, lebzi ______.",
+    "answer": "halal",
+    "options": [
+      "halal",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "halal",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 41,
+    "proverb": "Adamyň gahary - ýylanyň ______.",
+    "answer": "zäheri",
+    "options": [
+      "zäheri",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "zäheri",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 42,
+    "proverb": "Adamyň hormaty özüne ______.",
+    "answer": "bagly",
+    "options": [
+      "bagly",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bagly",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 43,
+    "proverb": "Adamyň iki gözi ______.",
+    "answer": "terezi",
+    "options": [
+      "terezi",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "terezi",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 44,
+    "proverb": "Adamyň ýuwhasy ýylanyň ýuwhasyndan ______.",
+    "answer": "beter",
+    "options": [
+      "beter",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "beter",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 45,
+    "proverb": "Adamyň ýüzüne gara-da, halyny ______.",
+    "answer": "sora",
+    "options": [
+      "sora",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "sora",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 46,
+    "proverb": "Adamynyň özüne bakma, sözüne ______.",
+    "answer": "bak",
+    "options": [
+      "bak",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bak",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 47,
+    "proverb": "Ady güwälik, sözi ______.",
+    "answer": "dogalyk",
+    "options": [
+      "dogalyk",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "dogalyk",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 48,
+    "proverb": "Ady ilde, orny ______.",
+    "answer": "törde",
+    "options": [
+      "törde",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "törde",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 49,
+    "proverb": "Adyl däl kişiniň aýagy synyk, gözi ______.",
+    "answer": "sokur",
+    "options": [
+      "sokur",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "sokur",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 50,
+    "proverb": "Agam bir hatyn aldy, dawany satyn ______.",
+    "answer": "aldy",
+    "options": [
+      "aldy",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "aldy",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 51,
+    "proverb": "Aganyň ala gözi, ýeňňäniň ajy ______.",
+    "answer": "sözi",
+    "options": [
+      "sözi",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "sözi",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 52,
+    "proverb": "Agaryp öňe-de düşme, garalyp soňa-da ______.",
+    "answer": "galma",
+    "options": [
+      "galma",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "galma",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 53,
+    "proverb": "Aglasy gelen oglan atasynyň sakgalyny ______.",
+    "answer": "oýnar",
+    "options": [
+      "oýnar",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "oýnar",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 54,
+    "proverb": "Aglaşman dynan ýok, ýykylman galan ______.",
+    "answer": "ýok",
+    "options": [
+      "ýok",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "ýok",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 55,
+    "proverb": "Agşam nanyny az iý, gyş gamyny ýaz ______.",
+    "answer": "iý",
+    "options": [
+      "iý",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "iý",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 56,
+    "proverb": "Agyly biriň maly bir, antly dostuň jany ______.",
+    "answer": "bir",
+    "options": [
+      "bir",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "bir",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Edep-terbiýe barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 57,
+    "proverb": "Adam aňyndan belli, kerwen - ______.",
+    "answer": "jaňyndan",
+    "options": [
+      "jaňyndan",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "jaňyndan",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 58,
+    "proverb": "Adam bilenini okar, towuk görenini ______.",
+    "answer": "çokar",
+    "options": [
+      "çokar",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "çokar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 59,
+    "proverb": "Adam göwnünde arslan ýatagy ______.",
+    "answer": "bar",
+    "options": [
+      "bar",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "bar",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 60,
+    "proverb": "Agzybirlik at getir, agzalalyk at ______.",
+    "answer": "ýitir",
+    "options": [
+      "ýitir",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "ýitir",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 61,
+    "proverb": "Akyl - ylmyň ______.",
+    "answer": "hyrydary",
+    "options": [
+      "hyrydary",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "hyrydary",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 62,
+    "proverb": "Akyl ýaşda däl, ______.",
+    "answer": "başda",
+    "options": [
+      "başda",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "başda",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 63,
+    "proverb": "Akyla garyp, gybata ______.",
+    "answer": "baý",
+    "options": [
+      "baý",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "baý",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 64,
+    "proverb": "Akylly ilçi il düzer, akmak ilçi il ______.",
+    "answer": "bozar",
+    "options": [
+      "bozar",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "bozar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 65,
+    "proverb": "Akylly kişä - yşarat bes, akylsyz kişä - aýdanyň ______.",
+    "answer": "hebes",
+    "options": [
+      "hebes",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "hebes",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 66,
+    "proverb": "Akylly aýnamaz, altyn ______.",
+    "answer": "çüýremez",
+    "options": [
+      "çüýremez",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "çüýremez",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 67,
+    "proverb": "Akyllynyň gepine git, biakylyň ______.",
+    "answer": "çepine",
+    "options": [
+      "çepine",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "çepine",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 68,
+    "proverb": "Akylyň bolsa, uzak ýola şöwiir et, Bilimiň bolsa, bilmedige ______.",
+    "answer": "öwret",
+    "options": [
+      "öwret",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "öwret",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 69,
+    "proverb": "Akyly öň, sabyry ______.",
+    "answer": "soň",
+    "options": [
+      "soň",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "soň",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 70,
+    "proverb": "Akylym bar - harjym ______.",
+    "answer": "bar",
+    "options": [
+      "bar",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "bar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 71,
+    "proverb": "Akylyň ýagşysy - ______.",
+    "answer": "dymmakdyr",
+    "options": [
+      "dymmakdyr",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "dymmakdyr",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 72,
+    "proverb": "Alym giil getirer, ary - ______.",
+    "answer": "bal",
+    "options": [
+      "bal",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "bal",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 73,
+    "proverb": "Alyma amal ______.",
+    "answer": "ýaraşar",
+    "options": [
+      "ýaraşar",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "ýaraşar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 74,
+    "proverb": "Aňymy alanyňdan, janymy ______.",
+    "answer": "al",
+    "options": [
+      "al",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "al",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 75,
+    "proverb": "Akmak kelleden akyl çykmaz, çyksa-da makul ______.",
+    "answer": "daçykmaz",
+    "options": [
+      "daçykmaz",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "daçykmaz",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 76,
+    "proverb": "Alym bolsaň, älem ______.",
+    "answer": "seniňki",
+    "options": [
+      "seniňki",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Bilim we hünär",
+    "missingWord": "seniňki",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Bilim we hünär barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 77,
+    "proverb": "Abadan kent tüssesinden ______.",
+    "answer": "belli",
+    "options": [
+      "belli",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "belli",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 78,
+    "proverb": "Abat öýüň bilbili, bibat öýüň ______.",
+    "answer": "baýguşy",
+    "options": [
+      "baýguşy",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "baýguşy",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 79,
+    "proverb": "Abraý diýeniň gyrkylan erkeçdir, gaçsa ______.",
+    "answer": "tutdurmaz",
+    "options": [
+      "tutdurmaz",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "tutdurmaz",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 80,
+    "proverb": "Abraý isleseň - köp diýme, saglyk isleseň - köp ______.",
+    "answer": "iýme",
+    "options": [
+      "iýme",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "iýme",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 81,
+    "proverb": "Abraýly ýigide ýaraly keýik ______.",
+    "answer": "sataşar",
+    "options": [
+      "sataşar",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "sataşar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 82,
+    "proverb": "Abraýy gaçandan gut ______.",
+    "answer": "gaçar",
+    "options": [
+      "gaçar",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "gaçar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 83,
+    "proverb": "Abraýy tapyp bolmaz, biabraýlyk duran ______.",
+    "answer": "ýeriňde",
+    "options": [
+      "ýeriňde",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "ýeriňde",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 84,
+    "proverb": "Aç aň bilmez, arryk ______.",
+    "answer": "höwür",
+    "options": [
+      "höwür",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "höwür",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 85,
+    "proverb": "Aç başym - dynç ______.",
+    "answer": "gulagym",
+    "options": [
+      "gulagym",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "gulagym",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 86,
+    "proverb": "Aç galandan, giç ______.",
+    "answer": "gal",
+    "options": [
+      "gal",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "gal",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 87,
+    "proverb": "Aç itiň guýrugyny arryk it ______.",
+    "answer": "ýalar",
+    "options": [
+      "ýalar",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "ýalar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 88,
+    "proverb": "Aç öleniň hem aýry mazary ______.",
+    "answer": "ýok",
+    "options": [
+      "ýok",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "ýok",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 89,
+    "proverb": "Aç ryzkyny kowalar, ýalaňaç öýe ______.",
+    "answer": "girer",
+    "options": [
+      "girer",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "girer",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 90,
+    "proverb": "Aç towuk düýşünde dary ______.",
+    "answer": "görer",
+    "options": [
+      "görer",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "görer",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 91,
+    "proverb": "Aç uklasa, düýşünde - nan, oýansa, huşunda - ______.",
+    "answer": "nan",
+    "options": [
+      "nan",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "nan",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 92,
+    "proverb": "Açda bolsaň aşyk etin iýmegin, Dok-da bolsaň topuk etin ______.",
+    "answer": "goýmagyn",
+    "options": [
+      "goýmagyn",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "goýmagyn",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 93,
+    "proverb": "Aç oglan dok oglan bilen oýnamaz, dok oglan aç boljagyny ______.",
+    "answer": "oýlamaz",
+    "options": [
+      "oýlamaz",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "oýlamaz",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 94,
+    "proverb": "Adamyň başy - Taňrynyň ______.",
+    "answer": "topy",
+    "options": [
+      "topy",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "topy",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 95,
+    "proverb": "Agadan ata bolmaz, ýeňňeden - ______.",
+    "answer": "eje",
+    "options": [
+      "eje",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "eje",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 96,
+    "proverb": "Agajy kesen paltanyň sapy ______.",
+    "answer": "agaçdan",
+    "options": [
+      "agaçdan",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "agaçdan",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 97,
+    "proverb": "Agaly iniň injisi başga, ekejili uýanyň sepi ______.",
+    "answer": "başga",
+    "options": [
+      "başga",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "başga",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 98,
+    "proverb": "Aşa çagyrsaň çagyr, ýurda ______.",
+    "answer": "çagyrma",
+    "options": [
+      "çagyrma",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "çagyrma",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 99,
+    "proverb": "Aş köp bolsa, kada ______.",
+    "answer": "köp",
+    "options": [
+      "köp",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "köp",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 100,
+    "proverb": "Aş saýlana atyňy soýup ______.",
+    "answer": "ber",
+    "options": [
+      "ber",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Durmuş paýhasy",
+    "missingWord": "ber",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Durmuş paýhasy barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 101,
+    "proverb": "Adam arrygy hor bolar, ýer arrygy - ______.",
+    "answer": "şor",
+    "options": [
+      "şor",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "şor",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 102,
+    "proverb": "Agaç barly bolsa, başy ______.",
+    "answer": "aşak",
+    "options": [
+      "aşak",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "aşak",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 103,
+    "proverb": "Agaç bolan ýerde pudak ______.",
+    "answer": "synar",
+    "options": [
+      "synar",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "synar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 104,
+    "proverb": "Agaç garrar, guş pudagyna bir ______.",
+    "answer": "gonar",
+    "options": [
+      "gonar",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "gonar",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 105,
+    "proverb": "Agaç gatysy soky ______.",
+    "answer": "bolar",
+    "options": [
+      "bolar",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "bolar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 106,
+    "proverb": "Agaç iýmişinden belli, adam - ______.",
+    "answer": "kylmyşyndan",
+    "options": [
+      "kylmyşyndan",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "kylmyşyndan",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 107,
+    "proverb": "Agaç miwesinden belli, adam - ______.",
+    "answer": "hilesinden",
+    "options": [
+      "hilesinden",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "hilesinden",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 108,
+    "proverb": "Agaç tutan ýeriňden ______.",
+    "answer": "döwülmez",
+    "options": [
+      "döwülmez",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "döwülmez",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 109,
+    "proverb": "Agaç ýamany gazyk bolar, tokmak ______.",
+    "answer": "iýer",
+    "options": [
+      "iýer",
+      "daşda",
+      "öler",
+      "dogalyk"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "iýer",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 110,
+    "proverb": "Agaç ýatgynyna ýatar, ýaman aslyna ______.",
+    "answer": "tartar",
+    "options": [
+      "tartar",
+      "ýaman",
+      "zäheri",
+      "ýok"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "tartar",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 111,
+    "proverb": "Agaç ýok ýerinde gamyşam ______.",
+    "answer": "agaç",
+    "options": [
+      "agaç",
+      "ýitirer",
+      "törde",
+      "hyrydary"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "agaç",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 112,
+    "proverb": "Agaç ýykylsa, paltaly-da ylgar, ______.",
+    "answer": "paltasyz-da",
+    "options": [
+      "paltasyz-da",
+      "bagly",
+      "iý",
+      "öwret"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "paltasyz-da",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 113,
+    "proverb": "Agajy içinden gurt ______.",
+    "answer": "iýer",
+    "options": [
+      "iýer",
+      "sokur",
+      "başda",
+      "daçykmaz"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "iýer",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 114,
+    "proverb": "Agajy ne jüre bolsa, miwesi hem şo ______.",
+    "answer": "jüre",
+    "options": [
+      "jüre",
+      "bir",
+      "soň",
+      "gaçar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "jüre",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 115,
+    "proverb": "Agajy ýaşlykda ______.",
+    "answer": "bük",
+    "options": [
+      "bük",
+      "baý",
+      "seniňki",
+      "girer"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "bük",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 116,
+    "proverb": "Agajyň pahnasy hem özünden ______.",
+    "answer": "öner",
+    "options": [
+      "öner",
+      "bar",
+      "ýeriňde",
+      "agaçdan"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "öner",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 117,
+    "proverb": "Aglap-aglap pel çeken, gülüp-gülüp suw ______.",
+    "answer": "tutar",
+    "options": [
+      "tutar",
+      "belli",
+      "görer",
+      "synar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "tutar",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 118,
+    "proverb": "Ajybalgaz çykdy, tebipleriň goly ______.",
+    "answer": "baglandy",
+    "options": [
+      "baglandy",
+      "höwür",
+      "başga",
+      "tartar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "baglandy",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 119,
+    "proverb": "Ajyksaň - çopan ýanyna bar, Suwsasaň - daýhan ______.",
+    "answer": "ýanyna",
+    "options": [
+      "ýanyna",
+      "nan",
+      "gonar",
+      "tutar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "ýanyna",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 120,
+    "proverb": "Ajyksaň ajy ______.",
+    "answer": "ek",
+    "options": [
+      "ek",
+      "çagyrma",
+      "agaç",
+      "garaldar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "ek",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 121,
+    "proverb": "Ajylykda burç ajy, burçdan-da borç ______.",
+    "answer": "ajy",
+    "options": [
+      "ajy",
+      "bolar",
+      "baglandy",
+      "at"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "ajy",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 122,
+    "proverb": "Ah et, wah et, öz işiňi özüň ______.",
+    "answer": "et",
+    "options": [
+      "et",
+      "paltasyz-da",
+      "doýmaz",
+      "eýmenermiş"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "et",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 123,
+    "proverb": "Ak ekine ýokardan, gök ekine ______.",
+    "answer": "akardan",
+    "options": [
+      "akardan",
+      "ýanyna",
+      "aýakdan",
+      "düzeder"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "akardan",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 124,
+    "proverb": "Ak gün - agardar, gara gün - ______.",
+    "answer": "garaldar",
+    "options": [
+      "garaldar",
+      "çagyryp",
+      "ýürekde",
+      "iki"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "garaldar",
+    "difficulty": "easy",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 125,
+    "proverb": "Akmaýa gaýmasa, gara ýer ______.",
+    "answer": "doýmaz",
+    "options": [
+      "doýmaz",
+      "müň",
+      "daşynda",
+      "bozar"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "doýmaz",
+    "difficulty": "medium",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  },
+  {
+    "id": 126,
+    "proverb": "Akrapgeler gygyryp, ýel-ýagmyryn ______.",
+    "answer": "çagyryp",
+    "options": [
+      "çagyryp",
+      "dilegi",
+      "tapar",
+      "halal"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "çagyryp",
+    "difficulty": "hard",
+    "explanation": "Bu nakyl Tebigat we zähmet barada oýlanmaga öwredýär."
+  }
+]

@@ -77,6 +77,18 @@ def init_db() -> None:
               points INTEGER NOT NULL,
               created_at INTEGER NOT NULL
             );
+            CREATE TABLE IF NOT EXISTS questions (
+              id INTEGER PRIMARY KEY,
+              proverb TEXT NOT NULL,
+              answer TEXT NOT NULL,
+              options_json TEXT NOT NULL,
+              category TEXT NOT NULL,
+              missing_word TEXT NOT NULL DEFAULT '',
+              difficulty TEXT NOT NULL DEFAULT 'easy',
+              explanation TEXT NOT NULL DEFAULT ''
+            );
+            CREATE INDEX IF NOT EXISTS idx_questions_category
+              ON questions(category);
         """)
         existing_columns = {
             row["name"] for row in conn.execute("PRAGMA table_info(player_stats)")
@@ -95,10 +107,40 @@ def init_db() -> None:
                     f"ALTER TABLE player_stats ADD COLUMN {column} INTEGER NOT NULL DEFAULT 0"
                 )
 
+        # Bootstrap a fresh local database once. After this import, the table
+        # is authoritative and can be managed independently of the app asset.
+        question_count = conn.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+        if question_count == 0:
+            source = Path(__file__).parent.parent / "assets" / "proverbs.json"
+            if source.exists():
+                for item in json.loads(source.read_text(encoding="utf-8")):
+                    conn.execute(
+                        """
+                        INSERT INTO questions(
+                          id, proverb, answer, options_json, category,
+                          missing_word, difficulty, explanation
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            item["id"], item["proverb"], item["answer"],
+                            json.dumps(item.get("options", []), ensure_ascii=False),
+                            item.get("category", ""), item.get("missingWord", ""),
+                            item.get("difficulty", "easy"), item.get("explanation", ""),
+                        ),
+                    )
 
-def questions() -> list[dict]:
-    source = Path(__file__).parent.parent / "assets" / "proverbs.json"
-    return json.loads(source.read_text(encoding="utf-8"))
+
+def serialize_question(row: sqlite3.Row) -> dict:
+    return {
+        "id": row["id"],
+        "proverb": row["proverb"],
+        "answer": row["answer"],
+        "options": json.loads(row["options_json"]),
+        "category": row["category"],
+        "missingWord": row["missing_word"],
+        "difficulty": row["difficulty"],
+        "explanation": row["explanation"],
+    }
 
 
 @app.on_event("startup")
@@ -180,19 +222,32 @@ def health() -> dict:
 
 @app.get("/questions")
 def get_questions(category: str | None = None, difficulty: str | None = None, count: int = 20) -> list[dict]:
-    items = questions()
-    matched = [item for item in items if (not category or item.get("category") == category) and (not difficulty or item.get("difficulty") == difficulty)]
-    # Return a useful quiz even if the requested category/difficulty is small.
-    by_id = {item["id"]: item for item in matched}
-    by_id.update({item["id"]: item for item in items})
-    return list(by_id.values())[:max(1, min(count, len(items)))]
+    clauses: list[str] = []
+    values: list[object] = []
+    if category:
+        clauses.append("category = ?")
+        values.append(category)
+    if difficulty:
+        clauses.append("difficulty = ?")
+        values.append(difficulty)
+    where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+    values.append(max(1, min(count, 100)))
+    with db() as conn:
+        rows = conn.execute(
+            f"SELECT * FROM questions {where} ORDER BY RANDOM() LIMIT ?", values
+        ).fetchall()
+    return [serialize_question(row) for row in rows]
 
 
 @app.get("/daily-challenges")
 def daily_challenge(count: int = 5) -> list[dict]:
-    items = questions()
-    start = date.today().toordinal() % len(items)
-    return [items[(start + index) % len(items)] for index in range(max(1, min(count, len(items))))]
+    with db() as conn:
+        rows = conn.execute("SELECT * FROM questions ORDER BY id").fetchall()
+    if not rows:
+        return []
+    start = date.today().toordinal() % len(rows)
+    amount = max(1, min(count, len(rows)))
+    return [serialize_question(rows[(start + index) % len(rows)]) for index in range(amount)]
 
 
 def period_start(period: str) -> int | None:

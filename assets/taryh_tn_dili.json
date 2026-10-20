@@ -1,0 +1,497 @@
+[
+  {
+    "id": 1,
+    "question": "Haçan Zakaspi harby bölüminiň naçalnigi Lomakin öz karary bilen Çat we Çekişler pristawlyklaryny döredýär?",
+    "answer": "1879 ý.",
+    "options": ["1879 ý.", "1878 ý.", "1965 ý.", "1881 ý."],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "question": "haçan Ahalteke uýezdi Aşgabat uýezdine öwrülýär?",
+    "answer": "1890 ý.",
+    "options": ["1890 ý.", "1875 ý.", "1878 ý.", "1965 ý."],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "question": "bu pristawlyklar haýsy uýezda degili",
+    "answer": "Çekişler, Garrygala",
+    "options": ["Çekişler, Garrygala", "Krasnowodsk", "Mangyşlak", "Mary"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "question": "1885-nji ýylda Buharada näme agentligi döredilýär?",
+    "answer": "Russiýa imperatrlyk syýasy agentligi",
+    "options": [
+      "Russiýa imperatrlyk syýasy agentligi",
+      "Russiýa patyşalyk syýasy agentligi",
+      "Russiýa imperatrlyk ykdysady agentligi",
+      "Russiýa gubernatorlyk syýasy agentligi"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "question": "Hywa türkmenleriniň gozgolaňlary 1914-nji ýylda başlanypdy. Şonda näme atly salgyt girizilýär?",
+    "answer": "At",
+    "options": ["At", "It", "adam", "gyz"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "question": "Eziz han Çapykow näçinji ýylda özüniň çynlakaý çaknyşyklaryna geçýär?",
+    "answer": "1916-njy ýyl",
+    "options": ["1916-njy ýyl", "1915-nji ýyl", "1917-nji ýyl", "1919-njy ýyl"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "question": "Jüneýit han näçinji ýylda Hywany eýeleýär?",
+    "answer": "1918-nji ýyl",
+    "options": ["1918-nji ýyl", "1914-nji ýyl", "1913-nji ýyl", "1920-nji ýyl"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "question": "Türkistan ASSR-niň MIK-niň karary bilen Zakaspi oblasty Türkmen oblasty diýlip atlandyryldy. Haçan?",
+    "answer": "1921 ý.",
+    "options": ["1921 ý.", "1922 ý.", "1923 ý.", "1920 ý."],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "question": "1920-nji ýylyň iýul aýynyň 29-na haýsy gazeti çykyp başlaýar?",
+    "answer": "Türkmenistan",
+    "options": ["Türkmenistan", "Mugallymlar", "Poltorask", "Arkadagly ýaşlar"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "Horezm Halk Sowet Respublikasy haçan döredilýär?",
+    "answer": "1920-nji ýyl",
+    "options": ["1920-nji ýyl", "1925-nji ýyl", "1923-nji ýyl", "1922-nji ýyl"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "question": "haçan Buhara Halk Sowet respublikasy diýlip jar edildi?",
+    "answer": "1920-nji ýyl",
+    "options": ["1920-nji ýyl", "1925-nji ýyl", "1923-nji ýyl", "1922-nji ýyl"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "question": "1932-nji ýylda haýsy ýokary okuw jaýy öz işine başlaýar?",
+    "answer": "Türkmen oba hojalyk instituty",
+    "options": [
+      "Türkmen oba hojalyk instituty",
+      "Türkmen mugallymçylyk instituty",
+      "Türkmen lukmançylyk instituty",
+      "sport turizm"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "question": "Mary-Gajar söweşinde türkmenlere kim ýolbaşçylyk edipdir?",
+    "answer": "Gowşut han",
+    "options": ["Gowşut han", "Nurberdi han", "Keýmir kör", "Hemze Mürze"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "“Gazawat gyrgynçylygy” haçan bolupdyr?",
+    "answer": "1873-nji ýylyň 7-24-nji iýulynda",
+    "options": [
+      "1873-nji ýylyň 7-24-nji iýulynda",
+      "1871-nji ýylyň 7-24-nji iýulynda",
+      "1871-nji ýylyň 24-26-njy iýulynda",
+      "1872-nji ýylyň 7-24-nji iýunynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 15,
+    "question": "Türkmenistanyň özygtyýarlylygy hakynda Jarnama haçan kabul edildi?",
+    "answer": "1990-njy ýylyň 22-nji awgustynda",
+    "options": [
+      "1990-njy ýylyň 22-nji awgustynda",
+      "1987-nji ýylyň 24-nji maýynda",
+      "1990-njy ýylyň 24-nji maýynda",
+      "1985-nji ýylyň 22-nji awgustynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "question": "General M. Skobelew “ýeňijileriň” paradyny haçan geçiripdir?",
+    "answer": "1881-nji ýylyň 13-nji ýanwarynda",
+    "options": [
+      "1881-nji ýylyň 13-nji ýanwarynda",
+      "1880-nji ýylyň 28-nji dekabrynda",
+      "1881-nji ýylyň 4-nji ýanwarynda",
+      "1881-nji ýylyň 12-nji ýanwarynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 17,
+    "question": "Gala üç tarapdan hüjüm etmek üçin rus goşunlaryna serkerdelik etmek kimlere tabşyrylypdyr?",
+    "answer": "Kurapatkine, Kozelkowa we Gaýdarowa",
+    "options": [
+      "Kurapatkine, Kozelkowa we Gaýdarowa",
+      "Kozelkowa, Skobelewe we Kaufmana",
+      "Lomakine, Morkozowa we Kaufmana",
+      "Galkine, Madritowa we Kurapatkine"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "question": "Birinji Ahalteke harby ekspedisiýasy Gökdepe galasyna haçan hüjüm edipdir?",
+    "answer": "1879-njy ýylyň 23 awgustynda",
+    "options": [
+      "1879-njy ýylyň 23 awgustynda",
+      "1878-nji ýylyň 28 awgustynda",
+      "1877-nji ýylyň 28 awgustynda",
+      "1897-nji ýylyň 23 ýanwarynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "question": "Daşköpri söweşi haçan bolýar?",
+    "answer": "1885-nji ýylyň 18-nji martynda",
+    "options": [
+      "1885-nji ýylyň 18-nji martynda",
+      "1885-nji ýylyň 13-nji ýanwar aýynda",
+      "1884-nji ýylyň 25-nji ýanwarynda",
+      "1884-nji ýylyň 1-nji ýanwarynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "question": "Eýrandan kimler 1728-1730-nji ýyllarda kowlup çykarylýar?",
+    "answer": "owganlar",
+    "options": ["owganlar", "hindiler", "türkler", "türkmenler"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 21,
+    "question": "Nedir Owganlar haçan boýun egdirilýär?",
+    "answer": "1728-1730ý",
+    "options": ["1728-1730ý", "1732ý", "1737-1739ý", "1736ý"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 22,
+    "question": "Türkmen taýpalarynyñ göçhä-göçlügi haçan tamamlanýar?",
+    "answer": "XIX",
+    "options": ["XIX", "XVIII", "XX", "XVII"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 23,
+    "question": "XVII-XVIII-asyrlarda Müñgyşlak Hywa aralygynda haýsy  türkmen taýpalary ýaşapdyrlar?",
+    "answer": "teke,ýomut,çowdur,salyr,ärsary",
+    "options": [
+      "teke,ýomut,çowdur,salyr,ärsary",
+      "ýomut,gökleň,hojalar,baýyndyr",
+      "oklylar,syýahpuşlar,aliler,igdir",
+      "alili, mehinli, sünçeli, mürçeli"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 24,
+    "question": "Garahanly türkmen döwletiniň ilkinji hökümdary kim?",
+    "answer": "Bilge Kül Kadyr",
+    "options": ["Bilge Kül Kadyr", "Bazar Arslan", "Bahadur han", "Alp tegin"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "question": "Hytaý taryhy çeşmelerinde görkezilişine görä Oguz döwletiniň adynyň „Ýabgu“ sözi näme manyny aňladýar?",
+    "answer": "hökümdar",
+    "options": ["hökümdar", "serdar", "beýik", "hanlaryň hany"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 26,
+    "question": "Gaznaly döwletiniň iň soňky hökümdary kim?",
+    "answer": "Hysrow Mälik",
+    "options": ["Hysrow Mälik", "Masut soltan", "Abdyl Raşit", "Mahmyt soltan"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "question": "Näçinji ýylda Togrul beg uly goşun bilen Bagdada gelýär?",
+    "answer": "1055ý",
+    "options": ["1055ý", "1066ý", "1043ý", "1063ý"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 28,
+    "question": "Togrul begiň söýgüli aýaly kim bolupdyr?",
+    "answer": "Altynjan",
+    "options": ["Altynjan", "Türkan hatyn", "Aýsona", "Hansoltan"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 29,
+    "question": "Soltan Sanjar özüniň 40 ýyl soltan bolan döwründe näçe ýylyny uruş bilen geçirýär?",
+    "answer": "19",
+    "options": ["19", "20", "18", "23"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 30,
+    "question": "Atabeglik ady ilkinji bolup kime dakylýar?",
+    "answer": "Nyzam al mülk",
+    "options": [
+      "Nyzam al mülk",
+      "Hemze Mürze",
+      "Nejmetdin Kubra",
+      "Ahmet ibn Tulyn"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 31,
+    "question": "Garagoýunly türkmen döwletini kim esaslandyrýar?",
+    "answer": "Baýram hoja",
+    "options": ["Baýram hoja", "Gara Mämmet", "Gara Ýusup", "Gara Ýülük Osman"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 32,
+    "question": "Akgoýunly döwletini gurujy kim?",
+    "answer": "Gara Ýülük",
+    "options": ["Gara Ýülük", "Uzyn hasan", "Argun han", "Jahan şa"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 33,
+    "question": "Horezm “Hywa hanlygy”diýip haçan atlandyrylyp başlanýar?",
+    "answer": "1646-njy ýyldan",
+    "options": [
+      "1646-njy ýyldan",
+      "1647-nji ýyldan",
+      "1643-nji ýyldan",
+      "1663-nji ýyldan"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 34,
+    "question": "1606-1611-nji ýyllarda haýsy taýpalar Astrabat häkimlerine garşy çykyş edýärler?",
+    "answer": "okly,gökleň",
+    "options": [
+      "okly,gökleň",
+      "ýomut,teke",
+      "salyrlar,syýahpuşlar",
+      "ärsarylar, igdirler"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 35,
+    "question": "Nedir kimi öldürensoň doly Horasanyň häkimi bolýar?",
+    "answer": "Mälik Mahmydy",
+    "options": [
+      "Mälik Mahmydy",
+      "Begenjaly begi",
+      "Muhammet Hasany",
+      "Tahmasp şa"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 36,
+    "question": "Ýaka türkmenlerine  türkmenleriñ haýsy taýpalary giripdir?",
+    "answer": "okly,gökleň,ýemreli,salyr,dodurga",
+    "options": [
+      "okly,gökleň,ýemreli,salyr,dodurga",
+      "ýomut,gökleň,hojalar",
+      "oklylar,syýahpuşlar,aliler",
+      "arsärylar, igdirler, söýünjaýylar"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 37,
+    "question": "Garry han haýsy türkmen taýpasynyñ serdary?",
+    "answer": "okly",
+    "options": ["okly", "ýomut", "syýahpuşlar", "teke"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 38,
+    "question": "Sefewiler döwletini kim esaslandyrýar?",
+    "answer": "Ysmaýyl şa",
+    "options": ["Ysmaýyl şa", "Tahmasp I", "Apbas I", "Süleýman şa"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 39,
+    "question": "Temirleň näçenji ýylda tutuş Maweranahry eýeleýär we patyşa bolýar?",
+    "answer": "1370",
+    "options": ["1370", "1365", "1372", "1388"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 40,
+    "question": "Aba serdaryň gozgalaňy näçenji ýyllarda bolýar?",
+    "answer": "1550-1558",
+    "options": ["1550-1558", "1550-1555", "1550-1557", "1550-1560"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 41,
+    "question": "Näçenji ýylda Abulgazy han Täze Ürgenç şäherini gurdurýar we paýtagty şol şähere geçirýär?",
+    "answer": "1646",
+    "options": ["1646", "1647", "1643", "1650"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 42,
+    "question": "Nedir şa Hindistandan ýöriş edip gelende ýany bilen haýsy göwher daşyny alyp gaýdýar?",
+    "answer": "Kohi nur",
+    "options": ["Kohi nur", "Derýa nur", "Tawus tagty", "Ýaşyl hakyk daşy"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 43,
+    "question": "Garrygala söweşi näçenji ýylda bolýar?",
+    "answer": "1858",
+    "options": ["1858", "1855", "1861", "1862"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 44,
+    "question": "Sarahs söweşi näçenji ýylda bolýar?",
+    "answer": "1855",
+    "options": ["1855", "1858", "1861", "1862"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 45,
+    "question": "B.e.öň 328-327-nji ýyllarda bolan halk gozgalaňyna kim ýolbaşçylyk edipdir?",
+    "answer": "Spitamen",
+    "options": [
+      "Spitamen",
+      "Baktriýanyň satraby Bess",
+      "Ariýniň satraby Satibarzan",
+      "Parslaryň patyşasy Gaumata (Ýalan Bardiýa)"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 46,
+    "question": "Aleksandr Makedonskiý haçan we näçe ýaşynda aradan çykýar?",
+    "answer": "B.e.öň 323 ýylda, 33 ýaşynda",
+    "options": [
+      "B.e.öň 323 ýylda, 33 ýaşynda",
+      "B.e.öň 324 ýylda, 31 ýaşynda",
+      "B.e.öň 325 ýylda, 30 ýaşynda",
+      "B.e.öň 336 ýylda, 20 ýaşynda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 47,
+    "question": "Beýik Parfiýa döwleti näçinji ýylda özbaşdaklygyny gazanýar?",
+    "answer": "B.e.öň 247 ýylda",
+    "options": [
+      "B.e.öň 247 ýylda",
+      "B.e.öň 241 ýylda",
+      "B.e.öň 250 ýylda",
+      "B.e.öň 224 ýylda"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 48,
+    "question": "Karry söweşinde Rim goşunlaryna kim serkerdelik edipdir?",
+    "answer": "Mark Krass",
+    "options": ["Mark Krass", "Korneliý Sulla", "Spartak", "Spitamen"],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 49,
+    "question": "Beýik Parfiýa döwletiniň Nusaýdan başga haýsy paýtagtlary bolupdyr?",
+    "answer": "Ekbatan,Ktesifon,Gekotompil",
+    "options": [
+      "Ekbatan,Ktesifon,Gekotompil",
+      "Änew,Goňurdepe,Persepol",
+      "Nusaý,Margiana,Gekotompil",
+      "Margiana,Nusaý,Ekbatan"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  },
+  {
+    "id": 50,
+    "question": "Beýik Parfiýa döwletini haýsy döwlet basyp alypdyr?",
+    "answer": "Sasanylar döwleti",
+    "options": [
+      "Sasanylar döwleti",
+      "Kuşan döwleti",
+      "Selewkiler döwleti",
+      "Grek- Baktriýa döwleti"
+    ],
+    "category": "Türkmen dili",
+    "difficulty": "easy"
+  }
+]

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../models/proverb.dart';
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
@@ -45,7 +46,7 @@ class _GameScreenState extends State<GameScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Row(
           children: [
-            Text('💔 ', style: TextStyle(fontSize: 22)),
+            Icon(Icons.heart_broken_rounded, color: AppTheme.wrong, size: 22),
             Text(
               'Janlaryňyz gutardy!',
               style: TextStyle(
@@ -67,13 +68,18 @@ class _GameScreenState extends State<GameScreen> {
             const SizedBox(height: 14),
             Row(
               children: [
-                const Text('Häzirki teňňäňiz: ',
-                    style: TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
-                Text('🪙 ${game.coins}',
-                    style: const TextStyle(
-                        color: AppTheme.gold,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14)),
+                const Text(
+                  'Häzirki teňňäňiz: ',
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 13),
+                ),
+                Text(
+                  '${game.coins} teňňe',
+                  style: const TextStyle(
+                    color: AppTheme.gold,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                ),
               ],
             ),
           ],
@@ -84,15 +90,18 @@ class _GameScreenState extends State<GameScreen> {
               Navigator.of(ctx).pop();
               game.advanceNext(); // finishes game
             },
-            child: const Text('Netijäni gör',
-                style: TextStyle(color: AppTheme.textSecondary)),
+            child: const Text(
+              'Netijäni gör',
+              style: TextStyle(color: AppTheme.textSecondary),
+            ),
           ),
           if (game.coins >= 50)
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.accent,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
               onPressed: () {
                 final success = game.refillLives(cost: 50);
@@ -101,8 +110,10 @@ class _GameScreenState extends State<GameScreen> {
                   game.advanceNext();
                 }
               },
-              child: const Text('50 teňňä jan al (❤️ x5)',
-                  style: TextStyle(color: Colors.white)),
+              child: const Text(
+                '50 teňňä jan al (❤️ x5)',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
         ],
       ),
@@ -130,12 +141,12 @@ class _GameScreenState extends State<GameScreen> {
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>
                     const ResultScreen(),
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) =>
-                        FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ),
+                transitionsBuilder: (
+                  context,
+                  animation,
+                  secondaryAnimation,
+                  child,
+                ) => FadeTransition(opacity: animation, child: child),
                 transitionDuration: const Duration(milliseconds: 350),
               ),
             );
@@ -166,7 +177,9 @@ class _GameScreenState extends State<GameScreen> {
                   // Top Navigation & Stats Bar
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 12),
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
                     child: Column(
                       children: [
                         Row(
@@ -203,14 +216,15 @@ class _GameScreenState extends State<GameScreen> {
                               children: List.generate(
                                 GameProvider.maxLives,
                                 (i) => Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 1.5),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 1.5,
+                                  ),
                                   child: Icon(
                                     Icons.favorite_rounded,
                                     size: 18,
                                     color: i < game.lives
                                         ? const Color(0xFFFF5252)
-                                        : Colors.white24,
+                                        : AppTheme.outlineVariant,
                                   ),
                                 ),
                               ),
@@ -220,7 +234,9 @@ class _GameScreenState extends State<GameScreen> {
                             // Coins Badge
                             Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
                               decoration: BoxDecoration(
                                 color: AppTheme.gold.withValues(alpha: 0.15),
                                 borderRadius: BorderRadius.circular(10),
@@ -229,7 +245,7 @@ class _GameScreenState extends State<GameScreen> {
                                 ),
                               ),
                               child: Text(
-                                '🪙 ${game.coins}',
+                                '${game.coins} teňňe',
                                 style: const TextStyle(
                                   color: AppTheme.gold,
                                   fontWeight: FontWeight.w800,
@@ -247,7 +263,9 @@ class _GameScreenState extends State<GameScreen> {
                           children: [
                             Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 3),
+                                horizontal: 8,
+                                vertical: 3,
+                              ),
                               decoration: BoxDecoration(
                                 color: AppTheme.cardBg,
                                 borderRadius: BorderRadius.circular(8),
@@ -264,7 +282,9 @@ class _GameScreenState extends State<GameScreen> {
                             const SizedBox(width: 6),
                             Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 3),
+                                horizontal: 8,
+                                vertical: 3,
+                              ),
                               decoration: BoxDecoration(
                                 color: AppTheme.cardBg,
                                 borderRadius: BorderRadius.circular(8),
@@ -282,8 +302,11 @@ class _GameScreenState extends State<GameScreen> {
                               const SizedBox(width: 8),
                               Row(
                                 children: [
-                                  const Icon(Icons.local_fire_department_rounded,
-                                      color: Colors.orange, size: 16),
+                                  const Icon(
+                                    Icons.local_fire_department_rounded,
+                                    color: Colors.orange,
+                                    size: 16,
+                                  ),
                                   Text(
                                     '${game.streak}x yzygiderli!',
                                     style: const TextStyle(
@@ -316,7 +339,8 @@ class _GameScreenState extends State<GameScreen> {
                             value: progress,
                             backgroundColor: AppTheme.cardBg,
                             valueColor: const AlwaysStoppedAnimation<Color>(
-                                AppTheme.accent),
+                              AppTheme.accent,
+                            ),
                             minHeight: 5,
                           ),
                         ),
@@ -341,7 +365,7 @@ class _GameScreenState extends State<GameScreen> {
                             child: Column(
                               children: [
                                 const Text(
-                                  'Nakyl:',
+                                  'Sorag:',
                                   style: TextStyle(
                                     color: AppTheme.textSecondary,
                                     fontSize: 13,
@@ -356,9 +380,10 @@ class _GameScreenState extends State<GameScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: game.awaitingContinue
-                                        ? (game.answerState == AnswerState.correct
-                                            ? const Color(0xFF81C784)
-                                            : const Color(0xFFFFB74D))
+                                        ? (game.answerState ==
+                                                  AnswerState.correct
+                                              ? const Color(0xFF81C784)
+                                              : const Color(0xFFFFB74D))
                                         : AppTheme.textPrimary,
                                     fontSize: 21,
                                     fontWeight: FontWeight.w700,
@@ -371,7 +396,7 @@ class _GameScreenState extends State<GameScreen> {
 
                           const SizedBox(height: 16),
 
-                          // Hints Toolbar (💡 Maslahat, 🔍 Bölek görkez, ❤️ Durmuş)
+                          // Hints toolbar
                           _buildHintsBar(context, game),
 
                           const SizedBox(height: 14),
@@ -392,7 +417,7 @@ class _GameScreenState extends State<GameScreen> {
 
                   // Bottom Feedback & Continue Area (When Answered)
                   if (game.awaitingContinue)
-                    _buildFeedbackBottomPanel(context, game, proverb)
+                    _buildFeedbackBottomPanel(context, game, proverb),
                 ],
               ),
             ),
@@ -419,41 +444,54 @@ class _GameScreenState extends State<GameScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              // 💡 Maslahat (Remove one wrong option)
+              // Maslahat (Remove one wrong option)
               _HintButton(
-                icon: '💡',
+                icon: Icons.lightbulb_outline_rounded,
                 label: 'Maslahat',
                 cost: 20,
-                isEnabled: game.coins >= 20 &&
+                isEnabled:
+                    game.coins >= 20 &&
                     game.difficulty == Difficulty.easy &&
                     game.removedOptions.length < 2,
                 onTap: () {
                   final ok = game.useHintRemoveWrong();
                   if (!ok) {
                     _showHintSnackbar(
-                        context, 'Ýeterlik teňňäňiz ýok (20 🪙 gerek)');
+                      context,
+                      'Ýeterlik teňňäňiz ýok (20 teňňe gerek)',
+                    );
                   }
                 },
               ),
 
-              // 🔍 Jogabyň bir bölegini görkez
+              // Jogabyň bir bölegini görkez
               _HintButton(
-                icon: '🔍',
+                icon: Icons.search_rounded,
                 label: 'Bölek görkez',
                 cost: 30,
                 isEnabled: game.coins >= 30 && game.revealedPart == null,
                 onTap: () {
                   final ok = game.useHintRevealPart();
+                  if (ok && game.difficulty == Difficulty.hard) {
+                    _textController.value = TextEditingValue(
+                      text: game.typedAnswer,
+                      selection: TextSelection.collapsed(
+                        offset: game.typedAnswer.length,
+                      ),
+                    );
+                  }
                   if (!ok) {
                     _showHintSnackbar(
-                        context, 'Ýeterlik teňňäňiz ýok (30 🪙 gerek)');
+                      context,
+                      'Ýeterlik teňňäňiz ýok (30 teňňe gerek)',
+                    );
                   }
                 },
               ),
 
               // ❤️ Durmuş (Restore one life)
               _HintButton(
-                icon: '❤️',
+                icon: Icons.favorite_outline_rounded,
                 label: 'Durmuş',
                 cost: 25,
                 isEnabled:
@@ -466,7 +504,9 @@ class _GameScreenState extends State<GameScreen> {
                   final ok = game.useHintRestoreLife();
                   if (!ok) {
                     _showHintSnackbar(
-                        context, 'Ýeterlik teňňäňiz ýok (25 🪙 gerek)');
+                      context,
+                      'Ýeterlik teňňäňiz ýok (25 teňňe gerek)',
+                    );
                   }
                 },
               ),
@@ -483,11 +523,14 @@ class _GameScreenState extends State<GameScreen> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.info_outline_rounded,
-                      color: AppTheme.accentLight, size: 16),
+                  const Icon(
+                    Icons.info_outline_rounded,
+                    color: AppTheme.accentLight,
+                    size: 16,
+                  ),
                   const SizedBox(width: 6),
                   Text(
-                    '🔍 Jogabyň başlangyjy: "${game.revealedPart}..."',
+                    'Jogabyň başlangyjy: "${game.revealedPart}..."',
                     style: const TextStyle(
                       color: AppTheme.accentLight,
                       fontWeight: FontWeight.w700,
@@ -525,27 +568,32 @@ class _GameScreenState extends State<GameScreen> {
               padding: const EdgeInsets.only(bottom: 10),
               child: Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.03),
+                  color: AppTheme.surfaceContainer,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.white10),
+                  border: Border.all(color: AppTheme.outlineVariant),
                 ),
                 child: Row(
                   children: [
                     Text(
                       option,
                       style: const TextStyle(
-                        color: Colors.white24,
+                        color: AppTheme.textTertiary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         decoration: TextDecoration.lineThrough,
                       ),
                     ),
                     const Spacer(),
-                    const Icon(Icons.block_rounded,
-                        color: Colors.white24, size: 18),
+                    const Icon(
+                      Icons.block_rounded,
+                      color: AppTheme.textTertiary,
+                      size: 18,
+                    ),
                   ],
                 ),
               ),
@@ -579,8 +627,10 @@ class _GameScreenState extends State<GameScreen> {
               borderRadius: BorderRadius.circular(16),
               child: Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
                 decoration: BoxDecoration(
                   color: bgColor,
                   borderRadius: BorderRadius.circular(16),
@@ -599,11 +649,17 @@ class _GameScreenState extends State<GameScreen> {
                       ),
                     ),
                     if (game.awaitingContinue && isCorrect)
-                      const Icon(Icons.check_circle_rounded,
-                          color: AppTheme.correct, size: 22),
+                      const Icon(
+                        Icons.check_circle_rounded,
+                        color: AppTheme.correct,
+                        size: 22,
+                      ),
                     if (game.awaitingContinue && isSelected && !isCorrect)
-                      const Icon(Icons.cancel_rounded,
-                          color: AppTheme.wrong, size: 22),
+                      const Icon(
+                        Icons.cancel_rounded,
+                        color: AppTheme.wrong,
+                        size: 22,
+                      ),
                   ],
                 ),
               ),
@@ -616,7 +672,7 @@ class _GameScreenState extends State<GameScreen> {
 
   // 2. Medium: Arrange scrambled letters
   Widget _buildMediumWordAssembly(GameProvider game) {
-    final targetLength = game.current!.answer.trim().length;
+    final targetLength = game.mediumTargetLength;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -663,8 +719,7 @@ class _GameScreenState extends State<GameScreen> {
             runSpacing: 8,
             children: List.generate(targetLength, (index) {
               final hasLetter = index < game.assembledLetters.length;
-              final letter =
-                  hasLetter ? game.assembledLetters[index] : '';
+              final letter = hasLetter ? game.assembledLetters[index] : '';
 
               return GestureDetector(
                 onTap: () {
@@ -678,10 +733,10 @@ class _GameScreenState extends State<GameScreen> {
                   decoration: BoxDecoration(
                     color: hasLetter
                         ? AppTheme.accent.withValues(alpha: 0.3)
-                        : Colors.white.withValues(alpha: 0.05),
+                        : AppTheme.surfaceContainer,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: hasLetter ? AppTheme.accentLight : Colors.white24,
+                      color: hasLetter ? AppTheme.primary : AppTheme.outline,
                       width: 1.5,
                     ),
                   ),
@@ -689,7 +744,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: Text(
                       letter,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppTheme.primaryDark,
                         fontSize: 22,
                         fontWeight: FontWeight.w800,
                       ),
@@ -721,11 +776,13 @@ class _GameScreenState extends State<GameScreen> {
                   height: 48,
                   decoration: BoxDecoration(
                     color: isUsed
-                        ? Colors.white10
+                        ? AppTheme.surfaceContainerHigh
                         : AppTheme.cardBg,
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: isUsed ? Colors.white12 : AppTheme.cardBorder,
+                      color: isUsed
+                          ? AppTheme.outlineVariant
+                          : AppTheme.cardBorder,
                       width: 1.5,
                     ),
                   ),
@@ -733,7 +790,9 @@ class _GameScreenState extends State<GameScreen> {
                     child: Text(
                       char,
                       style: TextStyle(
-                        color: isUsed ? Colors.white24 : AppTheme.textPrimary,
+                        color: isUsed
+                            ? AppTheme.textTertiary
+                            : AppTheme.textPrimary,
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                       ),
@@ -747,9 +806,43 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  // 3. Hard: Manual typing with Turkmen letter shortcuts
+  // 3. Hard: Manual typing with a complete in-game keyboard
   Widget _buildHardManualTyping(GameProvider game) {
-    const turkmenChars = ['ä', 'ç', 'ň', 'ö', 'ş', 'ü', 'ý'];
+    const keyboardRows = [
+      ['a', 'b', 'ç', 'd', 'e', 'ä', 'f', 'g', 'h'],
+      ['i', 'j', 'ž', 'k', 'l', 'm', 'n', 'ň', 'o', 'ö'],
+      ['p', 'r', 's', 'ş', 't', 'u', 'ü', 'w', 'y', 'ý', 'z'],
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'],
+    ];
+
+    void insert(String value) {
+      final selection = _textController.selection;
+      final start = selection.isValid
+          ? selection.start
+          : _textController.text.length;
+      final end = selection.isValid ? selection.end : start;
+      _textController.value = TextEditingValue(
+        text: _textController.text.replaceRange(start, end, value),
+        selection: TextSelection.collapsed(offset: start + value.length),
+      );
+      game.updateTypedAnswer(_textController.text);
+    }
+
+    void backspace() {
+      final selection = _textController.selection;
+      if (_textController.text.isEmpty) return;
+      final end = selection.isValid
+          ? selection.end
+          : _textController.text.length;
+      final start = selection.isValid && selection.start != selection.end
+          ? selection.start
+          : (end > 0 ? end - 1 : 0);
+      _textController.value = TextEditingValue(
+        text: _textController.text.replaceRange(start, end, ''),
+        selection: TextSelection.collapsed(offset: start),
+      );
+      game.updateTypedAnswer(_textController.text);
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -781,8 +874,10 @@ class _GameScreenState extends State<GameScreen> {
                   hintStyle: const TextStyle(color: AppTheme.textSecondary),
                   filled: true,
                   fillColor: AppTheme.cardBg,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 16,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: const BorderSide(color: AppTheme.cardBorder),
@@ -794,9 +889,12 @@ class _GameScreenState extends State<GameScreen> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: const BorderSide(
-                        color: AppTheme.accentLight, width: 2),
+                      color: AppTheme.accentLight,
+                      width: 2,
+                    ),
                   ),
                 ),
+                onChanged: game.updateTypedAnswer,
                 onSubmitted: (_) => _onHardSubmit(game),
               ),
             ),
@@ -813,11 +911,14 @@ class _GameScreenState extends State<GameScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 18),
                   ),
                   onPressed: () => _onHardSubmit(game),
-                  child: const Text('Barla',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 15)),
+                  child: const Text(
+                    'Barla',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -826,39 +927,50 @@ class _GameScreenState extends State<GameScreen> {
 
         const SizedBox(height: 14),
 
-        // Turkmen letter shortcut chips
+        // Complete Turkmen alphabet, numbers and answer punctuation.
         if (!game.awaitingContinue)
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: turkmenChars.map((ch) {
-              return InkWell(
-                onTap: () {
-                  _textController.text += ch;
-                  _textController.selection = TextSelection.fromPosition(
-                    TextPosition(offset: _textController.text.length),
-                  );
-                },
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: AppTheme.cardBg,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: AppTheme.cardBorder),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppTheme.surfaceContainer,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(color: AppTheme.outlineVariant),
+            ),
+            child: Column(
+              children: [
+                for (final row in keyboardRows) ...[
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 5,
+                    runSpacing: 5,
+                    children: row
+                        .map(
+                          (ch) =>
+                              _KeyboardKey(label: ch, onTap: () => insert(ch)),
+                        )
+                        .toList(),
                   ),
-                  child: Text(
-                    ch,
-                    style: const TextStyle(
-                      color: AppTheme.accentLight,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
+                  const SizedBox(height: 6),
+                ],
+                Row(
+                  children: [
+                    Expanded(
+                      child: _KeyboardKey(
+                        label: 'Boşluk',
+                        wide: true,
+                        onTap: () => insert(' '),
+                      ),
                     ),
-                  ),
+                    const SizedBox(width: 8),
+                    _KeyboardKey(
+                      icon: Icons.backspace_outlined,
+                      onTap: backspace,
+                    ),
+                  ],
                 ),
-              );
-            }).toList(),
+              ],
+            ),
           ),
       ],
     );
@@ -866,16 +978,17 @@ class _GameScreenState extends State<GameScreen> {
 
   // 4. Feedback Bottom Panel (Shows Dogry! / Nädogry!, completed proverb, and [ DOWAM ET ])
   Widget _buildFeedbackBottomPanel(
-      BuildContext context, GameProvider game, Proverb proverb) {
+    BuildContext context,
+    GameProvider game,
+    Proverb proverb,
+  ) {
     final isCorrect = game.answerState == AnswerState.correct;
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: isCorrect
-            ? const Color(0xFF14301D)
-            : const Color(0xFF331618),
+        color: isCorrect ? const Color(0xFF14301D) : const Color(0xFF331618),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(28),
           topRight: Radius.circular(28),
@@ -911,9 +1024,7 @@ class _GameScreenState extends State<GameScreen> {
                       : AppTheme.wrong.withValues(alpha: 0.25),
                 ),
                 child: Icon(
-                  isCorrect
-                      ? Icons.check_circle_rounded
-                      : Icons.cancel_rounded,
+                  isCorrect ? Icons.check_circle_rounded : Icons.cancel_rounded,
                   color: isCorrect ? AppTheme.correct : AppTheme.wrong,
                   size: 28,
                 ),
@@ -958,7 +1069,9 @@ class _GameScreenState extends State<GameScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
-              'Tamamlanan nakyl: “${proverb.completedText}”',
+              proverb.text.contains('___')
+                  ? 'Doly görnüşi: “${proverb.completedText}”'
+                  : 'Dogry jogap: ${proverb.answer}',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 13,
@@ -975,8 +1088,7 @@ class _GameScreenState extends State<GameScreen> {
             height: 52,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    isCorrect ? AppTheme.correct : AppTheme.wrong,
+                backgroundColor: isCorrect ? AppTheme.correct : AppTheme.wrong,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -1000,8 +1112,51 @@ class _GameScreenState extends State<GameScreen> {
   }
 }
 
+class _KeyboardKey extends StatelessWidget {
+  const _KeyboardKey({
+    this.label,
+    this.icon,
+    required this.onTap,
+    this.wide = false,
+  });
+
+  final String? label;
+  final IconData? icon;
+  final VoidCallback onTap;
+  final bool wide;
+
+  @override
+  Widget build(BuildContext context) => Material(
+    color: AppTheme.surface,
+    borderRadius: BorderRadius.circular(9),
+    child: InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(9),
+      child: Container(
+        constraints: BoxConstraints(minWidth: wide ? 110 : 34, minHeight: 38),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(9),
+          border: Border.all(color: AppTheme.outlineVariant),
+        ),
+        alignment: Alignment.center,
+        child: icon != null
+            ? Icon(icon, size: 18, color: AppTheme.primary)
+            : Text(
+                label!,
+                style: const TextStyle(
+                  color: AppTheme.textPrimary,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+      ),
+    ),
+  );
+}
+
 class _HintButton extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final String label;
   final int cost;
   final bool isEnabled;
@@ -1025,17 +1180,21 @@ class _HintButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: isEnabled
               ? AppTheme.accent.withValues(alpha: 0.15)
-              : Colors.white.withValues(alpha: 0.04),
+              : AppTheme.surfaceContainer,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: isEnabled
                 ? AppTheme.accent.withValues(alpha: 0.35)
-                : Colors.white10,
+                : AppTheme.outlineVariant,
           ),
         ),
         child: Row(
           children: [
-            Text(icon, style: const TextStyle(fontSize: 16)),
+            Icon(
+              icon,
+              size: 16,
+              color: isEnabled ? AppTheme.primary : AppTheme.textTertiary,
+            ),
             const SizedBox(width: 4),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1043,15 +1202,17 @@ class _HintButton extends StatelessWidget {
                 Text(
                   label,
                   style: TextStyle(
-                    color: isEnabled ? Colors.white : AppTheme.textSecondary,
+                    color: isEnabled
+                        ? AppTheme.primaryDark
+                        : AppTheme.textSecondary,
                     fontWeight: FontWeight.w700,
                     fontSize: 11,
                   ),
                 ),
                 Text(
-                  '$cost 🪙',
+                  '$cost teňňe',
                   style: TextStyle(
-                    color: isEnabled ? AppTheme.gold : Colors.white30,
+                    color: isEnabled ? AppTheme.gold : AppTheme.textTertiary,
                     fontWeight: FontWeight.w700,
                     fontSize: 10,
                   ),

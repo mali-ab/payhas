@@ -1,6 +1,8 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../models/proverb.dart';
 import '../models/app_user.dart';
 import '../data/proverb_repository.dart';
@@ -15,7 +17,7 @@ enum Difficulty {
 
 class GameProvider extends ChangeNotifier {
   GameProvider({required ProverbRepository proverbRepository})
-      : _proverbRepository = proverbRepository;
+    : _proverbRepository = proverbRepository;
 
   final ProverbRepository _proverbRepository;
   List<Proverb> _proverbs = [];
@@ -31,7 +33,7 @@ class GameProvider extends ChangeNotifier {
   int _totalWrongAnswers = 0;
   int _completedQuestions = 0;
   String _username = 'Myhman Oýunçy';
-  String _avatar = '🧑‍🎓';
+  String _avatar = 'assets/avatars/memo_1.png';
 
   int _level = 5;
   int _xp = 340;
@@ -56,7 +58,7 @@ class GameProvider extends ChangeNotifier {
 
   // For Medium difficulty (Arrange letters)
   List<String> _scrambledLetters = [];
-  List<String> _assembledLetters = [];
+  List<int> _assembledLetterIndices = [];
   List<bool> _letterUsed = [];
 
   // For Hard difficulty (Manual typing)
@@ -76,8 +78,9 @@ class GameProvider extends ChangeNotifier {
 
   // Getters
   List<Proverb> get proverbs => _proverbs;
-  Proverb? get current =>
-      (_proverbs.isEmpty || _index >= _proverbs.length) ? null : _proverbs[_index];
+  Proverb? get current => (_proverbs.isEmpty || _index >= _proverbs.length)
+      ? null
+      : _proverbs[_index];
   int get score => _score;
   int get streak => _streak;
   int get highScore => _highScore;
@@ -108,7 +111,11 @@ class GameProvider extends ChangeNotifier {
   String? get revealedPart => _revealedPart;
 
   List<String> get scrambledLetters => _scrambledLetters;
-  List<String> get assembledLetters => _assembledLetters;
+  List<String> get assembledLetters => _assembledLetterIndices
+      .map((index) => _scrambledLetters[index])
+      .toList(growable: false);
+  int get mediumTargetLength =>
+      current == null ? 0 : _mediumTarget(current!.answer).length;
   List<bool> get letterUsed => _letterUsed;
   String get typedAnswer => _typedAnswer;
 
@@ -118,24 +125,61 @@ class GameProvider extends ChangeNotifier {
   bool get dailyFinished => _dailyFinished;
   Proverb? get currentDaily =>
       (_dailyProverbs.isEmpty || _dailyIndex >= _dailyProverbs.length)
-          ? null
-          : _dailyProverbs[_dailyIndex];
+      ? null
+      : _dailyProverbs[_dailyIndex];
 
   bool get loading => _loading;
   bool get finished => _finished;
   int get total => _proverbs.length;
   int get currentIndex => _index;
 
-  int get xpToNextLevel => _level * 100;
-  double get xpProgress => (_xp % xpToNextLevel) / xpToNextLevel;
+  // Cumulative XP milestones. Each new level takes more sustained play than
+  // the previous one (20 XP is awarded for a correct normal-game answer).
+  static const List<int> _levelXpMilestones = [
+    0, // level 1
+    500, // level 2
+    1200, // level 3
+    2200, // level 4
+    3500, // level 5
+    5200, // level 6
+    7400, // level 7
+    10200, // level 8
+    13700, // level 9
+    18000, // level 10
+  ];
+
+  static int xpRequiredForLevel(int level) =>
+      _levelXpMilestones[(level - 1).clamp(0, _levelXpMilestones.length - 1)];
+
+  int get xpIntoCurrentLevel {
+    if (_level >= _levelXpMilestones.length) return 0;
+    return max(0, _xp - xpRequiredForLevel(_level));
+  }
+
+  int get xpToNextLevel {
+    if (_level >= _levelXpMilestones.length) return 0;
+    return xpRequiredForLevel(_level + 1) - xpRequiredForLevel(_level);
+  }
+
+  double get xpProgress {
+    if (_level >= _levelXpMilestones.length) return 1;
+    return (xpIntoCurrentLevel / xpToNextLevel).clamp(0.0, 1.0);
+  }
 
   String get levelTitle {
-    if (_level <= 2) return 'Başlangyç';
-    if (_level <= 4) return 'Synagçy';
-    if (_level <= 6) return 'Bilgir';
-    if (_level <= 8) return 'Paýhasly';
-    if (_level <= 10) return 'Alym';
-    return 'Danyşment';
+    const titles = [
+      'Başlangyç',
+      'Şägirt',
+      'Synagçy',
+      'Gözlegçi',
+      'Bilgir',
+      'Paýhasly',
+      'Danalyk',
+      'Alym',
+      'Halypa',
+      'Beýik Paýhas',
+    ];
+    return titles[(_level - 1).clamp(0, titles.length - 1)];
   }
 
   String get difficultyTitle {
@@ -165,7 +209,8 @@ class GameProvider extends ChangeNotifier {
     _level = prefs.getInt(_key('player_level')) ?? 1;
     _xp = prefs.getInt(_key('player_xp')) ?? 0;
 
-    final shouldBootstrapStats = !hasSavedStats ||
+    final shouldBootstrapStats =
+        !hasSavedStats ||
         (_totalScore == 0 &&
             _coins == 0 &&
             _xp == 0 &&
@@ -202,7 +247,7 @@ class GameProvider extends ChangeNotifier {
   Future<void> activateGuest() async {
     _storagePrefix = 'guest_';
     _username = 'Myhman Oýunçy';
-    _avatar = '🧑‍🎓';
+    _avatar = 'assets/avatars/memo_1.png';
     await init();
   }
 
@@ -247,7 +292,9 @@ class GameProvider extends ChangeNotifier {
 
     _proverbs = await _proverbRepository.getQuestions(
       category: _selectedCategory == 'Hemmesi' ? null : _selectedCategory,
-      difficulty: difficulty.name,
+      // Difficulty controls how the player answers. It is intentionally not a
+      // data filter, so every JSON question can be played in every mode.
+      difficulty: null,
       count: questionCount,
     );
 
@@ -277,24 +324,74 @@ class GameProvider extends ChangeNotifier {
     _shuffledOptions = List<String>.from(current!.options)..shuffle(Random());
 
     // Medium: Scrambled letters
-    final targetWord = current!.answer.toLowerCase().trim();
+    final targetWord = _mediumTarget(current!.answer);
     final letters = targetWord.split('');
-    const decoyPool = ['a', 'e', 'y', 'i', 'd', 's', 'r', 'l', 'ä', 'ň', 'ö', 'ü', 'ş'];
+    const decoyPool = [
+      'a',
+      'b',
+      'ç',
+      'd',
+      'e',
+      'ä',
+      'f',
+      'g',
+      'h',
+      'i',
+      'j',
+      'ž',
+      'k',
+      'l',
+      'm',
+      'n',
+      'ň',
+      'o',
+      'ö',
+      'p',
+      'r',
+      's',
+      'ş',
+      't',
+      'u',
+      'ü',
+      'w',
+      'y',
+      'ý',
+      'z',
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+    ];
     final rnd = Random();
-    while (letters.length < targetWord.length + 2) {
-      final extra = decoyPool[rnd.nextInt(decoyPool.length)];
+    final extraCount = targetWord.length < 5 ? 2 : 3;
+    while (letters.length < targetWord.length + extraCount) {
+      // Repeated decoys are valid and make the choice less predictable.
+      final answerLetters = targetWord.split('');
+      final useAnswerLetter = answerLetters.isNotEmpty && rnd.nextBool();
+      final extra = useAnswerLetter
+          ? answerLetters[rnd.nextInt(answerLetters.length)]
+          : decoyPool[rnd.nextInt(decoyPool.length)];
       letters.add(extra);
     }
     letters.shuffle(rnd);
     _scrambledLetters = letters;
     _letterUsed = List<bool>.filled(letters.length, false);
-    _assembledLetters = [];
+    _assembledLetterIndices = [];
 
     // Hard: empty typed answer
     _typedAnswer = '';
   }
 
-  // --- HINT 1: 💡 Maslahat (Remove one wrong option) ---
+  static String _mediumTarget(String value) =>
+      value.toLowerCase().replaceAll(RegExp(r'\s+'), '');
+
+  // HINT 1: Maslahat (Remove one wrong option)
   bool useHintRemoveWrong({int cost = 20}) {
     if (_coins < cost || current == null || _awaitingContinue) return false;
     final correctAnswer = current!.answer.toLowerCase().trim();
@@ -314,7 +411,7 @@ class GameProvider extends ChangeNotifier {
     return false;
   }
 
-  // --- HINT 2: 🔍 Jogabyň bir bölegini görkez (Reveal part of answer) ---
+  // HINT 2: Jogabyň bir bölegini görkez (Reveal part of answer)
   bool useHintRevealPart({int cost = 30}) {
     if (_coins < cost || current == null || _awaitingContinue) return false;
     final target = current!.answer;
@@ -344,7 +441,8 @@ class GameProvider extends ChangeNotifier {
   void selectOption(String option) {
     if (_answerState != AnswerState.idle || _awaitingContinue) return;
     _selectedOption = option;
-    final isCorrect = (option.toLowerCase().trim() == current!.answer.toLowerCase().trim());
+    final isCorrect =
+        (option.toLowerCase().trim() == current!.answer.toLowerCase().trim());
     _handleAnswerResult(isCorrect);
   }
 
@@ -354,39 +452,35 @@ class GameProvider extends ChangeNotifier {
     if (_letterUsed[index]) return;
 
     _letterUsed[index] = true;
-    _assembledLetters.add(_scrambledLetters[index]);
+    _assembledLetterIndices.add(index);
     notifyListeners();
 
-    if (_assembledLetters.length == current!.answer.trim().length) {
+    if (_assembledLetterIndices.length ==
+        _mediumTarget(current!.answer).length) {
       checkMediumAnswer();
     }
   }
 
   void removeAssembledLetter(int index) {
     if (_answerState != AnswerState.idle || _awaitingContinue) return;
-    if (index >= _assembledLetters.length) return;
+    if (index >= _assembledLetterIndices.length) return;
 
-    final letter = _assembledLetters.removeAt(index);
-    for (int i = 0; i < _scrambledLetters.length; i++) {
-      if (_scrambledLetters[i] == letter && _letterUsed[i]) {
-        _letterUsed[i] = false;
-        break;
-      }
-    }
+    final sourceIndex = _assembledLetterIndices.removeAt(index);
+    _letterUsed[sourceIndex] = false;
     notifyListeners();
   }
 
   void clearAssembledLetters() {
     if (_answerState != AnswerState.idle || _awaitingContinue) return;
-    _assembledLetters.clear();
+    _assembledLetterIndices.clear();
     _letterUsed = List<bool>.filled(_scrambledLetters.length, false);
     notifyListeners();
   }
 
   void checkMediumAnswer() {
     if (_answerState != AnswerState.idle || _awaitingContinue) return;
-    final assembled = _assembledLetters.join('').toLowerCase().trim();
-    final target = current!.answer.toLowerCase().trim();
+    final assembled = assembledLetters.join('').toLowerCase();
+    final target = _mediumTarget(current!.answer);
     final isCorrect = (assembled == target);
     _selectedOption = assembled;
     _handleAnswerResult(isCorrect);
@@ -485,7 +579,8 @@ class GameProvider extends ChangeNotifier {
   }
 
   void _checkLevelUp() {
-    if (_xp >= xpToNextLevel && _level < 10) {
+    while (_level < _levelXpMilestones.length &&
+        _xp >= xpRequiredForLevel(_level + 1)) {
       _level++;
       _coins += 25;
     }
@@ -529,6 +624,7 @@ class GameProvider extends ChangeNotifier {
   Future<void> claimDailyChallengeReward() async {
     _coins += 50;
     _xp += 100;
+    _checkLevelUp();
     _totalScore += 50;
     _streakDays++;
     if (_streakDays > _longestStreak) {
@@ -563,9 +659,6 @@ class GameProvider extends ChangeNotifier {
   }
 
   Future<void> restart() async {
-    await startNewGame(
-      category: _selectedCategory,
-      difficulty: _difficulty,
-    );
+    await startNewGame(category: _selectedCategory, difficulty: _difficulty);
   }
 }

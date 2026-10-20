@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
 
@@ -18,70 +19,71 @@ class LevelsScreen extends StatelessWidget {
       'level': 2,
       'title': 'Şägirt',
       'desc': 'Aňyňy we pikiriňi ösdür',
-      'requiredScore': 200,
+      'requiredScore': 500,
       'stars': 3,
     },
     {
       'level': 3,
       'title': 'Synagçy',
       'desc': 'Kynrak nakyllaryň synagy',
-      'requiredScore': 500,
+      'requiredScore': 1200,
       'stars': 3,
     },
     {
       'level': 4,
       'title': 'Gözlegçi',
       'desc': 'Çuňňur manyly sözler',
-      'requiredScore': 800,
+      'requiredScore': 2200,
       'stars': 3,
     },
     {
       'level': 5,
       'title': 'Bilgir',
       'desc': 'Diliň baýlygyna düşünýän',
-      'requiredScore': 1200,
+      'requiredScore': 3500,
       'stars': 2,
     },
     {
       'level': 6,
       'title': 'Paýhasly',
       'desc': 'Kämilleşen söz ussady',
-      'requiredScore': 1600,
+      'requiredScore': 5200,
       'stars': 0,
     },
     {
       'level': 7,
       'title': 'Danalyk',
       'desc': 'Halk döredijiliginiň bilermeni',
-      'requiredScore': 2000,
+      'requiredScore': 7400,
       'stars': 0,
     },
     {
       'level': 8,
       'title': 'Alym',
       'desc': 'Ýokary derejeli paýhas eýesi',
-      'requiredScore': 2500,
+      'requiredScore': 10200,
       'stars': 0,
     },
     {
       'level': 9,
-      'title': 'Danyşment',
+      'title': 'Halypa',
       'desc': 'Söz sungatynyň ussady',
-      'requiredScore': 3200,
+      'requiredScore': 13700,
       'stars': 0,
     },
     {
       'level': 10,
       'title': 'Beýik Paýhas',
       'desc': 'Iň ýokary mertebe',
-      'requiredScore': 4000,
+      'requiredScore': 18000,
       'stars': 0,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    final currentLevel = context.watch<GameProvider>().level;
+    final game = context.watch<GameProvider>();
+    final currentLevel = game.level;
 
     return Scaffold(
       body: Container(
@@ -171,9 +173,11 @@ class LevelsScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 4),
-                            const Text(
-                              'Nakyllary çözüp täze derejeleri açyň!',
-                              style: TextStyle(
+                            Text(
+                              currentLevel >= 10
+                                  ? '${game.xp} XP • Iň ýokary dereje'
+                                  : '${game.xpIntoCurrentLevel} / ${game.xpToNextLevel} XP indiki derejä',
+                              style: const TextStyle(
                                 color: Colors.white70,
                                 fontSize: 13,
                               ),
@@ -191,8 +195,10 @@ class LevelsScreen extends StatelessWidget {
               // Levels List
               Expanded(
                 child: ListView.builder(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 8,
+                  ),
                   itemCount: _levels.length,
                   itemBuilder: (context, index) {
                     final item = _levels[index];
@@ -212,8 +218,8 @@ class LevelsScreen extends StatelessWidget {
                           color: isCurrent
                               ? AppTheme.accent
                               : (isUnlocked
-                                  ? AppTheme.cardBorder
-                                  : Colors.white10),
+                                    ? AppTheme.cardBorder
+                                    : Colors.white10),
                           width: isCurrent ? 2 : 1.2,
                         ),
                       ),
@@ -226,15 +232,19 @@ class LevelsScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               gradient: isUnlocked
                                   ? (isCurrent
-                                      ? AppTheme.accentGradient
-                                      : const LinearGradient(colors: [
-                                          Color(0xFF388E3C),
-                                          Color(0xFF66BB6A)
-                                        ]))
-                                  : const LinearGradient(colors: [
-                                      Color(0xFF424242),
-                                      Color(0xFF616161)
-                                    ]),
+                                        ? AppTheme.accentGradient
+                                        : const LinearGradient(
+                                            colors: [
+                                              Color(0xFF388E3C),
+                                              Color(0xFF66BB6A),
+                                            ],
+                                          ))
+                                  : const LinearGradient(
+                                      colors: [
+                                        Color(0xFF424242),
+                                        Color(0xFF616161),
+                                      ],
+                                    ),
                             ),
                             child: Center(
                               child: isUnlocked
@@ -274,11 +284,14 @@ class LevelsScreen extends StatelessWidget {
                                       const SizedBox(width: 8),
                                       Container(
                                         padding: const EdgeInsets.symmetric(
-                                            horizontal: 8, vertical: 2),
+                                          horizontal: 8,
+                                          vertical: 2,
+                                        ),
                                         decoration: BoxDecoration(
                                           color: AppTheme.accent,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
                                         ),
                                         child: const Text(
                                           'Häzirki',
@@ -300,6 +313,17 @@ class LevelsScreen extends StatelessWidget {
                                     fontSize: 12,
                                   ),
                                 ),
+                                if (!isUnlocked) ...[
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    '${item['requiredScore']} XP gerek',
+                                    style: const TextStyle(
+                                      color: AppTheme.gold,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
                               ],
                             ),
                           ),

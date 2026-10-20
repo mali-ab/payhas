@@ -128,7 +128,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                             color: AppTheme.gold.withValues(alpha: 0.4)),
                       ),
                       child: Text(
-                        '🪙 ${provider.coins}',
+                        '${provider.coins} teňňe',
                         style: const TextStyle(
                           color: AppTheme.gold,
                           fontWeight: FontWeight.w700,
@@ -187,7 +187,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              'Sorag ${provider.dailyIndex + 1} / 5 • 🔥 ${provider.streakDays} gün yzygiderlilik',
+                              'Sorag ${provider.dailyIndex + 1} / 5 • ${provider.streakDays} gün yzygiderlilik',
                               style: const TextStyle(
                                 color: Colors.white70,
                                 fontSize: 12,
@@ -372,7 +372,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
     );
   }
 
-  // Completion Reward Screen (🎉 Gutlaýarys! +100 XP, +50 🪙)
+  // Completion reward screen
   Widget _buildCompletionRewardScreen(GameProvider provider) {
     return Scaffold(
       body: Container(
@@ -402,9 +402,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                       ),
                     ],
                   ),
-                  child: const Center(
-                    child: Text('🎉', style: TextStyle(fontSize: 54)),
-                  ),
+                  child: const Center(child: Icon(Icons.celebration_rounded, color: Colors.white, size: 54)),
                 ),
 
                 const SizedBox(height: 24),
@@ -431,7 +429,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
 
                 const SizedBox(height: 32),
 
-                // Rewards Card (+100 XP, +50 🪙)
+                // Rewards card
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(24),
@@ -451,12 +449,12 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           _RewardBadge(
-                            icon: '⭐',
+                            icon: Icons.star_rounded,
                             value: '+100 XP',
                             color: Colors.purple.shade300,
                           ),
                           _RewardBadge(
-                            icon: '🪙',
+                            icon: Icons.monetization_on_rounded,
                             value: '+50 teňňe',
                             color: AppTheme.gold,
                           ),
@@ -470,7 +468,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                               color: Colors.orange, size: 22),
                           const SizedBox(width: 8),
                           Text(
-                            '🔥 ${provider.streakDays} gün yzygiderlilik gazandyňyz!',
+                            '${provider.streakDays} gün yzygiderlilik gazandyňyz!',
                             style: const TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.w700,
@@ -568,7 +566,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Siz şu günki 5 nakyly üstünlikli çözdüňiz.\n🔥 ${provider.streakDays} gün yzygiderlilik dowam edýär.\nErtir täze synag açylar!',
+                  'Siz şu günki 5 nakyly üstünlikli çözdüňiz.\n${provider.streakDays} gün yzygiderlilik dowam edýär.\nErtir täze synag açylar!',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: AppTheme.textSecondary,
@@ -609,7 +607,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
 }
 
 class _RewardBadge extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final String value;
   final Color color;
 
@@ -630,7 +628,7 @@ class _RewardBadge extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(icon, style: const TextStyle(fontSize: 20)),
+          Icon(icon, color: color, size: 20),
           const SizedBox(width: 8),
           Text(
             value,

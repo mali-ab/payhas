@@ -39,15 +39,6 @@ class LocalProverbRepository implements ProverbRepository {
       return categoryMatches && difficultyMatches;
     }).toList();
 
-    // A short category should still start instantly. Fill from the local pool
-    // while retaining all matching questions first.
-    if (matches.length < count) {
-      final fallback = all
-          .where((question) => !matches.any((item) => item.id == question.id))
-          .toList()
-        ..shuffle(Random());
-      matches.addAll(fallback.take(count - matches.length));
-    }
     matches.shuffle(Random());
     return matches.take(count).toList(growable: false);
   }

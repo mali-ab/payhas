@@ -19,14 +19,21 @@ dependencies:
   lucide_flutter: ^1.47.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/images/logo.png"
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/proverbs.json
-    - assets/images/logo.jpeg
+    - assets/filo_edebiyat.json
+    - assets/taryh_tn_dili.json
+    - assets/images/logo.png
     - assets/avatars/

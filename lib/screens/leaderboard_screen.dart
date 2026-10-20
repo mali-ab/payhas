@@ -124,21 +124,21 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
   Widget _podium(List<LeaderboardEntry> top) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
-      _podiumItem(top[1], '🥈', 105, const Color(0xFFB0BEC5)),
+      _podiumItem(top[1], Icons.workspace_premium_rounded, 105, const Color(0xFFB0BEC5)),
       const SizedBox(width: 10),
-      _podiumItem(top[0], '🥇', 130, AppTheme.gold),
+      _podiumItem(top[0], Icons.emoji_events_rounded, 130, AppTheme.gold),
       const SizedBox(width: 10),
-      _podiumItem(top[2], '🥉', 90, const Color(0xFFCD7F32)),
+      _podiumItem(top[2], Icons.workspace_premium_rounded, 90, const Color(0xFFCD7F32)),
     ]),
   );
 
-  Widget _podiumItem(LeaderboardEntry entry, String medal, double height, Color color) => Expanded(
+  Widget _podiumItem(LeaderboardEntry entry, IconData medal, double height, Color color) => Expanded(
     child: Column(children: [
       AvatarImage(avatar: entry.avatar, size: 32),
       Text(entry.name.split(' ').first, overflow: TextOverflow.ellipsis, style: const TextStyle(color: AppTheme.textPrimary, fontSize: 12, fontWeight: FontWeight.w700)),
       Text('⭐ ${entry.score}', style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w800)),
       const SizedBox(height: 6),
-      Container(height: height, alignment: Alignment.center, decoration: BoxDecoration(color: color.withValues(alpha: .16), borderRadius: const BorderRadius.vertical(top: Radius.circular(16)), border: Border.all(color: color)), child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [Text(medal, style: const TextStyle(fontSize: 27)), Text('${entry.level} dereje', style: const TextStyle(color: AppTheme.textSecondary, fontSize: 11))])),
+      Container(height: height, alignment: Alignment.center, decoration: BoxDecoration(color: color.withValues(alpha: .16), borderRadius: const BorderRadius.vertical(top: Radius.circular(16)), border: Border.all(color: color)), child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [Icon(medal, color: color, size: 27), Text('${entry.level} dereje', style: const TextStyle(color: AppTheme.textSecondary, fontSize: 11))])),
     ]),
   );
 

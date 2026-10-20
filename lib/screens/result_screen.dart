@@ -34,12 +34,12 @@ class _ResultScreenState extends State<ResultScreen>
   }
 
   String _getMessage(int correct, int total) {
-    if (total == 0) return 'Gowy synanyşyk! 👏';
+    if (total == 0) return 'Gowy synanyşyk!';
     final ratio = correct / total;
-    if (ratio >= 0.85) return 'Ajaýyp! 🎉';
-    if (ratio >= 0.6) return 'Gowy netije! 👏';
-    if (ratio >= 0.35) return 'Dowam et! 💪';
-    return 'Gaýrat et! 📚';
+    if (ratio >= 0.85) return 'Ajaýyp!';
+    if (ratio >= 0.6) return 'Gowy netije!';
+    if (ratio >= 0.35) return 'Dowam et!';
+    return 'Gaýrat et!';
   }
 
   @override
@@ -112,13 +112,13 @@ class _ResultScreenState extends State<ResultScreen>
                       border: Border.all(
                           color: AppTheme.gold.withValues(alpha: 0.5)),
                     ),
-                    child: const Text(
-                      '🏆 Täze rekord!',
-                      style: TextStyle(
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [Icon(Icons.emoji_events_rounded, color: AppTheme.gold, size: 17), SizedBox(width: 6), Text('Täze rekord!', style: TextStyle(
                         color: AppTheme.gold,
                         fontWeight: FontWeight.w700,
                         fontSize: 13,
-                      ),
+                      ))],
                     ),
                   ),
                 ],

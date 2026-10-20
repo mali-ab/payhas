@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_flutter/lucide_flutter.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/game_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/brand_mark.dart';
@@ -9,6 +10,7 @@ import 'daily_question_screen.dart';
 import 'levels_screen.dart';
 import 'leaderboard_screen.dart';
 import 'profile_screen.dart';
+import 'subject_tests_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -58,10 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => screen,
         transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-            FadeTransition(
-          opacity: animation,
-          child: child,
-        ),
+            FadeTransition(opacity: animation, child: child),
         transitionDuration: const Duration(milliseconds: 350),
       ),
     );
@@ -79,311 +78,135 @@ class _HomeScreenState extends State<HomeScreen>
             opacity: _fadeAnim,
             child: SlideTransition(
               position: _slideAnim,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 12),
-
-                    // Top Bar: Player Level & Coins
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Player Level Badge
-                        InkWell(
-                          onTap: () => _navigateTo(context, const LevelsScreen()),
-                          borderRadius: BorderRadius.circular(20),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: AppTheme.accent.withValues(alpha: 0.18),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: AppTheme.accent.withValues(alpha: 0.45),
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  LucideIcons.trophy,
-                                  color: AppTheme.accentLight,
-                                  size: 20,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  '${game.level}-nji dereje • ${game.levelTitle}',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        // Coins Badge
-                        InkWell(
-                          onTap: () => _navigateTo(context, const ProfileScreen()),
-                          borderRadius: BorderRadius.circular(20),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: AppTheme.gold.withValues(alpha: 0.14),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: AppTheme.gold.withValues(alpha: 0.45),
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  LucideIcons.coins,
-                                  color: AppTheme.gold,
-                                  size: 17,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  '${game.coins} teňňe',
-                                  style: const TextStyle(
-                                    color: AppTheme.gold,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const Spacer(flex: 1),
-
-                    // App Logo & Title
-                    const BrandMark(size: 96),
-
-                    const SizedBox(height: 20),
-
-                    // Title: SÖZİ TAP
-                    ShaderMask(
-                      shaderCallback: (bounds) =>
-                          AppTheme.accentGradient.createShader(bounds),
-                      child: const Text(
-                        'SÖZİ TAP',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 44,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 2,
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 6),
-
-                    // Subtitle: Akyl-ylmyňy syna!
-                    const Text(
-                      'Akyl-ylmyňy syna!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppTheme.textSecondary,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 0.8,
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-                    // Score & Streak Indicators Card
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
-                      decoration: AppTheme.glassMorphism.copyWith(
-                        borderRadius: BorderRadius.circular(22),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(24, 12, 24, 20),
+                      child: Column(
                         children: [
-                          // ⭐ Current Score
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('⭐ ', style: TextStyle(fontSize: 18)),
-                              Text(
-                                '${_formatNumber(game.highScore)} bal',
-                                style: const TextStyle(
-                                  color: AppTheme.gold,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                              _TopBadge(
+                                icon: LucideIcons.trophy,
+                                label: '${game.level}-nji dereje',
+                                value: game.levelTitle,
+                                color: AppTheme.primary,
+                                onTap: () =>
+                                    _navigateTo(context, const LevelsScreen()),
+                              ),
+                              _TopBadge(
+                                icon: LucideIcons.coins,
+                                label: '${game.coins}',
+                                value: 'teňňe',
+                                color: AppTheme.gold,
+                                onTap: () =>
+                                    _navigateTo(context, const ProfileScreen()),
                               ),
                             ],
                           ),
-
-                          const SizedBox(width: 20),
-                          Container(
-                            width: 1.5,
-                            height: 20,
-                            color: AppTheme.cardBorder,
-                          ),
-                          const SizedBox(width: 20),
-
-                          // 🔥 Streak
-                          Row(
-                            children: [
-                              const Text('🔥 ', style: TextStyle(fontSize: 18)),
-                              Text(
-                                '${game.streakDays} gün',
-                                style: const TextStyle(
-                                  color: Color(0xFFFF8A65),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                          const SizedBox(height: 32),
+                          const BrandMark(size: 96),
+                          const SizedBox(height: 18),
+                          ShaderMask(
+                            shaderCallback:
+                                AppTheme.accentGradient.createShader,
+                            child: const Text(
+                              'SÖZİ TAP',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 44,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 2,
                               ),
-                            ],
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          const Text(
+                            'Akyl-ylmyňy syna!',
+                            style: TextStyle(
+                              color: AppTheme.textSecondary,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          _StatsCard(
+                            score: _formatNumber(game.highScore),
+                            streak: game.streakDays,
                           ),
                         ],
                       ),
                     ),
-
-                    const Spacer(flex: 1),
-
-                    // [ OÝNA ] Button
-                    SizedBox(
-                      width: double.infinity,
-                      height: 58,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: AppTheme.accentGradient,
-                          borderRadius: BorderRadius.circular(18),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.accent.withValues(alpha: 0.45),
-                              blurRadius: 22,
-                              offset: const Offset(0, 6),
-                            ),
-                          ],
-                        ),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                          ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 8, 24, 18),
+                    child: Column(
+                      children: [
+                        _GradientButton(
+                          label: 'OÝNA',
+                          icon: LucideIcons.play,
                           onPressed: () => _startGame(context),
-                          child: const Text(
-                            'OÝNA',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                              color: Colors.white,
-                              letterSpacing: 2,
-                            ),
-                          ),
                         ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 14),
-
-                    // [ GÜNDELİK SORAG ] Button
-                    SizedBox(
-                      width: double.infinity,
-                      height: 54,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
+                        const SizedBox(height: 12),
+                        _GradientButton(
+                          label: 'DERS SYNAGLARY',
+                          icon: LucideIcons.graduationCap,
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF6842A0), Color(0xFF8C5BC4)],
+                          ),
+                          onPressed: () =>
+                              _navigateTo(context, const SubjectTestsScreen()),
+                        ),
+                        const SizedBox(height: 12),
+                        _GradientButton(
+                          label: 'GÜNDELİK SORAG',
+                          icon: LucideIcons.flame,
                           gradient: const LinearGradient(
                             colors: [Color(0xFFE65100), Color(0xFFF57C00)],
                           ),
-                          borderRadius: BorderRadius.circular(18),
-                          boxShadow: [
-                            BoxShadow(
-                              color:
-                                  const Color(0xFFE65100).withValues(alpha: 0.35),
-                              blurRadius: 18,
-                              offset: const Offset(0, 5),
+                          onPressed: () =>
+                              _navigateTo(context, const DailyQuestionScreen()),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _NavMenuButton(
+                                icon: LucideIcons.layers3,
+                                label: 'Derejeler',
+                                onTap: () =>
+                                    _navigateTo(context, const LevelsScreen()),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: _NavMenuButton(
+                                icon: LucideIcons.chartNoAxesCombined,
+                                label: 'Reýting',
+                                onTap: () => _navigateTo(
+                                  context,
+                                  const LeaderboardScreen(),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: _NavMenuButton(
+                                icon: LucideIcons.userRound,
+                                label: 'Profil',
+                                onTap: () =>
+                                    _navigateTo(context, const ProfileScreen()),
+                              ),
                             ),
                           ],
                         ),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                          ),
-                          onPressed: () =>
-                              _navigateTo(context, const DailyQuestionScreen()),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(LucideIcons.flame,
-                                  color: Colors.white, size: 22),
-                              SizedBox(width: 8),
-                              Text(
-                                'GÜNDELİK SORAG',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w800,
-                                  color: Colors.white,
-                                  letterSpacing: 1.2,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    // Secondary Navigation Row: Derejeler, Reýting, Profil
-                    Row(
-                      children: [
-                        // “Derejeler” button
-                        Expanded(
-                          child: _NavMenuButton(
-                            icon: LucideIcons.layers3,
-                            label: 'Derejeler',
-                            onTap: () =>
-                                _navigateTo(context, const LevelsScreen()),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-
-                        // “Reýting” button
-                        Expanded(
-                          child: _NavMenuButton(
-                            icon: LucideIcons.chartNoAxesCombined,
-                            label: 'Reýting',
-                            onTap: () =>
-                                _navigateTo(context, const LeaderboardScreen()),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-
-                        // “Profil” button
-                        Expanded(
-                          child: _NavMenuButton(
-                            icon: LucideIcons.userRound,
-                            label: 'Profil',
-                            onTap: () =>
-                                _navigateTo(context, const ProfileScreen()),
-                          ),
-                        ),
                       ],
                     ),
-
-                    const SizedBox(height: 24),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -400,6 +223,159 @@ class _HomeScreenState extends State<HomeScreen>
     final suffix = s.substring(len - 3);
     return '$prefix $suffix';
   }
+}
+
+class _TopBadge extends StatelessWidget {
+  const _TopBadge({
+    required this.icon,
+    required this.label,
+    required this.value,
+    required this.color,
+    required this.onTap,
+  });
+  final IconData icon;
+  final String label;
+  final String value;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => InkWell(
+    onTap: onTap,
+    borderRadius: BorderRadius.circular(18),
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: .12),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: color.withValues(alpha: .32)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color, size: 18),
+          const SizedBox(width: 6),
+          Text(
+            '$label ',
+            style: TextStyle(
+              color: color == AppTheme.primary ? AppTheme.primaryDark : color,
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          Text(
+            value,
+            style: const TextStyle(
+              color: AppTheme.textSecondary,
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class _StatsCard extends StatelessWidget {
+  const _StatsCard({required this.score, required this.streak});
+  final String score;
+  final int streak;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+    decoration: AppTheme.glassMorphism.copyWith(
+      borderRadius: BorderRadius.circular(22),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Icon(Icons.star_rounded, color: AppTheme.gold, size: 19),
+        const SizedBox(width: 5),
+        Text(
+          '$score bal',
+          style: const TextStyle(
+            color: AppTheme.gold,
+            fontSize: 16,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        Container(
+          width: 1,
+          height: 20,
+          margin: const EdgeInsets.symmetric(horizontal: 18),
+          color: AppTheme.cardBorder,
+        ),
+        const Icon(
+          Icons.local_fire_department_rounded,
+          color: Color(0xFFE8663D),
+          size: 19,
+        ),
+        const SizedBox(width: 5),
+        Text(
+          '$streak gün',
+          style: const TextStyle(
+            color: Color(0xFFE8663D),
+            fontSize: 16,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+class _GradientButton extends StatelessWidget {
+  const _GradientButton({
+    required this.label,
+    required this.icon,
+    required this.onPressed,
+    this.gradient,
+  });
+  final String label;
+  final IconData icon;
+  final VoidCallback onPressed;
+  final Gradient? gradient;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    width: double.infinity,
+    height: 56,
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: gradient ?? AppTheme.accentGradient,
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: [
+          BoxShadow(
+            color: AppTheme.primary.withValues(alpha: .24),
+            blurRadius: 18,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        icon: Icon(icon, size: 20),
+        label: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w900,
+            letterSpacing: 1.2,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.white,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 class _NavMenuButton extends StatelessWidget {
@@ -426,7 +402,7 @@ class _NavMenuButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: AppTheme.accentLight, size: 22),
+            Icon(icon, color: AppTheme.primary, size: 22),
             const SizedBox(height: 4),
             Text(
               label,

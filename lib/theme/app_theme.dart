@@ -51,6 +51,7 @@ class AppTheme {
   static const Color textPrimary = Color(0xFF1A1C1B);
   static const Color textSecondary = Color(0xFF5A5E5B);
   static const Color textTertiary = Color(0xFF8A8E8B);
+  static const Color pageTint = Color(0xFFF1F8F6);
 
   static const Color shadowColor = Color(0x1A000000);
   static const Color shadowColorStrong = Color(0x26000000);
@@ -139,9 +140,10 @@ class AppTheme {
       );
 
   static LinearGradient get backgroundGradient => const LinearGradient(
-        colors: [background, surfaceVariant],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
+        colors: [Color(0xFFF9FCFB), pageTint, Color(0xFFF5F8F7)],
+        stops: [0, .52, 1],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
       );
 
   static LinearGradient get accentGradient => primaryGradient;
@@ -180,6 +182,9 @@ class AppTheme {
           shadow: shadowColor,
         ),
         scaffoldBackgroundColor: background,
+        splashFactory: InkSparkle.splashFactory,
+        highlightColor: primary.withValues(alpha: .06),
+        splashColor: primary.withValues(alpha: .12),
         textTheme: GoogleFonts.outfitTextTheme(ThemeData.light().textTheme).copyWith(
           displayLarge: GoogleFonts.outfit(
             fontSize: 48,
@@ -406,11 +411,11 @@ class AppTheme {
           ),
         ),
         snackBarTheme: SnackBarThemeData(
-          backgroundColor: surfaceContainerHigh,
+          backgroundColor: primaryDark,
           contentTextStyle: GoogleFonts.outfit(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: textPrimary,
+            color: onPrimary,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
