@@ -17,7 +17,7 @@ class ApiClient {
   ApiClient({http.Client? client}) : _client = client ?? http.Client();
   final http.Client _client;
 
-  Uri _uri(String path) => Uri.parse('${ApiConfig.baseUrl}$path');
+  Uri _uri(String path) => Uri.parse(ApiConfig.baseUrl).resolve(path);
 
   Future<({String token, AppUser user})> signUp({
     required String name,
