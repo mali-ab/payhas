@@ -23,6 +23,25 @@ flutter run --dart-define=API_BASE_URL=http://localhost:8000
 
 Open `http://localhost:8000/docs` to test the API endpoints directly.
 
+### Run the API in production with Docker
+
+Build and start the backend from the project root:
+
+```sh
+docker compose up -d --build
+```
+
+The API is available at `http://localhost:8080`, with interactive docs at
+`http://localhost:8080/docs`. SQLite data is stored in the named
+`backend_data` volume and survives container recreation.
+
+Check the service or stop it with:
+
+```sh
+docker compose ps
+docker compose down
+```
+
 ### Development test data
 
 The app includes 126 proverb questions in `assets/proverbs.json`. To add three

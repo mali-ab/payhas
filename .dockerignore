@@ -1,0 +1,8 @@
+.git
+.dart_tool
+.idea
+.venv
+**/__pycache__
+**/*.py[cod]
+backend/payhas.db
+build

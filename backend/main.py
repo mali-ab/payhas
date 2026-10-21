@@ -7,6 +7,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 import json
+import os
 import secrets
 import sqlite3
 import time
@@ -20,7 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, EmailStr, Field
 
-DATABASE = Path(__file__).with_name("payhas.db")
+DATABASE = Path(os.getenv("DATABASE_PATH", Path(__file__).with_name("payhas.db")))
 security = HTTPBearer()
 
 app = FastAPI(title="Akyl-ylmyň hyrydary API", version="1.0.0")
