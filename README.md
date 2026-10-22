@@ -33,7 +33,9 @@ docker compose up -d --build
 
 The API is available at `http://localhost:8080`, with interactive docs at
 `http://localhost:8080/docs`. SQLite data is stored in the named
-`backend_data` volume and survives container recreation.
+`backend_data` volume and survives container recreation. Docker Compose also
+loads the development test accounts below each time the backend starts. The
+seed is idempotent, so restarting the container does not create duplicates.
 
 Check the service or stop it with:
 
@@ -44,9 +46,10 @@ docker compose down
 
 ### Development test data
 
-The app includes 126 proverb questions in `assets/proverbs.json`. To add three
-development-only test accounts, run this from `backend/` after installing the
-requirements:
+The app includes 126 proverb questions in `assets/proverbs.json`. Docker
+Compose adds three development-only test accounts automatically. When running
+the API without Docker, add them by running this from `backend/` after
+installing the requirements:
 
 ```sh
 .venv/bin/python seed.py
