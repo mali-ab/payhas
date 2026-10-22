@@ -116,6 +116,14 @@ class GameProvider extends ChangeNotifier {
       .toList(growable: false);
   int get mediumTargetLength =>
       current == null ? 0 : _mediumTarget(current!.answer).length;
+  List<int> get mediumWordLengths => current == null
+      ? const []
+      : current!.answer
+            .trim()
+            .split(RegExp(r'\s+'))
+            .where((word) => word.isNotEmpty)
+            .map((word) => word.length)
+            .toList(growable: false);
   List<bool> get letterUsed => _letterUsed;
   String get typedAnswer => _typedAnswer;
 
@@ -293,8 +301,10 @@ class GameProvider extends ChangeNotifier {
     _proverbs = await _proverbRepository.getQuestions(
       category: _selectedCategory == 'Hemmesi' ? null : _selectedCategory,
       // Difficulty controls how the player answers. It is intentionally not a
-      // data filter, so every JSON question can be played in every mode.
+      // filter for the JSON difficulty label. Medium and hard require a
+      // fill-in answer; general test questions belong to easy mode only.
       difficulty: null,
+      fillInOnly: difficulty != Difficulty.easy,
       count: questionCount,
     );
 

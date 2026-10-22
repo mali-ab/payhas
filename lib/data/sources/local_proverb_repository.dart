@@ -25,18 +25,22 @@ class LocalProverbRepository implements ProverbRepository {
   Future<List<Proverb>> getQuestions({
     String? category,
     String? difficulty,
+    bool fillInOnly = false,
     required int count,
   }) async {
     final all = await _load();
     var matches = all.where((question) {
-      final categoryMatches = category == null ||
+      final categoryMatches =
+          category == null ||
           category.isEmpty ||
           category == 'Hemmesi' ||
           question.category == category;
-      final difficultyMatches = difficulty == null ||
+      final difficultyMatches =
+          difficulty == null ||
           difficulty.isEmpty ||
           question.difficulty == difficulty;
-      return categoryMatches && difficultyMatches;
+      final typeMatches = !fillInOnly || question.hasMissingWord;
+      return categoryMatches && difficultyMatches && typeMatches;
     }).toList();
 
     matches.shuffle(Random());
@@ -50,9 +54,11 @@ class LocalProverbRepository implements ProverbRepository {
   }) async {
     final all = await _load();
     if (all.isEmpty) return const [];
-    final day = DateTime.utc(date.year, date.month, date.day)
-        .difference(DateTime.utc(2025))
-        .inDays;
+    final day = DateTime.utc(
+      date.year,
+      date.month,
+      date.day,
+    ).difference(DateTime.utc(2025)).inDays;
     final start = day.abs() % all.length;
     return List<Proverb>.generate(
       count,

@@ -17,10 +17,12 @@ class RemoteProverbRepository implements ProverbRepository {
   Future<List<Proverb>> getQuestions({
     String? category,
     String? difficulty,
+    bool fillInOnly = false,
     required int count,
   }) => _get(ApiConfig.questionsPath, {
     'category': category,
     'difficulty': difficulty,
+    if (fillInOnly) 'fill_in_only': 'true',
     'count': '$count',
   });
 

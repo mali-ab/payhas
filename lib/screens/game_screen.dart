@@ -376,7 +376,7 @@ class _GameScreenState extends State<GameScreen> {
                                 Text(
                                   game.awaitingContinue
                                       ? '“${proverb.completedText}”'
-                                      : '“${proverb.text}”',
+                                      : '“${proverb.questionText}”',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: game.awaitingContinue
@@ -672,7 +672,7 @@ class _GameScreenState extends State<GameScreen> {
 
   // 2. Medium: Arrange scrambled letters
   Widget _buildMediumWordAssembly(GameProvider game) {
-    final targetLength = game.mediumTargetLength;
+    final wordLengths = game.mediumWordLengths;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -713,46 +713,72 @@ class _GameScreenState extends State<GameScreen> {
             borderRadius: BorderRadius.circular(18),
             border: Border.all(color: AppTheme.cardBorder),
           ),
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 8,
-            runSpacing: 8,
-            children: List.generate(targetLength, (index) {
-              final hasLetter = index < game.assembledLetters.length;
-              final letter = hasLetter ? game.assembledLetters[index] : '';
+          child: Column(
+            children: [
+              for (
+                var wordIndex = 0;
+                wordIndex < wordLengths.length;
+                wordIndex++
+              ) ...[
+                Builder(
+                  builder: (context) {
+                    final wordStart = wordLengths
+                        .take(wordIndex)
+                        .fold<int>(0, (sum, length) => sum + length);
+                    return Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: List.generate(wordLengths[wordIndex], (
+                        letterIndex,
+                      ) {
+                        final index = wordStart + letterIndex;
+                        final hasLetter = index < game.assembledLetters.length;
+                        final letter = hasLetter
+                            ? game.assembledLetters[index]
+                            : '';
 
-              return GestureDetector(
-                onTap: () {
-                  if (hasLetter && !game.awaitingContinue) {
-                    game.removeAssembledLetter(index);
-                  }
-                },
-                child: Container(
-                  width: 44,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: hasLetter
-                        ? AppTheme.accent.withValues(alpha: 0.3)
-                        : AppTheme.surfaceContainer,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: hasLetter ? AppTheme.primary : AppTheme.outline,
-                      width: 1.5,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      letter,
-                      style: const TextStyle(
-                        color: AppTheme.primaryDark,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
+                        return GestureDetector(
+                          onTap: () {
+                            if (hasLetter && !game.awaitingContinue) {
+                              game.removeAssembledLetter(index);
+                            }
+                          },
+                          child: Container(
+                            width: 44,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: hasLetter
+                                  ? AppTheme.accent.withValues(alpha: 0.3)
+                                  : AppTheme.surfaceContainer,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: hasLetter
+                                    ? AppTheme.primary
+                                    : AppTheme.outline,
+                                width: 1.5,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                letter,
+                                style: const TextStyle(
+                                  color: AppTheme.primaryDark,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    );
+                  },
                 ),
-              );
-            }),
+                if (wordIndex < wordLengths.length - 1)
+                  const SizedBox(height: 10),
+              ],
+            ],
           ),
         ),
 
@@ -844,6 +870,20 @@ class _GameScreenState extends State<GameScreen> {
       game.updateTypedAnswer(_textController.text);
     }
 
+    Widget keyboardRow(List<String> characters) => Row(
+      children: [
+        for (var index = 0; index < characters.length; index++) ...[
+          if (index > 0) const SizedBox(width: 4),
+          Expanded(
+            child: _KeyboardKey(
+              label: characters[index],
+              onTap: () => insert(characters[index]),
+            ),
+          ),
+        ],
+      ],
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -863,6 +903,8 @@ class _GameScreenState extends State<GameScreen> {
             Expanded(
               child: TextField(
                 controller: _textController,
+                readOnly: true,
+                showCursor: true,
                 enabled: !game.awaitingContinue,
                 style: const TextStyle(
                   color: AppTheme.textPrimary,
@@ -940,17 +982,7 @@ class _GameScreenState extends State<GameScreen> {
             child: Column(
               children: [
                 for (final row in keyboardRows) ...[
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 5,
-                    runSpacing: 5,
-                    children: row
-                        .map(
-                          (ch) =>
-                              _KeyboardKey(label: ch, onTap: () => insert(ch)),
-                        )
-                        .toList(),
-                  ),
+                  keyboardRow(row),
                   const SizedBox(height: 6),
                 ],
                 Row(
@@ -1069,7 +1101,7 @@ class _GameScreenState extends State<GameScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
-              proverb.text.contains('___')
+              proverb.hasMissingWord
                   ? 'Doly görnüşi: “${proverb.completedText}”'
                   : 'Dogry jogap: ${proverb.answer}',
               style: const TextStyle(
@@ -1133,8 +1165,8 @@ class _KeyboardKey extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(9),
       child: Container(
-        constraints: BoxConstraints(minWidth: wide ? 110 : 34, minHeight: 38),
-        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
+        constraints: BoxConstraints(minWidth: wide ? 110 : 0, minHeight: 40),
+        padding: EdgeInsets.symmetric(horizontal: wide ? 9 : 2, vertical: 7),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(9),
           border: Border.all(color: AppTheme.outlineVariant),

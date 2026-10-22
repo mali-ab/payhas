@@ -1,22 +1,652 @@
 [
   {
     "id": 1,
-    "proverb": "Haçan Zakaspi harby bölüminiň naçalnigi Lomakin öz karary bilen Çat we Çekişler pristawlyklaryny döredýär?",
-    "answer": "1879 ý.",
-    "options": ["1879 ý.", "1878 ý.", "1965 ý.", "1881 ý."],
-    "category": "Türkmen dili",
-    "missingWord": "",
-    "difficulty": "easy",
-    "explanation": ""
+    "proverb": "Ata Watan aman bolsa, reňki-roýuň saman bolmaz",
+    "answer": "reňki-roýuň saman bolmaz",
+    "options": [
+      "ýoluň ugry saman bolmaz",
+      "ilatyň gaýgysy kem bolmaz",
+      "öýüň içi weran bolmaz",
+      "reňki-roýuň saman bolmaz"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "reňki-roýuň saman bolmaz",
+    "difficulty": "hard",
+    "explanation": "Watan parahat we abadan bolsa, adamyň ýüzi ýagty, ýaşaýşy abadan bolar. «Reňki-roý» diýlip ýüz-gözüň, keýpiň, ýaşaýşyň ýagdaýy aýdylýar. Nakylyň manysy: şahsy bagt-bagtyýarlyk Watanyň parahatçylygyna we ykbalyna baglydyr. Watan gaýgyda bolsa, hiç kim rahat ýaşap bilmez."
   },
   {
     "id": 2,
-    "proverb": "Aş eýesi bilen datly",
-    "answer": "datly",
-    "options": ["datly", "dost", "süýji", "nygmatly"],
-    "category": "Payhas çeşmesi",
-    "missingWord": "datly",
+    "proverb": "Atany söýen, Watany söýer",
+    "answer": "Watany söýer",
+    "options": ["Watany söýer", "ilini söýer", "dostuny söýer", "ylmy söýer"],
+    "category": "Watançylyk",
+    "missingWord": "Watany söýer",
+    "difficulty": "hard",
+    "explanation": "Ata-babalaryny hormatlaýan, olaryň ýadygärliklerini gadyr-gymmat bilýän adam Watany hem söýýär. Watana söýgi maşgala, ata-ene, nesil söýgüsinden başlanýar. Ata-enesine hormat goýmaýan adamyň Watana wepaly bolmagy mümkin däl."
+  },
+  {
+    "id": 3,
+    "proverb": "Atyny ýamanlanyň, ýol biýr jezasyn, Ilini ýamanlanyň, ýat biýr jezasyn",
+    "answer": "ýat biýr jezasyn",
+    "options": [
+      "dil biýr jezasyn",
+      "ýat biýr jezasyn",
+      "el biýr jezasyn",
+      "gör biýr jezasyn"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ýat biýr jezasyn",
+    "difficulty": "hard",
+    "explanation": "Ady ýamanlanan adam ýol-ýörelgesinden synyp biler, ýöne ilini ýamanlanyň jezasyny ýat bir ýurt-ýat il berer. Ýagny «ýol biýr» ady ýamanlanyň, «ýat biýr» ili ýamanlanyň jezasyny berýär. Nakylyň manysy: adamyň abraýy, ýagşy ady we il-halky bilen baglanyşygy gymmatlykdyr. Öz ilini ýamanlan, il-ýurdundan aýrylan adam ýat ýerde horluga, jezalara sezewar bolýar."
+  },
+  {
+    "id": 4,
+    "proverb": "Barmagy «başga» diýme, bilegi — bir, Ili «başga» diýme, dilegi — bir",
+    "answer": "dilegi — bir",
+    "options": ["ýoly — bir", "ýüregi — bir", "dilegi — bir", "maksady — bir"],
+    "category": "Watançylyk",
+    "missingWord": "dilegi — bir",
+    "difficulty": "hard",
+    "explanation": "Barmaklar aýry-aýry görünse-de, olar bir bilegiň bölegidir. Şonuň ýaly-da halk dürli-dürli bolsa-da, maksady-arzuwy birdir. Nakyl il-gün agzybirligine, millet-halk arasyndaky tapawutlara garamazdan umumy maksada ymtylmaga çagyrýar."
+  },
+  {
+    "id": 5,
+    "proverb": "Geýmäge keten ýagşy, ölmäge — Watan",
+    "answer": "ölmäge — Watan",
+    "options": [
+      "ölmäge — Watan",
+      "iýmäge — nan",
+      "ýaşamaga — ykbal",
+      "bolmaga — mähriban"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "ölmäge — Watan",
+    "difficulty": "hard",
+    "explanation": "Geýim üçin keten (ýuka, ýagşy mata) gowy bolşy ýaly, ölümi hem Watan topragynda kabul etmek, ol ýerde ýatmak iň abraýly hasaplanýar. Nakylyň manysy: adam ömrüni Watanda geçirip, ýene Watan topragynda dynç almaly. Watan — iň gymmatly, iň mukaddes ýerdir."
+  },
+  {
+    "id": 6,
+    "proverb": "Mert geler meýdana, namart gaçar pyçgyra",
+    "answer": "namart gaçar pyçgyra",
+    "options": [
+      "namart gelmez ýanyna",
+      "ýaman gaçar gaýada",
+      "gorkak gaçar meýdandan",
+      "namart gaçar pyçgyra"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "namart gaçar pyçgyra",
+    "difficulty": "hard",
+    "explanation": "Mert, batyr adam söweşe, synaga çäkdirilmän ýüzbe-ýüz çykýar. Namart bolsa gorkup gaçýar, gizlenýär. Nakyl adamyň häsiýetiniň kynçylyk wagtynda aýdyň bilinýändigini, merdiň synaglardan gaýtmaýandygyny görkezýär."
+  },
+  {
+    "id": 7,
+    "proverb": "Ýigit — söweşde, garry — geňeşde",
+    "answer": "garry — geňeşde",
+    "options": [
+      "garry — öýünde",
+      "garry — geňeşde",
+      "çaga — okuwda",
+      "aýal — ojakda"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "garry — geňeşde",
+    "difficulty": "hard",
+    "explanation": "Ýaş ýigit güýji, çalt hereketi bilen söweşde derek bolsa, garry adam başdan geçirenleri, tejribesi we paýhasy bilen maslahat berýär. Nakyl her ýaşyň öz orny, öz paýy bardygyny görkezýär: ýaşlar güýç, garrylar akyl-paýhas bilen Watana hyzmat edýär."
+  },
+  {
+    "id": 8,
+    "proverb": "Är güýji syrynda, söz güýji çynynda",
+    "answer": "söz güýji çynynda",
+    "options": [
+      "söz güýji dilinde",
+      "ýürek güýji kinesinde",
+      "söz güýji çynynda",
+      "ylym güýji ruhunda"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "söz güýji çynynda",
+    "difficulty": "hard",
+    "explanation": "Erkek kişiniň güýji onuň daşky görnüşinde, bedeninde bolsa, sözüň güýji onuň hakykatynda, çynynda. Çyn, dogruçyl sözüň täsiri uludyr. Nakylyň manysy: söz çyn bolsa, güýçli bolýar; ýalan söz täsirsizdir."
+  },
+  {
+    "id": 9,
+    "proverb": "Namart sözüni jomart diňlemez",
+    "answer": "jomart diňlemez",
+    "options": [
+      "jomart diňlemez",
+      "mert diňlemez",
+      "bilermen diňlemez",
+      "dana diňlemez"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "jomart diňlemez",
+    "difficulty": "hard",
+    "explanation": "Jomart, ýagny sahy, ak ýürekli, abraýly adam namardyň, ýagny ýaramaz, gorkak, wepasyz adamyň sözüne gulak asmaz. Nakyl ýagşy adamyň ýamanyň ýalan, ýaramaz maslahatlaryna ýol bermeýändigini, öz borjuna sadyk galýandygyny görkezýär."
+  },
+  {
+    "id": 10,
+    "proverb": "Är kişini gylyç öldürmez, söz öldürer",
+    "answer": "söz öldürer",
+    "options": [
+      "dert öldürer",
+      "gaýgy öldürer",
+      "hasrat öldürer",
+      "söz öldürer"
+    ],
+    "category": "Watançylyk",
+    "missingWord": "söz öldürer",
+    "difficulty": "hard",
+    "explanation": "Gylyç dury ýaranda-da batyr adam ölmez, ýöne agyr, hile, haky ýok söz oňa uly zeper ýetirer. Sözüň güýji gylyçdan hem agyr bolup biler. Nakyl sözüň manysyna, adamlaryň duýgusyna ýetirýän täsirine seresaply çemeleşmäge, adamy sözüň bilen ranjytmazlyga çagyrýar."
+  },
+  {
+    "id": 11,
+    "proverb": "Çagany — ýaşdan, edebi — başdan",
+    "answer": "edebi — başdan",
+    "options": [
+      "bilimi — okuwdan",
+      "ýoly — öýden",
+      "edebi — başdan",
+      "sözi — dilden"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "edebi — başdan",
+    "difficulty": "hard",
+    "explanation": "Çaga kiçi wagtynda terbiýelenmeli, edep-ekram hem iň ilkinji öwredilmeli. Ýaşlykdan öwrenilen edep ömrüň ahyryna çenli saklanýar. Nakylyň manysy: terbiýäni gijä goýmaly däl, çaga näçe ir terbiýelense, şonça ýagşy adam bolup ýetişer."
+  },
+  {
+    "id": 12,
+    "proverb": "“Ýaşulusy bolmadygyň, ýaşkiçisi bolmaz” nakylynyň manysy haýsy?",
+    "answer": "Hormat özara bolmaly: ulusyna hormat goýmaýanyň kiçisi hem oňa hormat goýmaz",
+    "options": [
+      "Hormat özara bolmaly: ulusyna hormat goýmaýanyň kiçisi hem oňa hormat goýmaz",
+      "Diňe ulular hormata mynasyp",
+      "Kiçiler ulularyň sözüne hemişe garşy çykmaly",
+      "Ýaşlar bilen garrylar aýry ýaşamaly"
+    ],
+    "category": "Edep-terbiýe",
     "difficulty": "easy",
-    "explanation": "Aş eýesi bilen näme"
+    "explanation": "Ulusyna hormat goýmaýan adamyň kiçisi hem oňa hormat goýmaz. Ýagny hormat öz-özünden gelmeýär, ony görkezmeli. Nakyl ýaşlara göreldäniň ähmiýetini we uly bilen kiçiniň arasyndaky hormat gatnaşygynyň özara bolmalydygyny ýatladýar."
+  },
+  {
+    "id": 13,
+    "proverb": "Garry — öýüň sütüni",
+    "answer": "sütüni",
+    "options": ["penjiresi", "gapysy", "üçegi", "sütüni"],
+    "category": "Edep-terbiýe",
+    "missingWord": "sütüni",
+    "difficulty": "medium",
+    "explanation": "Sütün jaýyň çatysyny saklaýşy ýaly, garry adam hem maşgalanyň daýanjy, bereketi we paýhas çeşmesidir. Nakyl garrylary hormatlamagy, olaryň tejribesine, maslahatyna gadyr goýmagy öwredýär."
+  },
+  {
+    "id": 14,
+    "proverb": "Ýagdaýa laýyk nakyly saýlaň: Ýaş oglan garrylary hemişe sylaýar we olaryň maslahatyny diňleýär.",
+    "answer": "Sen sylasaň garryny, Taňry sylar baryňy",
+    "options": [
+      "Gury söz gulaga ýakmaz",
+      "Sen sylasaň garryny, Taňry sylar baryňy",
+      "Dogry söz daşy deşer",
+      "Agyz — bir, gulak — iki"
+    ],
+    "category": "Edep-terbiýe",
+    "difficulty": "easy",
+    "explanation": "Garrylara hormat goýan adam ähli ýagşylyga, Hudaýyň merhemetine mynasyp bolýar. Garrylary sylamak sogaply iş hasaplanýar. Nakylyň manysy: ýagşy iş, ulularyň hormatlanmagy adamyň ykbalyna ýagşylyk getirýär."
+  },
+  {
+    "id": 15,
+    "proverb": "“Kişiniň özüne garama, sözüne garama — ...” nakylyna görä, adamy nämä görä bahalamaly?",
+    "answer": "Edep-terbiýesine we hereketine görä",
+    "options": [
+      "Daşky görnüşine we geýimine görä",
+      "Owadan sözlerine görä",
+      "Edep-terbiýesine we hereketine görä",
+      "Baýlygyna görä"
+    ],
+    "category": "Edep-terbiýe",
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "proverb": "“Agyz — bir, gulak — iki, bir sözläp, diňle iki” nakyly nämäni öwredýär?",
+    "answer": "Az sözlemegi, köp diňlemegi",
+    "options": [
+      "Az sözlemegi, köp diňlemegi",
+      "Köp gürlemegi",
+      "Diňe ýazyp aragatnaşyk etmegi",
+      "Gulagy ýapyp ýaşamagy"
+    ],
+    "category": "Edep-terbiýe",
+    "difficulty": "easy",
+    "explanation": "Adamda bir agyz, iki gulak bar. Bu bolsa az sözlemegi, köp diňlemegi öwredýär. Nakylyň manysy: sözlemekden öň diňlemeli, başga adamyň pikirini eşitmeli, aljyraňňy köp gürlemeli däl."
+  },
+  {
+    "id": 17,
+    "proverb": "Gury söz gulaga ýakmaz",
+    "answer": "ýakmaz",
+    "options": ["ýaýmaz", "düşmez", "ýetmez", "ýakmaz"],
+    "category": "Edep-terbiýe",
+    "missingWord": "ýakmaz",
+    "difficulty": "medium",
+    "explanation": "Mazmuny, dogrulygy, ýylylygy ýok söz, diňe boş wadalar ynandyryjy bolmaýar we diňleýjä ýakmaýar. Nakyl sözüň ýüregden gelmelidigini, çyn niýetli, anyk we manyly sözlemegiň zerurdygyny aýdýar."
+  },
+  {
+    "id": 18,
+    "proverb": "Haýsy nakyl hakykatyň, dogruçyllygyň güýjüni görkezýär?",
+    "answer": "Dogry söz daşy deşer",
+    "options": [
+      "Gury söz gulaga ýakmaz",
+      "Dogry söz daşy deşer",
+      "Garry — öýüň sütüni",
+      "Ýigitlik bir uly olja, ony gowy ulan"
+    ],
+    "category": "Edep-terbiýe",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "proverb": "“Gyzmalyk özüňe bagly, mylaýymlyk — sözüňe” nakyly haýsy maslahaty berýär?",
+    "answer": "Gaharyňy dolandyrmagy, mylaýym sözlemegi",
+    "options": [
+      "Hemişe gaharlanmagy",
+      "Köp wada bermegi",
+      "Gaharyňy dolandyrmagy, mylaýym sözlemegi",
+      "Ulularyň sözüne gulak asmazlygy"
+    ],
+    "category": "Edep-terbiýe",
+    "difficulty": "easy",
+    "explanation": "Gyzgyn, gaharjaň bolmak ýa-da ýumşak, mylaýym bolmak adamyň öz eliniň, erkiniň içindedir; ýöne mylaýymlyk, ýagny ýumşak häsiýet sözüňde-de bildirilmeli. Nakyl gaharyňy dolandyrmagy, adamlar bilen mylaýym sözlemegi maslahat berýär. (Bellik: bu nakylyň formasy kitaplarda dürli görnüşde bolup biler.)"
+  },
+  {
+    "id": 20,
+    "proverb": "Ýigitlik bir uly olja, ony gowy ulan",
+    "answer": "ony gowy ulan",
+    "options": [
+      "ony gowy ulan",
+      "ony gizläp goý",
+      "ony ertire goý",
+      "ony biderek geçir"
+    ],
+    "category": "Edep-terbiýe",
+    "missingWord": "ony gowy ulan",
+    "difficulty": "hard",
+    "explanation": "Ýaşlyk durmuşyň iň gymmatly pursaty, uly baýlygydyr. Ony biderek geçirmän, bilim almaga, zähmet çekmäge, ýagşy işlere sarp etmeli. Nakyl ýaşlara wagtyň gadyryny bilmegi, ýaşlygy peýdaly ulanmagy öwredýär."
+  },
+  {
+    "id": 21,
+    "proverb": "Bilmeyän zadyny kitapdan sora",
+    "answer": "kitapdan sora",
+    "options": [
+      "ýoldaşyňdan sora",
+      "kitapdan sora",
+      "wagtdan sora",
+      "köpçülikden sora"
+    ],
+    "category": "Ylym-bilim",
+    "missingWord": "kitapdan sora",
+    "difficulty": "hard",
+    "explanation": "Bilmeýän zadyň bar bolsa, kitaba ýüz tut, sebäbi kitap bilimiň, tejribäniň çeşmesidir. Nakyl öwrenmegiň iň ygtybarly ýoly kitap okamak diýip öwredýär we bilmezligi ar edinmän, ýok etmäge çagyrýar."
+  },
+  {
+    "id": 22,
+    "proverb": "“Kitap okamaýan gör ýanyny görer, kitap okaýan dünýäni görer” nakylyna görä, kitap okaýan adam näme edip bilýär?",
+    "answer": "Dürli ýurtlary, zamanlary, pikirleri tanaýar",
+    "options": [
+      "Diňe öz töweregini görýär",
+      "Ýalňyz ýaşamagy öwrenýär",
+      "Dürli ýurtlary, zamanlary, pikirleri tanaýar",
+      "Işlemän baýlyk gazanýar"
+    ],
+    "category": "Ylym-bilim",
+    "difficulty": "easy",
+    "explanation": "Kitap okamaýan adam diňe öz göz öňündäki zady, kiçijik töwereginiň durmuşyny görýär. Kitap okaýan bolsa dünýäni, dürli ýurtlary, zamanlary, pikirleri tanaýar. Nakylyň manysy: kitap adamyň garaýyş deňini giňeldýär."
+  },
+  {
+    "id": 23,
+    "proverb": "Älemiň gyragy bolmaz, ylmyň — çägi",
+    "answer": "çägi",
+    "options": ["ýoly", "çägi", "baýlygy", "ahyry"],
+    "category": "Ylym-bilim",
+    "missingWord": "çägi",
+    "difficulty": "medium"
+  },
+  {
+    "id": 24,
+    "proverb": "Dogry ýa-da ýalňyş? “Alyma amal ýaraşar; alym bolsaň, älem seniňki” nakylyna görä, alym bilimini işe geçirmeli",
+    "answer": "Dogry",
+    "options": ["Dogry", "Ýalňyş"],
+    "category": "Ylym-bilim",
+    "difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "proverb": "Ýagdaýa laýyk nakyly saýlaň: Bir adam ömrüniň ahyryna çenli öwrenmegini bes etmeýär, näçe bilse-de, ýene bilmeli zat köp diýýär",
+    "answer": "Älemiň gyragy bolmaz, ylmyň — çägi",
+    "options": [
+      "Okaýan il ozar, okamaýan il tozar",
+      "Ylym — akylyň ýarysy",
+      "Älemiň gyragy bolmaz, ylmyň — çägi",
+      "Bilim bilen hikmet — altyndan gymmat"
+    ],
+    "category": "Ylym-bilim",
+    "difficulty": "easy"
+  },
+  {
+    "id": 26,
+    "proverb": "Hünär — akar bulak, ylym — ýanar çyrag",
+    "answer": "ylym — ýanar çyrag",
+    "options": [
+      "kitap — ýanar çyrag",
+      "bilim — gurak çöl",
+      "ylym — ýanar çyrag",
+      "zähmet — dury suw"
+    ],
+    "category": "Ylym-bilim",
+    "missingWord": "ylym — ýanar çyrag",
+    "difficulty": "hard",
+    "explanation": "Akar bulak hiç wagt gurap galmaýan suw çeşmesi ýaly, hünär adama ömürboýy nan-iýmit berýär. Ylym bolsa çyrag ýaly ýoluňy ýagtyldýar, düşünmeziň garaňkylygyny ýok edýär. Nakyl hünär bilen bilimiň utgaşmagynyň ähmiýetini görkezýär."
+  },
+  {
+    "id": 27,
+    "proverb": "Aşakdaky nakyllaryň haýsysy halkyň ösüşi üçin bilimiň zerurdygyny aýdýar?",
+    "answer": "Okaýan il ozar, okamaýan il tozar",
+    "options": [
+      "Alym gül getirer, ary — bal",
+      "Hünär — akar bulak, ylym — ýanar çyrag",
+      "Okaýan il ozar, okamaýan il tozar",
+      "Ylym — akylyň ýarysy"
+    ],
+    "category": "Ylym-bilim",
+    "difficulty": "easy",
+    "explanation": "Bilim alýan halk öňe gidýär, ösýär, ozýar. Okamaýan halk bolsa yza galýar, dargaýar, ýitip gidýär («tozar» ýagny toz bolar). Nakyl bilimiň ýurduň we halkyň ösüşi üçin esasy şertdigini aýdýar."
+  },
+  {
+    "id": 28,
+    "proverb": "Dünýäde atyň üstünden ... tagt ýok, kitapdan gowy ... ýok",
+    "answer": "ownat (rahat), dost",
+    "options": [
+      "ownat (rahat), dost",
+      "güýçli, ýoldaş",
+      "uly, maslahatçy",
+      "owadan, gyzykly"
+    ],
+    "category": "Ylym-bilim",
+    "difficulty": "easy",
+    "explanation": "Bilim alýan halk öňe gidýär, ösýär, ozýar. Okamaýan halk bolsa yza galýar, dargaýar, ýitip gidýär («tozar» ýagny toz bolar). Nakyl bilimiň ýurduň we halkyň ösüşi üçin esasy şertdigini aýdýar."
+  },
+  {
+    "id": 29,
+    "proverb": "“Bilim bilen hikmet — altyndan gymmat” nakylynyň manysy haýsy?",
+    "answer": "Bilim bilen paýhas hiç wagt elden gitmeýär we baýlykdan ýokary gymmatlydyr",
+    "options": [
+      "Altyn bilimden gymmat",
+      "Bilim bilen paýhas hiç wagt elden gitmeýär we baýlykdan ýokary gymmatlydyr",
+      "Altyn diňe bilimliler üçin gerek",
+      "Hikmet diňe garrylarda bolýar"
+    ],
+    "category": "Ylym-bilim",
+    "difficulty": "easy",
+    "explanation": "Altyn maddy baýlykdyr, ol gutaryp, ogurlanyp bilner. Bilim bilen hikmet, ýagny paýhas bolsa hiç wagt elden gitmeýär we adamyň ykbalyny kesgitleýär. Nakyl ylmyň baýlykdan ýokary gymmatlydygyny görkezýär."
+  },
+  {
+    "id": 30,
+    "proverb": "Okaýan il ozar, okamaýan il tozar",
+    "answer": "okamaýan il tozar",
+    "options": [
+      "okamaýan il galar",
+      "okamaýan il tozar",
+      "okamaýan il ýuwaş",
+      "okamaýan il gaçar"
+    ],
+    "category": "Ylym-bilim",
+    "missingWord": "okamaýan il tozar",
+    "difficulty": "hard",
+    "explanation": "Bilim alýan halk öňe gidýär, ösýär, ozýar. Okamaýan halk bolsa yza galýar, dargaýar, ýitip gidýär («tozar» ýagny toz bolar). Nakyl bilimiň ýurduň we halkyň ösüşi üçin esasy şertdigini aýdýar."
+  },
+  {
+    "id": 31,
+    "proverb": "Baýlygyň enesi ýer, atasy — zähmet",
+    "answer": "atasy — zähmet",
+    "options": [
+      "atasy — zähmet",
+      "atasy — kanagat",
+      "ogly — sabyr",
+      "gyzy — bereket"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "atasy — zähmet",
+    "difficulty": "hard",
+    "explanation": "Hakyky baýlyk ýerden we zähmetden doguýar. Ýer baýlygyň çeşmesi bolsa, zähmet ony döredýän güýçdür. Ýeri gowy işlemeseň, ol baýlyk bermez. Nakyl zähmet çekmän baýlyk gazanyp bolmajakdygyny öwredýär."
+  },
+  {
+    "id": 32,
+    "proverb": "“Daýhandan hereket — ýerden bereket” nakylynyň manysy haýsy?",
+    "answer": "Daýhan wagtynda we yhlas bilen işlese, ýer bereket berýär",
+    "options": [
+      "Ýer özi-özünden hasyl berýär",
+      "Hasyl diňe ýagyşa baglydyr",
+      "Daýhan wagtynda we yhlas bilen işlese, ýer bereket berýär",
+      "Daýhan işlemän-de baý bolup biler"
+    ],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy",
+    "explanation": "Daýhan hereket etse, ýer bereket berer. Ýagny ekin-tikin, sepim-suwaryş ýaly işler wagtynda we yhlas bilen edilse, hasyl bol bolýar. Nakyl ýerden bereket almak üçin zähmetiň zerurdygyny görkezýär."
+  },
+  {
+    "id": 33,
+    "proverb": "Halal zähmet — baky döwlet",
+    "answer": "döwlet",
+    "options": ["nesip", "döwlet", "dynç", "abraý"],
+    "category": "Tebigat we zähmet",
+    "missingWord": "döwlet",
+    "difficulty": "medium",
+    "explanation": "Öz eliň, aladaň bilen, adal ýol bilen gazanylan baýlyk ýitmeýär, bereketli bolýar. Haram ýol bilen gazanylan baýlyk bolsa uzaga gitmeýär. Nakyl adalatly zähmeti we halallygy wasp edýär."
+  },
+  {
+    "id": 34,
+    "proverb": "Ýagdaýa laýyk nakyly saýlaň: Bir adam ýaş wagtynda agaç ekdi. Ýyllar geçip, agaç hasyl berdi, kölege berdi, adamlar eken adamy hoş ýatlaýarlar.",
+    "answer": "Bir nahal ekseň, ýaşyň baky",
+    "options": [
+      "Zähmet soňy — rehnet",
+      "Bir nahal ekseň, ýaşyň baky",
+      "Agaç barly bolsa, başy aşak",
+      "Adam arrygy hor bolar, ýer arrygy — şor"
+    ],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy",
+    "explanation": "Nahal (agaç) ekmek uzak wagtlap ýaşaýan ýagşy iş. Ekeniň agajy ýyllar boýy ösüp, hasyl berip, kölege berip durýar, şeýlelikde ekeniň ady hem ýaşaýar. Nakyl agaç ekmegi, tebigaty gorap saklamagy, nesillere ýagşy yz goýmagy öwredýär."
+  },
+  {
+    "id": 35,
+    "proverb": "Adam arrygy hor bolar, ýer arrygy — şor",
+    "answer": "ýer arrygy — şor",
+    "options": [
+      "ýer arrygy — şor",
+      "ýer arrygy — gurak",
+      "mal arrygy — hor",
+      "il arrygy — ýaman"
+    ],
+    "category": "Tebigat we zähmet",
+    "missingWord": "ýer arrygy — şor",
+    "difficulty": "hard",
+    "explanation": "Arryk (ejiz, bejergisiz) adam hor-zar bolýar, ýagny hiç kim oňa hormat goýmaýar. Ýer hem seretmän goýlanda, şorlap, hasyl bermejek ýagdaýa düşýär. Nakyl adama-da, ýere-de seretmegiň, olary gorap saklamagyň zerurdygyny ýatladýar."
+  },
+  {
+    "id": 36,
+    "proverb": "“Agaç barly bolsa, başy aşak” nakyly adama nämäni öwredýär?",
+    "answer": "Baý, bilimli, abraýly adamyň pespäl, kiçigöwünli bolmalydygyny",
+    "options": [
+      "Hemişe ýere seredip ýöremegi",
+      "Baýlygy başgalardan gizlemegi",
+      "Agaç ekmegiň peýdasyzdygyny",
+      "Baý, bilimli, abraýly adamyň pespäl, kiçigöwünli bolmalydygyny"
+    ],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy",
+    "explanation": "Hasylly agajyň şahalary miwäniň agramyndan aşak egilýär. Şeýle hem, bilimli, baý, abraýly adam özüni tekepbir tutman, pespäl, kiçigöwünli bolmaly. Nakyl kiçigöwünliligiň, pespällikiň ýagşy häsiýetdigini görkezýär."
+  },
+  {
+    "id": 37,
+    "proverb": "Bak ..., bakaýyn ...",
+    "answer": "maňa, saňa",
+    "options": ["maňa, saňa", "saňa, maňa", "bagy, ýeri", "ýere, bagbana"],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy"
+  },
+  {
+    "id": 38,
+    "proverb": "Haýsy nakyl ýagşylygyň ýagşylyk bilen gaýtarylýandygyny we tebigata ünsli bolmagyň zerurdygyny görkezýär?",
+    "answer": "Bag aýdypdyr: «Bak maňa, bakaýyn saňa»",
+    "options": [
+      "Baýlygyň enesi ýer, atasy — zähmet",
+      "Bag aýdypdyr: «Bak maňa, bakaýyn saňa»",
+      "Halal zähmet — baky döwlet",
+      "Bir ýyl tut ekseň, ýüz ýyl altyn alarsyň"
+    ],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy"
+  },
+  {
+    "id": 39,
+    "proverb": "Çekseň zähmet — ýagar rehnet",
+    "answer": "ýagar rehnet",
+    "options": ["ýagar rehnet", "gelýär gaýgy", "bolar ýoldaş", "goýar yz"],
+    "category": "Tebigat we zähmet",
+    "missingWord": "ýagar rehnet",
+    "difficulty": "hard"
+  },
+  {
+    "id": 40,
+    "proverb": "“Bir ýyl tut ekseň, ýüz ýyl altyn alarsyň” nakylyna görä, tut ekmek nämäni getirýär?",
+    "answer": "Uzak möhletli girdeji we peýda",
+    "options": [
+      "Gysga möhletli girdeji",
+      "Hiç hili peýda däl",
+      "Diňe kölege",
+      "Uzak möhletli girdeji we peýda"
+    ],
+    "category": "Tebigat we zähmet",
+    "difficulty": "easy"
+  },
+  {
+    "id": 41,
+    "proverb": "Saglygym — baýlygym",
+    "answer": "baýlygym",
+    "options": ["kuwwatym", "baýlygym", "ýoldaşym", "bagtym"],
+    "category": "Durmuşy pelsepeler",
+    "missingWord": "baýlygym",
+    "difficulty": "medium"
+  },
+  {
+    "id": 42,
+    "proverb": "“Dost dostuň aýnasydyr” nakylynyň manysy haýsy?",
+    "answer": "Hakyky dost seniň kemçiligiňi dogruçyl aýdyp berýär",
+    "options": [
+      "Dost hemişe diňe öwýär",
+      "Hakyky dost seniň kemçiligiňi dogruçyl aýdyp berýär",
+      "Dostlar bir-birine meňzeş bolmaly",
+      "Dost diňe kynçylykda gerek"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy"
+  },
+  {
+    "id": 43,
+    "proverb": "Agzybir maşgala — sarsmaz gala",
+    "answer": "gala",
+    "options": ["gala", "bag", "jaý", "daglyk"],
+    "category": "Durmuşy pelsepeler",
+    "missingWord": "gala",
+    "difficulty": "medium",
+    "explanation": "Gala berk, ygtybarly goranyş bolşy ýaly, agzybir maşgala hem hiç hili kynçylykdan ýykylmaýar. Maşgala agzalary birek-birege daýanç bolsa, olary hiç kim ýeňip bilmez. Nakyl maşgalada ylalaşygyň, özara hormatyň ähmiýetini görkezýär."
+  },
+  {
+    "id": 44,
+    "proverb": "Ýagdaýa laýyk nakyly saýlaň: Bir adamyň dostlary ýok, ol durmuşda kynçylygy ýeke özi ýeňmäge synanyşýar we kynlaşýar.",
+    "answer": "Dostsuz adam — ganatsyz guş",
+    "options": [
+      "Ýaman dostdan ýagşy duşman ýagşydyr",
+      "Dostsuz adam — ganatsyz guş",
+      "Saglygym — baýlygym",
+      "Maşgala agzybir bolsa, rysgal özi geler"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy",
+    "explanation": "Guş ganatsyz uçup bilmeýşi ýaly, dostsuz adam hem durmuşda öňe gidip, kynçylygy ýeňip bilmeýär. Dost adama güýç, goldaw we ruhy ýeňillik berýär. Nakyl dostlugyň adam üçin zerurdygyny görkezýär."
+  },
+  {
+    "id": 45,
+    "proverb": "Dostsuz adam — ganatsyz guş",
+    "answer": "ganatsyz guş",
+    "options": ["gurak çöl", "ýolsuz ýolagçy", "suwsuz derýa", "ganatsyz guş"],
+    "category": "Durmuşy pelsepeler",
+    "missingWord": "ganatsyz guş",
+    "difficulty": "hard",
+    "explanation": "Guş ganatsyz uçup bilmeýşi ýaly, dostsuz adam hem durmuşda öňe gidip, kynçylygy ýeňip bilmeýär. Dost adama güýç, goldaw we ruhy ýeňillik berýär. Nakyl dostlugyň adam üçin zerurdygyny görkezýär."
+  },
+  {
+    "id": 46,
+    "proverb": "“Iň uly baýlyk — kanagat we Durmuşy pelsepeler” nakylyna görä, hakyky baýlyk nämede?",
+    "answer": "Ruhy rahatlykda we Durmuşy pelsepelerda",
+    "options": [
+      "Köp pul-mülkde",
+      "Uly öýde",
+      "Ruhy rahatlykda we Durmuşy pelsepelerda",
+      "Abraýly wezipede"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy",
+    "explanation": "Kanagat, ýagny bar bolana razy bolmak, adamy hemişe bagtly edýär; açgöz adam näçe baý bolsa-da, kanagatsyz galýar. Durmuşy pelsepeler bilen kanagat bolsa, adamda hiç zat ýetmezçilik etmeýär. Nakyl hakyky baýlygyň maddy zatlarda däl, ruhy rahatlykda we Durmuşy pelsepelerdadygyny aýdýar."
+  },
+  {
+    "id": 47,
+    "proverb": "Ýaman dostdan ... duşman ... .",
+    "answer": "ýagşy, ýagşydyr",
+    "options": [
+      "ýagşy, ýagşydyr",
+      "güýçli, gowudyr",
+      "uly, peýdalydyr",
+      "ýaş, ýeňildir"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy",
+    "explanation": "Ýaramaz, wepasyz dost adamy zyýana, ýalňyşlyga, hatda heläkçilige ugrukdyrýar. Ýagşy duşman bolsa, hiç bolmanda, öz niýetini ýaşyrmaýar, hile etmeýär. Nakyl dost saýlanda seresaply bolmagy, ýaman ýoldaşdan daşda durmagy öwredýär."
+  },
+  {
+    "id": 48,
+    "proverb": "“Maşgala agzybir bolsa, rysgal özi geler” nakylynda “rysgal” sözi näme aňladýar?",
+    "answer": "Nesip, girdeji, bereket",
+    "options": ["Gaharlanma", "Ýalňyşlyk", "Ýoldaş", "Nesip, girdeji, bereket"],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy",
+    "explanation": "Maşgala agzalary ylalaşykly, mähirli ýaşasa, öýde bereket, abadançylyk, işde ösüş bolýar. «Rysgal» ýagny nesip, girdeji, bereket diýmekdir. Nakyl agzybirligiň abadançylygyň esasydygyny görkezýär."
+  },
+  {
+    "id": 49,
+    "proverb": "Haýsy nakyl sabyrlylygyň we hormatyň adamlar arasyndaky gatnaşyk üçin ähmiýetini görkezýär?",
+    "answer": "Gatnaşykda gadyr bolar, sabyrda — wepa",
+    "options": [
+      "Gatnaşykda gadyr bolar, sabyrda — wepa",
+      "Dost dostuň aýnasydyr",
+      "Saglygym — baýlygym",
+      "Dostsuz adam — ganatsyz guş"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "difficulty": "easy",
+    "explanation": "Adamlaryň arasyndaky gatnaşygy hormat we gadyr saklaýar, sabyrly bolmak bolsa wepalylygy, uzak dowam edýän dostlugy üpjün edýär. Nakyl adamlar bilen gatnaşykda birek-biregi sylamagy, kynçylyk, düşünişmezlik wagtynda sabyrly bolmagy maslahat berýär."
+  },
+  {
+    "id": 50,
+    "proverb": "Ýagşylyk et, derýa at, balyk biler, balyk bilmese — Halyk biler",
+    "answer": "balyk bilmese — Halyk biler",
+    "options": [
+      "dost biler",
+      "balyk bilmese — Halyk biler",
+      "gün biler",
+      "ýer biler"
+    ],
+    "category": "Durmuşy pelsepeler",
+    "missingWord": "balyk bilmese — Halyk biler",
+    "difficulty": "hard",
+    "explanation": "Ýagşylygy minnetsiz, hiç zat garaşman et. Ony görýän, bilýän bolmasa-da, ýagşylyk hiç wagt ýitmeýär: balyk bilmese, Halyk (Ýaradan) biler. Nakyl ýagşylygy ýüreginden, hiç kimiň minnetdarlygyna garaşman etmegi öwredýär."
   }
 ]

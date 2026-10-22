@@ -222,7 +222,12 @@ def health() -> dict:
 
 
 @app.get("/questions")
-def get_questions(category: str | None = None, difficulty: str | None = None, count: int = 20) -> list[dict]:
+def get_questions(
+    category: str | None = None,
+    difficulty: str | None = None,
+    fill_in_only: bool = False,
+    count: int = 20,
+) -> list[dict]:
     clauses: list[str] = []
     values: list[object] = []
     if category:
@@ -231,6 +236,8 @@ def get_questions(category: str | None = None, difficulty: str | None = None, co
     if difficulty:
         clauses.append("difficulty = ?")
         values.append(difficulty)
+    if fill_in_only:
+        clauses.append("missing_word <> '' AND instr(proverb, missing_word) > 0")
     where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
     values.append(max(1, min(count, 100)))
     with db() as conn:

@@ -6,6 +6,7 @@ abstract interface class ProverbRepository {
   Future<List<Proverb>> getQuestions({
     String? category,
     String? difficulty,
+    bool fillInOnly = false,
     required int count,
   });
 

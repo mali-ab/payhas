@@ -85,7 +85,7 @@ IP address instead (the phone and computer must be on the same network):
 
 ```sh
 flutter build apk --release \
-  --dart-define=API_BASE_URL=http://192.168.1.10:8000
+  --dart-define=API_BASE_URL=http://185.186.245.104:8080
 ```
 
 Replace `192.168.1.10` with your computer's local IP. For a production build,
@@ -106,7 +106,7 @@ Development Team, and set a unique Bundle Identifier. You can then run it on a
 connected iPhone or simulator with:
 
 ```sh
-flutter run --dart-define=API_BASE_URL=http://YOUR_COMPUTER_IP:8000
+flutter run --dart-define=API_BASE_URL=http://185.186.245.104:8080
 ```
 
 Replace `YOUR_COMPUTER_IP` with your Mac's LAN IP. `localhost` does not point
